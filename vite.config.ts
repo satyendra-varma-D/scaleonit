@@ -81,8 +81,12 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
     return html.replace(`<!-- ${slotName} -->`, content)
   }
 
-  const title = config.title ?? "Figma Make App"
-  const description = config.description ?? ''
+  const title = config.title ?? "ScaleOnIt | ONIT — AI-Native Operating Platform for Software Delivery"
+  const description =
+    config.description ??
+    "ONIT by ScaleOnIt is an AI-native operating platform for software delivery, connecting requirements, design, engineering, testing, deployment, projects, support, and AI workers in one connected system."
+  const canonicalUrl = "https://scaleonit.com/"
+  const siteName = "ScaleOnIt"
   const favicon = config.icons?.icon ?? ''
   const socialImage = config.openGraph?.image ?? ''
   const language = sanitizeHtmlValue(config.language) || 'en'
@@ -91,7 +95,10 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const headEnd = config.customScripts?.headEnd ?? ''
   const bodyStart = config.customScripts?.bodyStart ?? ''
   const bodyEnd = config.customScripts?.bodyEnd ?? ''
-  const robotsTxt = config.robots?.index === false ? 'User-agent: *\nDisallow: /\n' : ''
+  const robotsTxt =
+    config.robots?.index === false
+      ? 'User-agent: *\nDisallow: /\n'
+      : 'User-agent: *\nAllow: /\n\nSitemap: https://scaleonit.com/sitemap.xml\n'
 
   return {
     name: 'figma-site-configuration',
@@ -124,28 +131,87 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         result = replaceHtmlCommentSlot(result, 'figma:body-end', bodyEnd)
 
         const tags: HtmlTagDescriptor[] = []
+
+        // Canonical URL
+        tags.push({ tag: 'link', attrs: { rel: 'canonical', href: canonicalUrl }, injectTo: 'head' })
+
+        // Meta Description
         if (description) {
           tags.push({ tag: 'meta', attrs: { name: 'description', content: description }, injectTo: 'head' })
         }
+
+        // Open Graph
+        tags.push(
+          { tag: 'meta', attrs: { property: 'og:type', content: 'website' }, injectTo: 'head' },
+          { tag: 'meta', attrs: { property: 'og:url', content: canonicalUrl }, injectTo: 'head' },
+          { tag: 'meta', attrs: { property: 'og:site_name', content: siteName }, injectTo: 'head' },
+          { tag: 'meta', attrs: { property: 'og:title', content: title }, injectTo: 'head' },
+          { tag: 'meta', attrs: { property: 'og:description', content: description }, injectTo: 'head' },
+        )
+
+        // Twitter / X
+        tags.push(
+          { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' }, injectTo: 'head' },
+          { tag: 'meta', attrs: { name: 'twitter:title', content: title }, injectTo: 'head' },
+          { tag: 'meta', attrs: { name: 'twitter:description', content: description }, injectTo: 'head' },
+        )
+
+        if (socialImage) {
+          tags.push(
+            { tag: 'meta', attrs: { property: 'og:image', content: socialImage }, injectTo: 'head' },
+            { tag: 'meta', attrs: { name: 'twitter:image', content: socialImage }, injectTo: 'head' },
+          )
+        }
+
+        // JSON-LD Structured Data
+        const structuredData = {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'Organization',
+              '@id': 'https://scaleonit.com/#organization',
+              name: 'ScaleOnIt',
+              url: 'https://scaleonit.com/',
+            },
+            {
+              '@type': 'WebSite',
+              '@id': 'https://scaleonit.com/#website',
+              name: 'ScaleOnIt',
+              url: 'https://scaleonit.com/',
+              publisher: {
+                '@id': 'https://scaleonit.com/#organization',
+              },
+            },
+            {
+              '@type': 'SoftwareApplication',
+              '@id': 'https://scaleonit.com/#onit',
+              name: 'ONIT',
+              url: 'https://scaleonit.com/',
+              description:
+                'ONIT by ScaleOnIt is an AI-native operating platform for software delivery, connecting requirements, design, engineering, testing, deployment, projects, support, and AI workers in one connected system.',
+              applicationCategory: 'BusinessApplication',
+              publisher: {
+                '@id': 'https://scaleonit.com/#organization',
+              },
+            },
+          ],
+        }
+
+        tags.push({
+          tag: 'script',
+          attrs: { type: 'application/ld+json' },
+          children: JSON.stringify(structuredData, null, 2),
+          injectTo: 'head',
+        })
+
         if (config.robots?.index === false) {
           tags.push({ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' })
         }
         if (favicon) {
           tags.push({ tag: 'link', attrs: { rel: 'icon', href: favicon }, injectTo: 'head' })
         }
-        if (title) {
-          tags.push({ tag: 'meta', attrs: { property: 'og:title', content: title }, injectTo: 'head' })
-        }
-        if (description) {
-          tags.push({ tag: 'meta', attrs: { property: 'og:description', content: description }, injectTo: 'head' })
-        }
-        if (socialImage) {
-          tags.push(
-            { tag: 'meta', attrs: { property: 'og:image', content: socialImage }, injectTo: 'head' },
-            { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' }, injectTo: 'head' },
-            { tag: 'meta', attrs: { name: 'twitter:image', content: socialImage }, injectTo: 'head' },
-          )
-        }
+
+
 
         if (googleAnalyticsId) {
           tags.push(

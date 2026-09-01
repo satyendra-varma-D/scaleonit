@@ -121,7 +121,7 @@ export default function AgentConsoleSection() {
 
           <div className="grid grid-cols-1 lg:grid-cols-5">
             {/* Agent status column */}
-            <div className="lg:col-span-2 border-r border-white/8 p-4">
+            <div className="lg:col-span-2 border-b lg:border-b-0 lg:border-r border-white/8 p-4">
               <div className="text-[10px] font-mono font-semibold tracking-widest uppercase text-slate-500 mb-4">
                 AI Workers
               </div>
@@ -149,7 +149,7 @@ export default function AgentConsoleSection() {
                       }`}>
                         {agent.name}
                       </div>
-                      <div className="text-[10px] text-slate-500 mt-0.5">{agent.message}</div>
+                      <div className="text-[10px] text-slate-500 mt-0.5 truncate">{agent.message}</div>
                     </div>
                     <div className="flex-shrink-0">{statusIcon(agent.status)}</div>
                   </div>
@@ -176,7 +176,7 @@ export default function AgentConsoleSection() {
               <div className="text-[10px] font-mono font-semibold tracking-widest uppercase text-slate-500 mb-4">
                 Activity Log
               </div>
-              <div className="flex-1 overflow-y-auto space-y-1.5 max-h-80 font-mono text-[11px]">
+              <div className="flex-1 overflow-y-auto space-y-1.5 max-h-64 sm:max-h-80 font-mono text-[11px]">
                 {log.map((entry, i) => (
                   <div
                     key={i}
@@ -198,12 +198,12 @@ export default function AgentConsoleSection() {
           </div>
 
           {/* Footer */}
-          <div className="px-5 py-3 border-t border-white/8 bg-white/[0.02] flex items-center justify-between">
-            <div className="text-[10px] font-mono text-slate-600">
+          <div className="px-5 py-3 border-t border-white/8 bg-white/[0.02] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <div className="text-[10px] font-mono text-slate-500">
               Illustrative demo — conceptual ONIT workflow
             </div>
-            <div className="flex items-center gap-4 text-[10px] font-mono text-slate-500">
-              <span>3 agents active</span>
+            <div className="flex items-center gap-4 text-[10px] font-mono text-slate-400">
+              <span>3 active</span>
               <span>4 waiting</span>
               <span>0 errors</span>
             </div>
@@ -213,3 +213,4 @@ export default function AgentConsoleSection() {
     </section>
   )
 }
+

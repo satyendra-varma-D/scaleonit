@@ -123,7 +123,8 @@ export default function HeroSection() {
             </a>
           </div>
 
-          <div className="mt-12 pt-10 border-t border-border-base flex items-start gap-8 flex-wrap">
+          {/* Stats */}
+          <div className="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t border-border-base grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8">
             {[
               { label: 'Platform Capabilities', value: '11 Modules' },
               { label: 'AI Specialists', value: '14 Workers' },
@@ -138,12 +139,12 @@ export default function HeroSection() {
         </div>
 
         {/* Right — interactive lifecycle */}
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex flex-col items-center justify-center">
           <div className="relative w-full max-w-[340px]">
 
-            {/* Detail card */}
+            {/* Desktop Detail Card (Left of chain) */}
             <div
-              className={`absolute right-full mr-6 top-1/2 -translate-y-1/2 w-52 bg-white rounded-xl border border-border-base shadow-xl p-4 z-20 transition-all duration-200 ${
+              className={`hidden lg:block absolute right-full mr-6 top-1/2 -translate-y-1/2 w-52 bg-white rounded-xl border border-border-base shadow-xl p-4 z-20 transition-all duration-200 ${
                 showDetail ? 'opacity-100 translate-x-0' : 'opacity-80 translate-x-2'
               }`}
             >
@@ -163,6 +164,7 @@ export default function HeroSection() {
                   <div key={stage.id} className="flex items-center gap-4">
                     <div className="flex flex-col items-center">
                       <button
+                        onClick={() => setActiveIdx(activeIdx === i ? null : i)}
                         onMouseEnter={() => setActiveIdx(i)}
                         onMouseLeave={() => setActiveIdx(null)}
                         aria-label={`${stage.label} lifecycle stage — ${stage.shortDesc}`}
@@ -216,9 +218,24 @@ export default function HeroSection() {
                 <span className="text-[11px] font-semibold text-lime-500 tracking-wide">Continuous delivery loop</span>
               </div>
             </div>
+
+            {/* Mobile Detail Card (Directly below the chain on small screens) */}
+            <div className="block lg:hidden mt-6 bg-white rounded-xl border border-border-base shadow-sm p-4 w-full animate-fade-in">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className={`text-[10px] font-bold tracking-[0.16em] uppercase ${active.color}`}>
+                  {active.module}
+                </span>
+                <span className="text-[10px] font-semibold text-mid-text bg-pearl px-2 py-0.5 rounded">
+                  Tap stage to inspect
+                </span>
+              </div>
+              <div className="text-xs font-bold text-midnight mb-1">{active.ai}</div>
+              <p className="text-[11px] text-mid-text leading-relaxed">{active.aiDesc}</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
   )
 }
+

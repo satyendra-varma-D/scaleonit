@@ -166,7 +166,7 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
       </div>
 
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-white border-b border-border-base py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-white border-b border-border-base py-12 sm:py-16 lg:py-20">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage: 'linear-gradient(#0B1220 1px, transparent 1px), linear-gradient(90deg, #0B1220 1px, transparent 1px)',
@@ -176,23 +176,23 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
         <div className="absolute -top-24 right-1/4 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 right-10 w-80 h-80 bg-violet-500/8 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-onit bg-onit-light border border-blue-200 px-4 py-1.5 rounded-full mb-6">
-              <span className="w-2 h-2 rounded-full bg-onit animate-ping" />
-              Direct Architect Consultation & Pilot Setup
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-onit bg-onit-light border border-blue-200 px-3 sm:px-4 py-1.5 rounded-full mb-6 max-w-full">
+              <span className="w-2 h-2 rounded-full bg-onit animate-ping flex-shrink-0" />
+              <span className="truncate">Direct Architect Consultation & Pilot Setup</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-midnight leading-[1.08] mb-6">
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-midnight leading-[1.08] mb-6">
               Let&apos;s build your <span className="text-onit">AI-native SDLC</span> together.
             </h1>
 
-            <p className="text-lg text-mid-text leading-relaxed mb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-mid-text leading-relaxed mb-8">
               Discuss your organization&apos;s software delivery goals with our lead solution architects. Whether you need a live architecture walkthrough, a guided 14-day sandbox pilot, or stack integration advice, we are here to help.
             </p>
 
             {/* Value Badges */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 pt-2">
               {[
                 { label: 'Direct Access', detail: 'Principal Architects' },
                 { label: '14-Day Pilot', detail: 'Zero-Risk Sandbox' },
@@ -200,7 +200,7 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                 { label: 'Fast Response', detail: '< 2 Hours Guaranteed' },
               ].map((item) => (
                 <div key={item.label} className="p-3 bg-pearl border border-border-base rounded-xl">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-mid-text mb-0.5">{item.label}</div>
+                  <div className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-mid-text mb-0.5">{item.label}</div>
                   <div className="text-xs font-bold text-midnight">{item.detail}</div>
                 </div>
               ))}
@@ -210,15 +210,15 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
       </section>
 
       {/* Main Interactive Form & Consultation Section */}
-      <section className="max-w-7xl mx-auto px-6 -mt-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 -mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
 
           {/* Left / Center Column: Form & Mode Selector */}
-          <div className="lg:col-span-8 bg-white border border-border-base rounded-2xl shadow-xl p-6 sm:p-10">
+          <div className="lg:col-span-8 bg-white border border-border-base rounded-2xl shadow-xl p-4 sm:p-8 lg:p-10">
 
             {isSubmitted && submittedData ? (
               /* Success / Confirmation View */
-              <div className="text-center py-10 animate-fade-in">
+              <div className="text-center py-8 sm:py-10 animate-fade-in">
                 <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl shadow-inner">
                   ✓
                 </div>
@@ -227,7 +227,7 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                   Session Confirmed & Request Logged
                 </div>
 
-                <h2 className="text-3xl font-extrabold text-midnight mb-3">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-midnight mb-3">
                   We look forward to connecting, {submittedData.name}!
                 </h2>
 
@@ -242,7 +242,7 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                 </p>
 
                 {/* Next Steps Checklist */}
-                <div className="bg-pearl border border-border-base rounded-xl p-6 text-left max-w-md mx-auto mb-8">
+                <div className="bg-pearl border border-border-base rounded-xl p-5 sm:p-6 text-left max-w-md mx-auto mb-8">
                   <div className="text-xs font-bold uppercase tracking-wider text-midnight mb-3">
                     What happens next:
                   </div>
@@ -281,11 +281,11 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
               /* Active Form / Scheduler */
               <div>
                 {/* Mode Selector Tabs */}
-                <div className="flex bg-soft p-1 rounded-xl border border-border-base mb-8">
+                <div className="flex flex-col sm:flex-row bg-soft p-1 rounded-xl border border-border-base gap-1 mb-6 sm:mb-8">
                   <button
                     type="button"
                     onClick={() => setActiveTab('schedule')}
-                    className={`flex-1 py-3 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                    className={`py-3 px-4 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                       activeTab === 'schedule'
                         ? 'bg-white text-midnight shadow-sm border border-border-base'
                         : 'text-mid-text hover:text-midnight'
@@ -293,14 +293,14 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                   >
                     <span>⚡</span>
                     <span>Instant 30-Min Architecture Call</span>
-                    <span className="hidden sm:inline-block text-[10px] uppercase font-bold tracking-wider bg-onit-light text-onit px-2 py-0.5 rounded-full ml-1">
+                    <span className="text-[9px] uppercase font-bold tracking-wider bg-onit-light text-onit px-1.5 py-0.5 rounded-full ml-1">
                       Fast Track
                     </span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveTab('inquiry')}
-                    className={`flex-1 py-3 px-4 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                    className={`py-3 px-4 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                       activeTab === 'inquiry'
                         ? 'bg-white text-midnight shadow-sm border border-border-base'
                         : 'text-mid-text hover:text-midnight'
@@ -310,6 +310,7 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                     <span>Custom Pilot / RFP Inquiry</span>
                   </button>
                 </div>
+
 
                 <form onSubmit={handleSubmit} className="space-y-8">
                   {/* Step 1: Goal / Area of Interest */}

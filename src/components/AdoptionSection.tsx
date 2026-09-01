@@ -94,18 +94,19 @@ export default function AdoptionSection() {
         </div>
 
         {/* Progression arrow */}
-        <div className="flex items-center justify-center gap-6 mt-12 text-mid-text">
-          <span className="text-xs font-bold uppercase tracking-widest">START</span>
-          <svg width="60" height="12" viewBox="0 0 60 12" fill="none" aria-hidden="true">
-            <path d="M0 6h52M48 2l8 4-8 4" stroke="#E2E8F0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-6 mt-10 sm:mt-12 text-mid-text">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-onit">START</span>
+          <svg className="w-6 sm:w-14" height="12" viewBox="0 0 60 12" fill="none" aria-hidden="true">
+            <path d="M0 6h52M48 2l8 4-8 4" stroke="#CBD5E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span className="text-xs font-bold uppercase tracking-widest">CONNECT</span>
-          <svg width="60" height="12" viewBox="0 0 60 12" fill="none" aria-hidden="true">
-            <path d="M0 6h52M48 2l8 4-8 4" stroke="#E2E8F0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-data-cyan">CONNECT</span>
+          <svg className="w-6 sm:w-14" height="12" viewBox="0 0 60 12" fill="none" aria-hidden="true">
+            <path d="M0 6h52M48 2l8 4-8 4" stroke="#CBD5E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span className="text-xs font-bold uppercase tracking-widest">OPERATE</span>
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-emerald-600">OPERATE</span>
         </div>
       </div>
     </section>
   )
 }
+

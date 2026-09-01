@@ -25,46 +25,48 @@ export default function FutureSection() {
         </h3>
 
         {/* Elements combining into ONIT */}
-        <div className="flex flex-col items-center gap-6">
-          <div className="flex flex-wrap items-center justify-center gap-3">
+        <div className="flex flex-col items-center gap-4 sm:gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-full">
             {elements.map((el, i) => (
-              <div key={el.label} className="flex items-center gap-3">
-                <div className={`px-4 py-2 rounded-xl border-2 ${el.border} ${el.bg} ${el.color} text-sm font-extrabold uppercase tracking-wider`}>
+              <div key={el.label} className="flex items-center gap-2 sm:gap-3">
+                <div className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border-2 ${el.border} ${el.bg} ${el.color} text-xs sm:text-sm font-extrabold uppercase tracking-wider`}>
                   {el.label}
                 </div>
                 {i < elements.length - 1 && (
-                  <span className="text-slate-700 font-bold text-xl">+</span>
+                  <span className="text-slate-700 font-bold text-lg sm:text-xl">+</span>
                 )}
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col items-center gap-2">
-            <svg width="20" height="32" viewBox="0 0 20 32" fill="none" aria-hidden="true">
+          <div className="flex flex-col items-center gap-1">
+            <svg width="20" height="28" viewBox="0 0 20 32" fill="none" aria-hidden="true">
               <path d="M10 0v24M2 18l8 8 8-8" stroke="rgba(37,99,235,0.4)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
 
           <div className="relative">
-            <div className="w-32 h-16 rounded-2xl bg-onit flex items-center justify-center shadow-2xl shadow-onit/40">
-              <span className="text-white font-extrabold text-2xl tracking-tight">ONIT</span>
+            <div className="w-28 sm:w-32 h-14 sm:h-16 rounded-2xl bg-onit flex items-center justify-center shadow-2xl shadow-onit/40">
+              <span className="text-white font-extrabold text-xl sm:text-2xl tracking-tight">ONIT</span>
             </div>
             <div className="absolute inset-0 rounded-2xl bg-onit/20 animate-ping" />
           </div>
 
-          <div className="flex flex-col items-center gap-2">
-            <svg width="20" height="32" viewBox="0 0 20 32" fill="none" aria-hidden="true">
+          <div className="flex flex-col items-center gap-1">
+            <svg width="20" height="28" viewBox="0 0 20 32" fill="none" aria-hidden="true">
               <path d="M10 0v24M2 18l8 8 8-8" stroke="rgba(16,185,129,0.4)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
 
-          <div className="px-8 py-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/8">
-            <span className="text-emerald-400 font-extrabold text-lg uppercase tracking-widest">CONTINUOUS EXECUTION</span>
+          <div className="px-5 sm:px-8 py-2.5 sm:py-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/8 max-w-full text-center">
+            <span className="text-emerald-400 font-extrabold text-xs sm:text-base md:text-lg uppercase tracking-wider sm:tracking-widest">
+              CONTINUOUS EXECUTION
+            </span>
           </div>
         </div>
 
-        <div className="mt-16 max-w-2xl mx-auto">
-          <p className="text-lg text-slate-400 leading-relaxed">
+        <div className="mt-12 sm:mt-16 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-400 leading-relaxed">
             Organizations that connect their people, process, data, systems, and AI into one coherent operating platform will not just deliver software faster. They will operate an entirely different kind of software business.
           </p>
         </div>
@@ -72,3 +74,4 @@ export default function FutureSection() {
     </section>
   )
 }
+

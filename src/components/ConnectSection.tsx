@@ -58,28 +58,28 @@ export default function ConnectSection() {
         </div>
 
         {/* Three-pillar message */}
-        <div className="grid grid-cols-3 gap-4 mb-14 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-12 sm:mb-14 max-w-2xl mx-auto">
           {[
             { headline: 'KEEP WHAT WORKS', sub: 'Preserve your existing stack' },
             { headline: 'CONNECT WHAT MATTERS', sub: 'Bridge tools through ONIT' },
             { headline: 'REPLACE WHAT YOU WANT', sub: 'Adopt at your own pace' },
           ].map((p) => (
-            <div key={p.headline} className="text-center p-4 rounded-xl border border-white/8 bg-white/[0.03]">
+            <div key={p.headline} className="text-center p-3.5 sm:p-4 rounded-xl border border-white/8 bg-white/[0.03]">
               <div className="text-[10px] font-bold tracking-[0.15em] uppercase text-data-cyan mb-1">{p.headline}</div>
-              <div className="text-xs text-slate-500">{p.sub}</div>
+              <div className="text-xs text-slate-400">{p.sub}</div>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           {/* Hub visualization */}
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-72 h-72">
+          <div className="relative flex items-center justify-center py-4">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 max-w-full">
               {/* Center */}
               <div className="absolute inset-0 flex items-center justify-center z-10">
-                <div className="w-20 h-20 rounded-2xl bg-data-cyan flex flex-col items-center justify-center shadow-xl shadow-data-cyan/30">
-                  <span className="text-white font-extrabold text-sm leading-none tracking-tight">ONIT</span>
-                  <span className="text-cyan-100 text-[9px] font-semibold tracking-widest uppercase mt-1">Connect</span>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-data-cyan flex flex-col items-center justify-center shadow-xl shadow-data-cyan/30">
+                  <span className="text-white font-extrabold text-xs sm:text-sm leading-none tracking-tight">ONIT</span>
+                  <span className="text-cyan-100 text-[8px] sm:text-[9px] font-semibold tracking-widest uppercase mt-1">Connect</span>
                 </div>
               </div>
 
@@ -91,7 +91,7 @@ export default function ConnectSection() {
               {categories.map((c, i) => {
                 const angle = (i / categories.length) * 360
                 const rad = (angle * Math.PI) / 180
-                const r = 110
+                const r = 105
                 const cx = 50 + (r / 2.8) * Math.cos(rad)
                 const cy = 50 + (r / 2.8) * Math.sin(rad)
                 const isActive = c.id === activeCategory
@@ -100,12 +100,12 @@ export default function ConnectSection() {
                     key={c.id}
                     onClick={() => setActiveCategory(c.id)}
                     aria-pressed={isActive}
-                    className="absolute"
+                    className="absolute cursor-pointer"
                     style={{ left: `${cx}%`, top: `${cy}%`, transform: 'translate(-50%, -50%)' }}
                   >
-                    <div className={`text-[10px] font-bold uppercase tracking-wide px-2 py-1 rounded-lg border transition-all duration-150 whitespace-nowrap ${
+                    <div className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-wide px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-lg border transition-all duration-150 whitespace-nowrap ${
                       isActive
-                        ? `${c.bg} ${c.border} ${c.color} shadow-md scale-110`
+                        ? `${c.bg} ${c.border} ${c.color} shadow-md scale-105`
                         : 'border-white/15 bg-white/5 text-slate-400 hover:text-white hover:border-white/30'
                     }`}>
                       {c.label}
@@ -119,7 +119,7 @@ export default function ConnectSection() {
                 {categories.map((c, i) => {
                   const angle = (i / categories.length) * 360
                   const rad = (angle * Math.PI) / 180
-                  const r = 110
+                  const r = 105
                   const cx = 50 + (r / 2.8) * Math.cos(rad)
                   const cy = 50 + (r / 2.8) * Math.sin(rad)
                   return (
@@ -135,6 +135,7 @@ export default function ConnectSection() {
               </svg>
             </div>
           </div>
+
 
           {/* Detail panel */}
           <div>

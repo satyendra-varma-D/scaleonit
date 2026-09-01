@@ -36,26 +36,27 @@ export default function ProblemSection() {
   const [connected, setConnected] = useState(false)
 
   return (
-    <section id="problem" className="py-28 bg-midnight overflow-hidden relative">
+    <section id="problem" className="py-20 sm:py-28 bg-midnight overflow-hidden relative">
       {/* Very subtle noise */}
       <div className="absolute inset-0 opacity-[0.015]"
         style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'4\' height=\'4\'%3E%3Crect width=\'1\' height=\'1\' fill=\'white\'/%3E%3C/svg%3E")', backgroundSize: '4px 4px' }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 sm:mb-16">
           <div className="inline-block text-[10px] font-semibold tracking-[0.2em] uppercase text-mid-text mb-6 border border-white/10 px-4 py-2 rounded-full">
             The Problem
           </div>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
             Software delivery<br />
             <span className="text-mid-text">isn&apos;t broken.</span><br />
             The connections are.
           </h2>
-          <p className="text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-400 max-w-xl mx-auto leading-relaxed">
             Modern software organizations run on a patchwork of disconnected tools. Every handoff loses context. Every integration requires maintenance. Every team uses a different system of record.
           </p>
         </div>
+
 
         {/* Toggle */}
         <div className="flex justify-center mb-12">

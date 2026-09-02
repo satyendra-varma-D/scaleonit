@@ -11,100 +11,116 @@ export interface SEOMetadata {
 const BASE_URL = 'https://scaleonit.com'
 
 export const defaultSEO: SEOMetadata = {
-  title: 'ONIT by ScaleOnIt | The AI-Native Operating Platform for Software Delivery',
-  description: 'ONIT connects requirements, design, engineering, testing, deployment, project operations, and support into one modular operating platform with specialized AI workers.',
+  title: 'ScaleOnIt | The Business Operating Ecosystem',
+  description: 'ScaleOnIt is building a connected business operating ecosystem of six purpose-built systems: GROW, DISCOVER, DELIVER, PEOPLE, MONEY, and SERVE. Powered today by flagship product ONIT.',
   canonicalUrl: `${BASE_URL}/`,
-  ogTitle: 'ONIT by ScaleOnIt — The AI-Native Operating Platform for Software Delivery',
-  ogDescription: 'One platform. Every part of the software business. AI workforce, connected context, and enterprise governance.',
+  ogTitle: 'ScaleOnIt — The Business Operating Ecosystem',
+  ogDescription: 'One ecosystem. Six systems. Connected business. Purpose-built systems for growth, discovery, software delivery, workforce, financials, and customer success.',
   ogType: 'website',
+  keywords: [
+    'business operating ecosystem',
+    'business operating system',
+    'business management platform',
+    'connected business systems',
+    'business operations platform',
+    'enterprise workflow ecosystem',
+    'ScaleOnIt',
+    'ONIT',
+    'GROW',
+    'DISCOVER',
+    'DELIVER',
+    'PEOPLE',
+    'MONEY',
+    'SERVE',
+  ],
 }
 
 export const routeSEOMap: Record<string, SEOMetadata> = {
   '/': defaultSEO,
   '/platform': {
-    title: 'The Complete ONIT Platform | 11 Connected Capabilities',
-    description: 'Explore all 11 connected capabilities of ONIT: GROW, DISCOVER, DESIGN, ENGINEER, QUALITY, DELIVER, SERVE, PEOPLE, FINANCE, INTELLIGENCE, and CONNECT.',
+    title: 'Platform Hub & Specifications | ScaleOnIt Ecosystem',
+    description: 'Explore all connected capabilities of the ScaleOnIt platform architecture, bridging discovery, engineering, quality, delivery, and support.',
     canonicalUrl: `${BASE_URL}/platform`,
   },
   '/platform/discover': {
-    title: 'DISCOVER | AI-Native Requirements & Business Analysis | ONIT',
-    description: 'Turn stakeholder conversations and meeting transcripts into implementation-ready BRDs, user stories, and acceptance criteria with the AI Business Analyst.',
+    title: 'DISCOVER | Requirements & Solution Definition | ScaleOnIt',
+    description: 'Turn stakeholder conversations into structured BRDs, user stories, and delivery baselines with requirements intelligence.',
     canonicalUrl: `${BASE_URL}/platform/discover`,
   },
   '/platform/engineer': {
-    title: 'ENGINEER | Architecture & Code Intelligence | ONIT',
-    description: 'Translate approved requirements into system architecture, API contracts, and quality code with AI Solution Architect and AI Engineering Agent.',
+    title: 'ENGINEER | Architecture & Code Intelligence | ScaleOnIt',
+    description: 'Translate approved requirements into system architecture, API contracts, and quality code under human policy control.',
     canonicalUrl: `${BASE_URL}/platform/engineer`,
   },
   '/platform/quality': {
-    title: 'QUALITY | Automated QA & CI/CD Quality Gates | ONIT',
-    description: 'Generate test suites from user story acceptance criteria and enforce automated quality gates before production deployment with the AI QA Engineer.',
+    title: 'QUALITY | Automated Test Synthesis & Quality Gates | ScaleOnIt',
+    description: 'Generate test suites from acceptance criteria and enforce automated quality gates across CI/CD pipelines.',
     canonicalUrl: `${BASE_URL}/platform/quality`,
   },
   '/platform/deliver': {
-    title: 'DELIVER | Project Coordination & DevOps Deployment | ONIT',
-    description: 'Coordinate cross-team sprints, identify delivery blockers, manage cloud infrastructure, and execute safe releases with AI Project Manager and AI DevOps Engineer.',
+    title: 'DELIVER (ONIT) | The Software Delivery Operating System | ScaleOnIt',
+    description: 'ONIT powers DELIVER: coordinate sprints, identify delivery blockers, manage infrastructure, and execute safe releases.',
     canonicalUrl: `${BASE_URL}/platform/deliver`,
   },
   '/platform/serve': {
-    title: 'SERVE | Context-Aware Customer Support & SLAs | ONIT',
-    description: 'Resolve customer incidents with full-lifecycle context linking tickets back to user stories, code changes, and release versions with the AI Support Agent.',
+    title: 'SERVE | Context-Aware Customer Support & SLAs | ScaleOnIt',
+    description: 'Resolve customer incidents with full upstream context linking tickets back to user stories, code changes, and release versions.',
     canonicalUrl: `${BASE_URL}/platform/serve`,
   },
   '/platform/intelligence': {
-    title: 'AI Intelligence Architecture | Dynamic Model Routing & RAG | ONIT',
-    description: 'Explore the model-agnostic intelligence architecture of ONIT. Specialized intelligence for every job: reasoning, coding, RAG, and deterministic logic.',
+    title: 'AI Intelligence Architecture | Domain Intelligence | ScaleOnIt',
+    description: 'Explore how specialized intelligence is built directly into each functional domain of the ScaleOnIt ecosystem.',
     canonicalUrl: `${BASE_URL}/platform/intelligence`,
   },
   '/platform/connect': {
-    title: 'ONIT Connect | Enterprise Integration Ecosystem | ScaleOnIt',
-    description: 'Keep what works. Connect what matters. Bridge your existing CRM, ERP, Git, CI/CD, cloud, and project management stack through ONIT Connect.',
+    title: 'Ecosystem Connectors & Integration Framework | ScaleOnIt',
+    description: 'Keep what works. Connect what matters. Bridge your existing CRM, Git, CI/CD, cloud, and project stack.',
     canonicalUrl: `${BASE_URL}/platform/connect`,
   },
   '/ai-workforce': {
-    title: 'AI Workforce | 8 Specialized Digital Workers | ONIT',
-    description: 'Meet ONIT’s specialized AI workers. Defined roles, goals, context, tools, and mandatory human approval gates. AI that executes work under governance.',
+    title: 'AI Workforce & Governed Specialists | ScaleOnIt',
+    description: 'Meet specialized AI workers operating under defined scopes, tools, and mandatory human approval gates.',
     canonicalUrl: `${BASE_URL}/ai-workforce`,
   },
   '/architecture': {
-    title: 'Operating Architecture | 7-Layer System Deep-Dive | ONIT',
-    description: 'Built as an operating architecture, not another tool. Explore the 7 layers from user experience and SDLC down to orchestration, intelligence, and security.',
+    title: 'Operating Architecture | 7-Layer System Specification | ScaleOnIt',
+    description: 'Explore the full architectural specification of the ScaleOnIt business operating ecosystem.',
     canonicalUrl: `${BASE_URL}/architecture`,
   },
   '/security': {
-    title: 'Enterprise Security, Governance & AI Policy | ScaleOnIt ONIT',
-    description: 'Autonomous doesn’t mean uncontrolled. Explore enterprise RBAC, configurable human approval gates, zero-training data privacy, and audit logging.',
+    title: 'Enterprise Security, Governance & AI Policy | ScaleOnIt',
+    description: 'Explore enterprise RBAC, configurable human approval checkpoints, zero-training data privacy, and audit logging.',
     canonicalUrl: `${BASE_URL}/security`,
   },
   '/solutions/it-services': {
-    title: 'ONIT for IT Services & Software Delivery Firms | ScaleOnIt',
-    description: 'Operate client software delivery with connected intelligence. Improve delivery margin, automate client status reports, and eliminate handoff friction.',
+    title: 'ScaleOnIt for IT Services & Software Delivery Firms',
+    description: 'Operate client software delivery with connected intelligence. Improve delivery margin and eliminate handoff friction.',
     canonicalUrl: `${BASE_URL}/solutions/it-services`,
   },
   '/solutions/software-development': {
-    title: 'ONIT for Software Development & SaaS Teams | ScaleOnIt',
-    description: 'From PRD to Pull Request with governed AI. Accelerate engineering delivery velocity with full requirement-to-code traceability.',
+    title: 'ScaleOnIt for Software Development & SaaS Teams',
+    description: 'From PRD to Pull Request with governed AI and full requirement-to-code traceability.',
     canonicalUrl: `${BASE_URL}/solutions/software-development`,
   },
   '/company': {
-    title: 'About ScaleOnIt | Enterprise Digital Engineering & Innovation',
-    description: 'ScaleOnIt is the enterprise technology company behind ONIT, dedicated to building AI-native operating systems for modern software delivery organizations.',
+    title: 'About ScaleOnIt | Building the Business Operating Ecosystem',
+    description: 'ScaleOnIt is dedicated to building the business operating ecosystem for modern enterprises — one purpose-built system at a time.',
     canonicalUrl: `${BASE_URL}/company`,
   },
   '/demo': {
-    title: 'Talk to Us | Book an Architecture Consultation | ScaleOnIt ONIT',
-    description: 'Schedule a 30-minute consultation with a Principal Solutions Architect or request a 14-day zero-risk enterprise sandbox pilot.',
+    title: 'Explore ScaleOnIt | Book an Architecture Consultation',
+    description: 'Schedule a strategic consultation or request an enterprise sandbox evaluation of the ScaleOnIt ecosystem and ONIT.',
     canonicalUrl: `${BASE_URL}/demo`,
   },
 }
 
 /**
- * Updates document title and meta tags dynamically for clean client-side routing.
+ * Updates document title and meta tags dynamically for clean client-side routing & JSON-LD structured data.
  */
 export function updateDocumentSEO(pathname: string): void {
   const metadata = routeSEOMap[pathname] || {
     ...defaultSEO,
-    title: '404 - Page Not Found | ScaleOnIt ONIT',
+    title: '404 - Page Not Found | ScaleOnIt',
     canonicalUrl: `${BASE_URL}${pathname}`,
   }
 
@@ -144,4 +160,51 @@ export function updateDocumentSEO(pathname: string): void {
     document.head.appendChild(canonicalEl)
   }
   canonicalEl.setAttribute('href', metadata.canonicalUrl)
+
+  // Structured Data Schema (JSON-LD) for ScaleOnIt Entity
+  let schemaEl = document.querySelector('script[type="application/ld+json"]')
+  if (!schemaEl) {
+    schemaEl = document.createElement('script')
+    schemaEl.setAttribute('type', 'application/ld+json')
+    document.head.appendChild(schemaEl)
+  }
+
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': `${BASE_URL}/#organization`,
+        name: 'ScaleOnIt',
+        url: BASE_URL,
+        description: 'ScaleOnIt is the business operating ecosystem provider for modern enterprises.',
+        knowsAbout: [
+          'Business Operating Ecosystem',
+          'GROW (Business Acquisition & CRM)',
+          'DISCOVER (Requirements & Solutioning)',
+          'DELIVER (Software Delivery powered by ONIT)',
+          'PEOPLE (Workforce & Resource Management)',
+          'MONEY (Project Commercials & Financials)',
+          'SERVE (Customer Support & Success)',
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': `${BASE_URL}/#website`,
+        url: BASE_URL,
+        name: 'ScaleOnIt',
+        publisher: { '@id': `${BASE_URL}/#organization` },
+      },
+      {
+        '@type': 'SoftwareApplication',
+        name: 'ONIT',
+        applicationCategory: 'SoftwareDeliveryPlatform',
+        operatingSystem: 'Web, Cloud',
+        description: 'The software delivery operating system powering the DELIVER domain of the ScaleOnIt ecosystem.',
+        isPartOf: { '@id': `${BASE_URL}/#organization` },
+      },
+    ],
+  }
+
+  schemaEl.textContent = JSON.stringify(structuredData)
 }

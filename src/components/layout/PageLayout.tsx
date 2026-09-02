@@ -29,28 +29,12 @@ export default function PageLayout({
   heroBadges = [],
   children,
   onNavigate,
-  ctaTitle = 'How much of your IT operation do you want to turn on?',
-  ctaDescription = 'ONIT connects the people, processes, systems, data and AI that keep your software business moving. Start with one capability. Scale to the complete operating platform.',
+  ctaTitle = 'Build the future of how your business operates.',
+  ctaDescription = 'ScaleOnIt connects customer acquisition, requirements discovery, software delivery, workforce, financials, and customer success into one ecosystem.',
   ctaButtonText = 'Talk to Us',
 }: PageLayoutProps) {
   return (
-    <div className="min-h-screen bg-white text-midnight">
-      {/* Top Breadcrumb & Status Bar */}
-      {breadcrumbs.length > 0 && (
-        <div className="bg-white border-b border-border-base sticky top-16 z-30 shadow-xs">
-          <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between text-xs">
-            <Breadcrumbs items={breadcrumbs} onNavigate={onNavigate} />
-
-            <div className="hidden sm:flex items-center gap-3">
-              <span className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-                ScaleOnIt Verified Architecture
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
-
+    <div className="min-h-screen bg-white text-[#1B0A2A]">
       {/* Page Hero Header (if provided) */}
       {heroTitle && (
         <PageHero
@@ -69,27 +53,27 @@ export default function PageLayout({
       </main>
 
       {/* Standard Bottom Contextual CTA */}
-      <section className="py-24 bg-pearl border-t border-border-base relative overflow-hidden">
+      <section className="py-24 bg-[#FAFAFC] border-t border-[#EAE6F0] relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-onit bg-onit-light border border-blue-200 px-3 py-1 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-3.5 py-1.5 rounded-full mb-6">
             Next Step
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-midnight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1B0A2A] leading-tight mb-4">
             {ctaTitle}
           </h2>
-          <p className="text-base text-mid-text leading-relaxed mb-8 max-w-xl mx-auto">
+          <p className="text-base text-[#5A4E68] leading-relaxed mb-8 max-w-xl mx-auto">
             {ctaDescription}
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
             <button
               onClick={() => onNavigate('/demo')}
-              className="bg-onit text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-onit-hover transition-all text-sm cursor-pointer shadow-lg shadow-onit/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-onit"
+              className="bg-[#C53678] text-white font-bold px-8 py-3.5 rounded-full hover:bg-[#A92661] transition-all text-sm cursor-pointer shadow-md shadow-[#C53678]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C53678]"
             >
               {ctaButtonText}
             </button>
             <button
               onClick={() => onNavigate('/architecture')}
-              className="border border-border-base text-midnight font-semibold px-8 py-3.5 rounded-xl hover:bg-white transition-all text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-onit"
+              className="border border-[#EAE6F0] bg-white text-[#1B0A2A] font-bold px-8 py-3.5 rounded-full hover:bg-[#FDF2F7] hover:border-[#C53678]/30 hover:text-[#C53678] transition-all text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C53678]"
             >
               Explore Architecture
             </button>

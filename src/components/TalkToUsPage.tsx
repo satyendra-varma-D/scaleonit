@@ -132,63 +132,31 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 pt-20 pb-28 text-midnight">
-      {/* Top Breadcrumb & Quick Actions Bar */}
-      <div className="bg-white border-b border-border-base sticky top-16 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-2 text-mid-text">
-            <button
-              onClick={onBackToHome}
-              className="hover:text-onit font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
-            >
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M10 13L5 8l5-5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-              Platform Overview
-            </button>
-            <span className="text-slate-300">/</span>
-            <span className="font-semibold text-midnight">Talk to Us</span>
-          </div>
-
-          <div className="hidden sm:flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-[11px] font-medium text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Solutions Architects Available Today
-            </span>
-            <a
-              href="mailto:solutions@scaleonit.com"
-              className="text-mid-text hover:text-onit font-medium transition-colors"
-            >
-              solutions@scaleonit.com
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen bg-[#FAFAFC] pt-18 pb-28 text-[#1B0A2A]">
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-white border-b border-border-base py-12 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-white border-b border-[#EAE6F0] py-14 sm:py-20 lg:py-24">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
-            backgroundImage: 'linear-gradient(#0B1220 1px, transparent 1px), linear-gradient(90deg, #0B1220 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(#1B0A2A 1px, transparent 1px), linear-gradient(90deg, #1B0A2A 1px, transparent 1px)',
             backgroundSize: '48px 48px',
           }}
         />
-        <div className="absolute -top-24 right-1/4 w-96 h-96 bg-blue-500/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-10 w-80 h-80 bg-violet-500/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 right-1/4 w-96 h-96 bg-[#C53678]/6 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 w-80 h-80 bg-[#FF5841]/6 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-onit bg-onit-light border border-blue-200 px-3 sm:px-4 py-1.5 rounded-full mb-6 max-w-full">
-              <span className="w-2 h-2 rounded-full bg-onit animate-ping flex-shrink-0" />
-              <span className="truncate">Direct Architect Consultation & Pilot Setup</span>
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-3.5 sm:px-4 py-1.5 rounded-full mb-6 max-w-full">
+              <span className="w-2 h-2 rounded-full bg-[#FF5841] animate-ping flex-shrink-0" />
+              <span className="truncate">Direct Consultation & Architecture Setup</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-midnight leading-[1.08] mb-6">
-              Let&apos;s build your <span className="text-onit">AI-native SDLC</span> together.
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-[#1B0A2A] leading-[1.08] mb-6">
+              Let&apos;s build your <span className="text-[#C53678]">connected operating ecosystem</span> together.
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-mid-text leading-relaxed mb-8">
-              Discuss your organization&apos;s software delivery goals with our lead solution architects. Whether you need a live architecture walkthrough, a guided 14-day sandbox pilot, or stack integration advice, we are here to help.
+            <p className="text-sm sm:text-base lg:text-lg text-[#5A4E68] leading-relaxed mb-8">
+              Discuss your organization&apos;s operational goals with our lead solution architects. Whether you need an architecture walkthrough, a guided 14-day sandbox pilot, or ecosystem advice, we are here to help.
             </p>
 
             {/* Value Badges */}

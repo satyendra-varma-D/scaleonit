@@ -1,19 +1,13 @@
-import HeroSection from '../HeroSection'
-import ProblemSection from '../ProblemSection'
-import CategorySection from '../CategorySection'
-import ArchitectureSection from '../ArchitectureSection'
-import IntelligenceSection from '../IntelligenceSection'
-import AIWorkforceSection from '../AIWorkforceSection'
-import AgentConsoleSection from '../AgentConsoleSection'
-import ConnectedContextSection from '../ConnectedContextSection'
-import OrchestratorSection from '../OrchestratorSection'
-import ConnectSection from '../ConnectSection'
-import GovernanceSection from '../GovernanceSection'
-import PlatformSection from '../PlatformSection'
-import TransformationSection from '../TransformationSection'
-import AdoptionSection from '../AdoptionSection'
-import FutureSection from '../FutureSection'
-import CTASection from '../CTASection'
+import MasterHero from '../home/MasterHero'
+import EcosystemProblem from '../home/EcosystemProblem'
+import EcosystemPhilosophy from '../home/EcosystemPhilosophy'
+import SixSystemsSection from '../home/SixSystemsSection'
+import RoleBenefitsSection from '../home/RoleBenefitsSection'
+import MasterIntelligenceSection from '../home/MasterIntelligenceSection'
+import EcosystemFlowSection from '../home/EcosystemFlowSection'
+import DeliverOnitSection from '../home/DeliverOnitSection'
+import BiggerVisionSection from '../home/BiggerVisionSection'
+import MasterCTA from '../home/MasterCTA'
 
 interface HomePageProps {
   onNavigate: (path: string, anchor?: string) => void
@@ -21,54 +15,36 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
-    <main>
-      {/* 01 — What is this? */}
-      <HeroSection />
+    <main className="bg-white text-[#1B0A2A]">
+      {/* 01 — HERO: ScaleOnIt Vision & Interactive Ecosystem Matrix */}
+      <MasterHero onNavigate={onNavigate} />
 
-      {/* 02 — The Problem */}
-      <ProblemSection />
+      {/* 02 — THE PROBLEM: Why Businesses Need Better Connected Systems */}
+      <EcosystemProblem />
 
-      {/* 03 — The New Operating Model */}
-      <CategorySection />
+      {/* 03 — THE IDEA: Different Problems. Different Systems. One Ecosystem. */}
+      <EcosystemPhilosophy />
 
-      {/* 04 — Architecture */}
-      <ArchitectureSection />
+      {/* 04 — SIX PRODUCTS: GROW / DISCOVER / DELIVER / PEOPLE / MONEY / SERVE */}
+      <SixSystemsSection onNavigate={onNavigate} />
 
-      {/* 05 — Intelligence */}
-      <IntelligenceSection />
+      {/* 05 — HOW IT HELPS: Business Leaders / Teams / Operations / Customers */}
+      <RoleBenefitsSection />
 
-      {/* 06 — AI Workforce */}
-      <AIWorkforceSection />
+      {/* 06 — INTELLIGENCE: Specialized Intelligence Built into the Work */}
+      <MasterIntelligenceSection />
 
-      {/* 07 — Agent Execution */}
-      <AgentConsoleSection />
+      {/* 07 — HOW THE ECOSYSTEM WORKS: Multi-Directional Connected Context */}
+      <EcosystemFlowSection />
 
-      {/* 08 — Connected Context */}
-      <ConnectedContextSection />
+      {/* 08 — STARTING WITH DELIVER: Introducing Flagship ONIT */}
+      <DeliverOnitSection onNavigate={onNavigate} />
 
-      {/* 09 — Orchestration */}
-      <OrchestratorSection />
+      {/* 09 — THE BIGGER VISION: Building the Ecosystem One System at a Time */}
+      <BiggerVisionSection />
 
-      {/* 10 — Connect Existing Systems */}
-      <ConnectSection />
-
-      {/* 11 — Governance */}
-      <GovernanceSection />
-
-      {/* 12 — Complete Platform */}
-      <PlatformSection />
-
-      {/* 13 — Business Transformation */}
-      <TransformationSection />
-
-      {/* 14 — Adoption */}
-      <AdoptionSection />
-
-      {/* 15 — The Future */}
-      <FutureSection />
-
-      {/* 16 — Final CTA */}
-      <CTASection onNavigateToTalkToUs={() => onNavigate('/demo')} />
+      {/* 10 — FINAL CTA: Future-Oriented Invitation to Explore ScaleOnIt & ONIT */}
+      <MasterCTA onNavigate={onNavigate} />
     </main>
   )
 }

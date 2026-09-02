@@ -4,11 +4,12 @@ interface DeliverOnitSectionProps {
 
 export default function DeliverOnitSection({ onNavigate }: DeliverOnitSectionProps) {
   const onitStages = [
-    { step: '01', name: 'IDEA', desc: 'Capture business intent and user stories' },
-    { step: '02', name: 'PLAN', desc: 'Scope sprints, architecture baselines & APIs' },
-    { step: '03', name: 'BUILD', desc: 'Autonomous coding under developer review' },
-    { step: '04', name: 'TEST', desc: 'Automated test suite generation & quality gates' },
-    { step: '05', name: 'RELEASE', desc: 'Human-governed CI/CD deployment pipelines' },
+    { step: '01', name: 'PROMPT / UPLOAD', desc: 'Ingest user prompts or raw requirements docs with industry templates' },
+    { step: '02', name: 'BRD & FRD GATES', desc: 'Synthesize standard BRD & FRD with dual PM/BA & Client sign-off' },
+    { step: '03', name: 'VS CODE AGENTS', desc: 'Develop UI & UX using local Ollama models specialized by tech stack' },
+    { step: '04', name: 'STAGING ITERATION', desc: 'Deploy preview environment for instant customer feedback loops' },
+    { step: '05', name: 'CLOUD & PLAYWRIGHT', desc: 'Connect cloud DB, CI/CD, generate & run automated Playwright suites' },
+    { step: '06', name: 'GOVERNED RELEASE', desc: 'Zero-defect delivery and final verified production rollout' },
   ]
 
   return (
@@ -64,9 +65,9 @@ export default function DeliverOnitSection({ onNavigate }: DeliverOnitSectionPro
           {/* High-Level ONIT Journey Pipeline */}
           <div className="py-8">
             <div className="text-xs font-bold uppercase tracking-widest text-[#5A4E68] mb-6 text-center">
-              The High-Level ONIT Journey
+              The Complete Idea-to-Production SDLC Journey
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
               {onitStages.map((stage) => (
                 <div
                   key={stage.step}

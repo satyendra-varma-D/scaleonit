@@ -1,46 +1,59 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100%" height="100%" fill="none">
   <defs>
-    <!-- Background rounded square gradient -->
-    <linearGradient id="onit-bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0F172A"/>
-      <stop offset="100%" stop-color="#0B1220"/>
+    <!-- Background: Deep Slate/Violet base -->
+    <linearGradient id="scale-bg-32" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1B0A2A"/>
+      <stop offset="100%" stop-color="#0F0518"/>
     </linearGradient>
 
-    <!-- Continuous lifecycle ring gradient (Electric Blue -> AI Violet -> Connectivity Cyan) -->
-    <linearGradient id="onit-lifecycle" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#2563EB"/>
-      <stop offset="50%" stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#0891B2"/>
+    <!-- Scaling Bars Gradient 1 (Growth Coral/Rose) -->
+    <linearGradient id="bar1-grad-32" x1="0" y1="24" x2="0" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C53678"/>
+      <stop offset="100%" stop-color="#FF7A68"/>
     </linearGradient>
 
-    <!-- Central intelligence core gradient -->
-    <linearGradient id="onit-core" x1="12" y1="12" x2="20" y2="20" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#60A5FA"/>
-      <stop offset="100%" stop-color="#2563EB"/>
+    <!-- Scaling Bars Gradient 2 (Vibrant Brand Magenta/Coral) -->
+    <linearGradient id="bar2-grad-32" x1="0" y1="24" x2="0" y2="13" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C53678"/>
+      <stop offset="100%" stop-color="#FF5841"/>
+    </linearGradient>
+
+    <!-- Scaling Bars Gradient 3 (High-Peak Acceleration Coral) -->
+    <linearGradient id="bar3-grad-32" x1="0" y1="24" x2="0" y2="7" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A92661"/>
+      <stop offset="50%" stop-color="#C53678"/>
+      <stop offset="100%" stop-color="#FF5841"/>
+    </linearGradient>
+
+    <!-- Upward Scaling Rocket/Vector Arrow Gradient -->
+    <linearGradient id="arrow-grad-32" x1="6" y1="22" x2="26" y2="6" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C53678" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#FF5841"/>
+      <stop offset="100%" stop-color="#FF8A78"/>
     </linearGradient>
   </defs>
 
-  <!-- Container: High-contrast Dark Navy rounded rect with subtle border -->
-  <rect width="32" height="32" rx="7" fill="url(#onit-bg)"/>
-  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" stroke="#1E293B" stroke-width="1"/>
+  <!-- Container Box with Rounded Corners -->
+  <rect width="32" height="32" rx="7.5" fill="url(#scale-bg-32)"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="7" stroke="#3B1A54" stroke-width="1"/>
 
-  <!-- Connected Lifecycle Arc 1 (Top/Right Flow: 270deg to 150deg) -->
-  <!-- R=9.5, Center=(16,16) -->
+  <!-- Scaling Growth Bar 1 (Left - Base) -->
+  <rect x="6.5" y="17.5" width="4.5" height="7.5" rx="2" fill="url(#bar1-grad-32)"/>
+
+  <!-- Scaling Growth Bar 2 (Middle - Growth) -->
+  <rect x="13.75" y="12" width="4.5" height="13" rx="2" fill="url(#bar2-grad-32)"/>
+
+  <!-- Scaling Growth Bar 3 (Right - Pinnacle Scale) -->
+  <rect x="21" y="6.5" width="4.5" height="18.5" rx="2" fill="url(#bar3-grad-32)"/>
+
+  <!-- Dynamic Scaling Surge Trendline -->
   <path
-    d="M 16 6.5
-       A 9.5 9.5 0 1 1 7.77 20.75"
-    stroke="url(#onit-lifecycle)"
-    stroke-width="3.2"
+    d="M 6.5 19.5 C 12 18, 17 11, 24.5 6.5"
+    stroke="url(#arrow-grad-32)"
+    stroke-width="2"
     stroke-linecap="round"
   />
 
-  <!-- Upstream Connection Node (Cyan Discovery / Input Node) -->
-  <circle cx="7.77" cy="11.25" r="1.7" fill="#0891B2"/>
-
-  <!-- Downstream Execution Node (Violet Code / Delivery Node) -->
-  <circle cx="24.23" cy="20.75" r="1.7" fill="#7C3AED"/>
-
-  <!-- Central Intelligent Core (AI Engine / Hub) -->
-  <circle cx="16" cy="16" r="3.4" fill="url(#onit-core)"/>
-  <circle cx="16" cy="16" r="1.3" fill="#FFFFFF"/>
+  <!-- Apex Scaled Pulse Spark / Node -->
+  <circle cx="23.25" cy="7.5" r="1.5" fill="#FFFFFF"/>
 </svg>

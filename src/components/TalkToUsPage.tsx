@@ -285,11 +285,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                   <button
                     type="button"
                     onClick={() => setActiveTab('schedule')}
-                    className={`py-3 px-4 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                      activeTab === 'schedule'
+                    className={`py-3 px-4 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${activeTab === 'schedule'
                         ? 'bg-white text-midnight shadow-sm border border-border-base'
                         : 'text-mid-text hover:text-midnight'
-                    }`}
+                      }`}
                   >
                     <span>⚡</span>
                     <span>Instant 30-Min Architecture Call</span>
@@ -300,11 +299,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                   <button
                     type="button"
                     onClick={() => setActiveTab('inquiry')}
-                    className={`py-3 px-4 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                      activeTab === 'inquiry'
+                    className={`py-3 px-4 rounded-lg text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${activeTab === 'inquiry'
                         ? 'bg-white text-midnight shadow-sm border border-border-base'
                         : 'text-mid-text hover:text-midnight'
-                    }`}
+                      }`}
                   >
                     <span>📝</span>
                     <span>Custom Pilot / RFP Inquiry</span>
@@ -326,11 +324,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                             key={area.id}
                             type="button"
                             onClick={() => setSelectedFocus(area.id)}
-                            className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex items-start gap-3 ${
-                              isSelected
+                            className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex items-start gap-3 ${isSelected
                                 ? 'bg-onit-light border-onit shadow-xs ring-1 ring-onit'
                                 : 'bg-white border-border-base hover:border-slate-300 hover:bg-pearl'
-                            }`}
+                              }`}
                           >
                             <span className="text-xl flex-shrink-0">{area.icon}</span>
                             <div className="min-w-0 flex-1">
@@ -367,11 +364,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                             key={member.name}
                             type="button"
                             onClick={() => setSelectedExpert(i)}
-                            className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
-                              selectedExpert === i
+                            className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${selectedExpert === i
                                 ? 'bg-white border-onit shadow-xs ring-2 ring-onit/20'
                                 : 'bg-white/60 border-border-base hover:bg-white'
-                            }`}
+                              }`}
                           >
                             <div className="flex items-center gap-2 mb-1">
                               <span className="text-xl">{member.avatar}</span>
@@ -390,11 +386,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                             key={date}
                             type="button"
                             onClick={() => setSelectedDate(date)}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${
-                              selectedDate === date
+                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-colors cursor-pointer ${selectedDate === date
                                 ? 'bg-midnight text-white'
                                 : 'bg-white border border-border-base text-mid-text hover:bg-slate-100'
-                            }`}
+                              }`}
                           >
                             {date}
                           </button>
@@ -408,11 +403,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                             key={slot}
                             type="button"
                             onClick={() => setSelectedSlot(slot)}
-                            className={`py-2 px-3 rounded-lg text-xs font-mono font-medium border text-center transition-all cursor-pointer ${
-                              selectedSlot === slot
+                            className={`py-2 px-3 rounded-lg text-xs font-mono font-medium border text-center transition-all cursor-pointer ${selectedSlot === slot
                                 ? 'bg-onit text-white border-onit shadow-sm'
                                 : 'bg-white border-border-base text-midnight hover:border-slate-400'
-                            }`}
+                              }`}
                           >
                             {slot}
                           </button>
@@ -437,11 +431,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                             key={tool}
                             type="button"
                             onClick={() => toggleStack(tool)}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5 ${
-                              isChecked
+                            className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5 ${isChecked
                                 ? 'bg-midnight text-white border-midnight shadow-xs'
                                 : 'bg-white border-border-base text-mid-text hover:border-slate-300 hover:text-midnight'
-                            }`}
+                              }`}
                           >
                             {isChecked && <span className="text-emerald-400 text-[10px]">✓</span>}
                             {tool}
@@ -536,11 +529,10 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
                             key={size}
                             type="button"
                             onClick={() => setTeamSize(size)}
-                            className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${
-                              teamSize === size
+                            className={`py-2 px-3 rounded-lg text-xs font-medium border text-center transition-all cursor-pointer ${teamSize === size
                                 ? 'bg-midnight text-white border-midnight font-bold'
                                 : 'bg-white border-border-base text-mid-text hover:bg-slate-50'
-                            }`}
+                              }`}
                           >
                             {size}
                           </button>

@@ -207,7 +207,14 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         if (config.robots?.index === false) {
           tags.push({ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' })
         }
-        if (favicon) {
+        
+        // Favicon Suite (SVG, Apple Touch Icon, Theme Color)
+        tags.push(
+          { tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }, injectTo: 'head' },
+          { tag: 'link', attrs: { rel: 'apple-touch-icon', href: '/favicon.svg' }, injectTo: 'head' },
+          { tag: 'meta', attrs: { name: 'theme-color', content: '#0B1220' }, injectTo: 'head' },
+        )
+        if (favicon && favicon !== '/favicon.svg') {
           tags.push({ tag: 'link', attrs: { rel: 'icon', href: favicon }, injectTo: 'head' })
         }
 

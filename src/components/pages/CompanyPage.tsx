@@ -71,39 +71,46 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             </div>
           </div>
 
-          {/* Operating Principles */}
+          {/* Leadership & Team */}
           <div className="mb-20">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B0A2A] text-center mb-12">
-              Our Core Ecosystem Principles
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-7 rounded-3xl border border-[#EAE6F0] bg-[#FAFAFC] shadow-2xs">
-                <div className="w-10 h-10 rounded-2xl bg-[#FFF4F2] text-[#FF5841] flex items-center justify-center font-extrabold mb-4 border border-[#FF5841]/20">
-                  01
-                </div>
-                <h3 className="text-base font-extrabold text-[#1B0A2A] mb-2">Purpose-Built, Not Bloated</h3>
-                <p className="text-xs text-[#5A4E68] leading-relaxed">
-                  We reject monolithic ERP software that forces clumsy generic workflows. Each of our six systems is engineered specifically for its domain.
-                </p>
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <div className="inline-block text-[10px] font-bold tracking-[0.2em] uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-3.5 py-1.5 rounded-full mb-3">
+                Leadership
               </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B0A2A] mb-3">
+                Architecting the Future of Enterprise Systems
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5A4E68]">
+                Led by practitioners with deep expertise in enterprise architecture, engineering governance, and intelligent software delivery systems.
+              </p>
+            </div>
 
-              <div className="p-7 rounded-3xl border border-[#EAE6F0] bg-[#FAFAFC] shadow-2xs">
-                <div className="w-10 h-10 rounded-2xl bg-[#FDF2F7] text-[#C53678] flex items-center justify-center font-extrabold mb-4 border border-[#C53678]/20">
-                  02
+            <div className="max-w-md mx-auto">
+              <div className="p-8 rounded-3xl border border-[#EAE6F0] bg-[#FAFAFC] hover:border-[#C53678]/40 hover:shadow-lg transition-all duration-300 group">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3B1A54] to-[#C53678] text-white flex items-center justify-center font-extrabold text-xl shadow-md">
+                    SV
+                  </div>
+                  <a
+                    href="https://www.linkedin.com/in/sowmya-vobbilisetty/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#EAE6F0] text-xs font-semibold text-[#0A66C2] hover:bg-[#F3F6F8] hover:border-[#0A66C2]/40 transition-all shadow-2xs"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                    LinkedIn Profile
+                  </a>
                 </div>
-                <h3 className="text-base font-extrabold text-[#1B0A2A] mb-2">Governed Intelligence</h3>
-                <p className="text-xs text-[#5A4E68] leading-relaxed">
-                  Domain AI executes continuous analysis and drafting, but consequential business decisions (deployments, contract approvals) remain with human leads.
-                </p>
-              </div>
-
-              <div className="p-7 rounded-3xl border border-[#EAE6F0] bg-[#FAFAFC] shadow-2xs">
-                <div className="w-10 h-10 rounded-2xl bg-[#F5F3F8] text-[#3B1A54] flex items-center justify-center font-extrabold mb-4 border border-[#3B1A54]/20">
-                  03
+                <h3 className="text-xl font-extrabold text-[#1B0A2A] group-hover:text-[#C53678] transition-colors">
+                  Sowmya Vobbilisetty
+                </h3>
+                <div className="text-xs font-bold uppercase tracking-wider text-[#C53678] mt-1 mb-3">
+                  Leadership & Strategy
                 </div>
-                <h3 className="text-base font-extrabold text-[#1B0A2A] mb-2">Context Continuity</h3>
                 <p className="text-xs text-[#5A4E68] leading-relaxed">
-                  Information flows seamlessly from client agreement to delivery execution and support without manual re-entry or dropped context.
+                  Driving vision, strategic architecture, and operational excellence across the ScaleOnIt ecosystem, championing governed intelligent execution across modern enterprise environments.
                 </p>
               </div>
             </div>

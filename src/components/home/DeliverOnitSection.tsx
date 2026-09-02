@@ -4,12 +4,12 @@ interface DeliverOnitSectionProps {
 
 export default function DeliverOnitSection({ onNavigate }: DeliverOnitSectionProps) {
   const onitStages = [
-    { step: '01', name: 'PROMPT / UPLOAD', desc: 'Ingest user prompts or raw requirements docs with industry templates' },
+    { step: '01', name: 'INTAKE & PARSING', desc: 'Ingest prompts & requirement documents mapped to industry templates' },
     { step: '02', name: 'BRD & FRD GATES', desc: 'Synthesize standard BRD & FRD with dual PM/BA & Client sign-off' },
-    { step: '03', name: 'VS CODE AGENTS', desc: 'Develop UI & UX using local Ollama models specialized by tech stack' },
-    { step: '04', name: 'STAGING ITERATION', desc: 'Deploy preview environment for instant customer feedback loops' },
-    { step: '05', name: 'CLOUD & PLAYWRIGHT', desc: 'Connect cloud DB, CI/CD, generate & run automated Playwright suites' },
-    { step: '06', name: 'GOVERNED RELEASE', desc: 'Zero-defect delivery and final verified production rollout' },
+    { step: '03', name: 'MULTI-AGENT BUILD', desc: 'Autonomous UI/UX & full-stack engineering with stack-tailored AI models' },
+    { step: '04', name: 'STAGING ITERATION', desc: 'Instant interactive preview environments for rapid stakeholder feedback' },
+    { step: '05', name: 'AUTOMATED QA', desc: 'Connect cloud infrastructure & execute end-to-end regression test suites' },
+    { step: '06', name: 'GOVERNED RELEASE', desc: 'Zero-defect audited rollout and seamless production delivery' },
   ]
 
   return (

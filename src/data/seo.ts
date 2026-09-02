@@ -58,8 +58,8 @@ export const routeSEOMap: Record<string, SEOMetadata> = {
     canonicalUrl: `${BASE_URL}/platform/quality`,
   },
   '/platform/deliver': {
-    title: 'DELIVER (ONIT) | Idea to Production Autonomous SDLC Engine | ScaleOnIt',
-    description: 'ONIT powers DELIVER: prompt and document ingestion, industry BRD/FRD approvals, VS Code local Ollama agents, staging iterations, Playwright testing, and governed cloud release.',
+    title: 'DELIVER (ONIT) | Autonomous SDLC & Enterprise Software Delivery | ScaleOnIt',
+    description: 'ONIT powers DELIVER: intelligent requirements intake, industry BRD/FRD governance, stack-specialized multi-agent engineering, interactive staging previews, automated regression QA, and zero-defect cloud releases.',
     canonicalUrl: `${BASE_URL}/platform/deliver`,
   },
   '/platform/serve': {

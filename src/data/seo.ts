@@ -197,16 +197,9 @@ export function updateDocumentSEO(pathname: string): void {
         '@id': `${BASE_URL}/#organization`,
         name: 'ScaleOnIt',
         url: BASE_URL,
-        description: 'ScaleOnIt is a connected business platform for IT and software service companies, connecting sales, customer requirements, software delivery, people, finances and customer service.',
-        knowsAbout: [
-          'Connected Business Platform for IT Services',
-          'GROW (Business Acquisition, Sales & CRM)',
-          'DISCOVER (Customer Discovery, Requirements & Solution Definition)',
-          'DELIVER (Software Planning, Execution & Delivery powered by ONIT)',
-          'PEOPLE (Workforce & Resource Management)',
-          'FINANCIALS (Billing, Payments & Project Finances)',
-          'SERVE (Customer Service, Support & Customer Success)',
-        ],
+        email: 'prabha44556@gmail.com',
+        telephone: '+91 9642127012',
+        description: 'Connected business platform for IT and software service companies.',
       },
       {
         '@type': 'WebSite',
@@ -215,16 +208,9 @@ export function updateDocumentSEO(pathname: string): void {
         name: 'ScaleOnIt',
         publisher: { '@id': `${BASE_URL}/#organization` },
       },
-      {
-        '@type': 'SoftwareApplication',
-        name: 'ONIT',
-        applicationCategory: 'SoftwareDeliveryPlatform',
-        operatingSystem: 'Web, Cloud',
-        description: 'The technology powering the DELIVER software delivery system inside the ScaleOnIt ecosystem.',
-        isPartOf: { '@id': `${BASE_URL}/#organization` },
-      },
     ],
   }
 
-  schemaEl.textContent = JSON.stringify(structuredData)
+  schemaEl.textContent = JSON.stringify(structuredData, null, 2)
+
 }

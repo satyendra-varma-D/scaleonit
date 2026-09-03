@@ -9,6 +9,33 @@
     <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon-16x16.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
     <title><!-- figma:title --></title>
+    
+    <!-- Schema.org Organization and WebSite JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://scaleonit.com/#organization",
+          "name": "ScaleOnIt",
+          "url": "https://scaleonit.com",
+          "email": "prabha44556@gmail.com",
+          "telephone": "+91 9642127012",
+          "description": "Connected business platform for IT and software service companies."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://scaleonit.com/#website",
+          "url": "https://scaleonit.com",
+          "name": "ScaleOnIt",
+          "publisher": {
+            "@id": "https://scaleonit.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
     <!-- figma:head-end -->
   </head>
   <body>

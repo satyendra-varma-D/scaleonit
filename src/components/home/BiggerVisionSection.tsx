@@ -1,28 +1,31 @@
 export default function BiggerVisionSection() {
   const roadmapPillars = [
     {
-      era: 'Phase 1 · AVAILABLE TODAY',
+      era: 'PHASE 01 · AVAILABLE TODAY',
       title: 'DELIVER (Powered by ONIT)',
-      desc: 'The foundational software delivery operating system turning requirements into tested code and safe releases.',
+      desc: 'The foundational software delivery operating system turning requirements into tested code and governed releases.',
       status: 'Available & Active',
-      color: 'border-[#C53678] bg-white ring-1 ring-[#C53678]/20 shadow-md',
-      badge: 'text-white bg-[#C53678]',
+      color: 'border-[#FF5500] bg-white ring-1 ring-orange-500/30 shadow-md shadow-orange-500/10',
+      badge: 'text-white bg-[#FF5500]',
+      isDeliver: true,
     },
     {
-      era: 'Phase 2 · NEXT EXPANSION',
+      era: 'PHASE 02 · NEXT EXPANSION',
       title: 'DISCOVER & SERVE',
       desc: 'Deepening upstream discovery, requirements intelligence, and closing the post-launch customer support loop.',
       status: 'Building Toward',
-      color: 'border-[#EAE6F0] bg-white',
-      badge: 'text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30',
+      color: 'border-slate-200 bg-white',
+      badge: 'text-[#FF5500] bg-orange-50 border border-orange-200',
+      isDeliver: false,
     },
     {
-      era: 'Phase 3 · ECOSYSTEM COMPLETION',
-      title: 'GROW, PEOPLE & MONEY',
+      era: 'PHASE 03 · ECOSYSTEM COMPLETION',
+      title: 'GROW, PEOPLE & FINANCIALS',
       desc: 'Connecting sales pipeline, workforce allocation, and real-time project profitability into one unified business operating ecosystem.',
-      status: 'ScaleOnIt Long-Term Vision',
-      color: 'border-[#EAE6F0] bg-white',
-      badge: 'text-[#FF5841] bg-[#FFF4F2] border border-[#FF5841]/30',
+      status: 'ScaleOnIt Vision',
+      color: 'border-slate-200 bg-white',
+      badge: 'text-slate-600 bg-slate-100 border border-slate-200',
+      isDeliver: false,
     },
   ]
 
@@ -30,50 +33,50 @@ export default function BiggerVisionSection() {
     <section
       id="vision"
       aria-label="The Bigger ScaleOnIt Vision — Building the Operating Ecosystem"
-      className="py-24 bg-white text-[#1B0A2A] relative overflow-hidden"
+      className="py-24 bg-transparent text-slate-900 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block text-[11px] font-bold tracking-[0.2em] uppercase text-[#3B1A54] bg-[#F5F3F8] border border-[#3B1A54]/30 px-4 py-1.5 rounded-full mb-6">
-            The Long-Term Vision
+          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-6 shadow-xs">
+            THE LONG-TERM VISION
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1B0A2A] tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
             One system is useful.{' '}
-            <span className="text-[#FF5841] block mt-1">
+            <span className="text-[#FF5500] block mt-1">
               An ecosystem changes how a business operates.
             </span>
           </h2>
-          <p className="text-sm sm:text-base text-[#5A4E68] leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
             ScaleOnIt is building this future one system at a time. We are committed to transparency, enterprise credibility, and rigorous architectural excellence.
           </p>
         </div>
 
-        {/* 3-Phase Horizon Grid */}
+        {/* 3-Phase Horizon Grid (Hard Shadows + Glow Hover) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-14">
           {roadmapPillars.map((pillar, idx) => (
             <div
               key={idx}
-              className={`p-6 sm:p-8 rounded-3xl border ${pillar.color} space-y-4 flex flex-col justify-between hover:shadow-sm transition-shadow`}
+              className={`p-6 sm:p-8 rounded-2xl border ${pillar.color} space-y-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[6px_6px_0px_0px_#FF5500] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-200 ease-out`}
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#5A4E68]">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400">
                     {pillar.era}
                   </span>
-                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full ${pillar.badge}`}>
+                  <span className={`font-mono text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded ${pillar.badge}`}>
                     {pillar.status}
                   </span>
                 </div>
-                <h3 className="text-xl font-extrabold text-[#1B0A2A]">
+                <h3 className="text-xl font-bold text-slate-900">
                   {pillar.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#5A4E68] leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                   {pillar.desc}
                 </p>
               </div>
 
-              <div className="text-[11px] font-mono text-[#5A4E68] font-medium pt-4 border-t border-[#EAE6F0]">
+              <div className="font-mono text-[11px] text-[#FF5500] font-semibold pt-4 border-t border-slate-100">
                 ScaleOnIt Operating Architecture
               </div>
             </div>
@@ -81,11 +84,11 @@ export default function BiggerVisionSection() {
         </div>
 
         {/* Vision Statement Quote */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#FDF2F7] via-[#FFF4F2] to-[#F5F3F8] border border-[#EAE6F0] max-w-4xl mx-auto text-center space-y-4 shadow-sm">
-          <p className="text-base sm:text-lg text-[#1B0A2A] italic font-medium leading-relaxed">
+        <div className="p-8 sm:p-12 rounded-2xl bg-slate-50 border border-slate-200 max-w-4xl mx-auto text-center space-y-4 shadow-sm">
+          <p className="text-base sm:text-lg text-slate-800 italic font-medium leading-relaxed">
             &quot;ScaleOnIt is not building another point tool or a generic all-in-one suite. We are building the operating environment where modern businesses operate with clarity, connection, and governed intelligence.&quot;
           </p>
-          <div className="text-xs font-black uppercase tracking-widest text-[#C53678]">
+          <div className="font-mono text-xs font-bold uppercase tracking-widest text-[#FF5500]">
             ScaleOnIt Operating Philosophy
           </div>
         </div>

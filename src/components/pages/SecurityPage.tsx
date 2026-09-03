@@ -13,7 +13,7 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
       heroTitle={
         <>
           Autonomous does not mean <br className="hidden sm:inline" />
-          <span className="text-[#C53678]">uncontrolled or unverified.</span>
+          <span className="text-[#FF5500]">uncontrolled or unverified.</span>
         </>
       }
       heroDescription="ScaleOnIt is engineered for enterprise organizations that require AI to be both highly capable and strictly bounded. Every agent invocation is governed by role-based permissions, organizational policy, human approval checkpoints, and complete auditability."
@@ -23,16 +23,16 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
       ctaButtonText="Book Security Consultation"
     >
       {/* 01. The 7 Security & Governance Pillars */}
-      <section className="py-20 bg-white border-b border-[#EAE6F0]">
+      <section className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14 max-w-3xl mx-auto">
-            <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-3.5 py-1.5 rounded-full inline-block mb-3">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">
               Governance Architecture
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B0A2A] tracking-tight mb-3">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
               The 8 Pillars of Governed Autonomy
             </h2>
-            <p className="text-sm sm:text-base text-[#5A4E68] leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               AI workers operate strictly within defined organizational policies rather than executing arbitrary unmonitored code.
             </p>
           </div>
@@ -48,10 +48,10 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
               { icon: '⚡', title: 'Pre-Execution Guardrails', desc: 'Static analysis and secret scanning intercept unsafe actions before execution.' },
               { icon: '🔍', title: 'Observability & Telemetry', desc: 'Real-time telemetry measuring agent execution latency, token spend, and error rates.' },
             ].map((p) => (
-              <div key={p.title} className="p-6 rounded-3xl border border-[#EAE6F0] bg-[#FAFAFC] shadow-2xs">
+              <div key={p.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:border-[#FF5500] hover:bg-white hover:shadow-sm transition-all">
                 <div className="text-2xl mb-2" aria-hidden="true">{p.icon}</div>
-                <h3 className="text-xs font-bold text-[#1B0A2A] mb-1">{p.title}</h3>
-                <p className="text-[11px] text-[#5A4E68] leading-relaxed">{p.desc}</p>
+                <h3 className="text-xs font-bold text-slate-900 mb-1">{p.title}</h3>
+                <p className="text-[11px] text-slate-600 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -62,46 +62,46 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
       <GovernanceSection onNavigateToSecurity={() => onNavigate('/demo')} />
 
       {/* 03. Enterprise Trust Model & Deployment Flexibility */}
-      <section className="py-20 bg-[#FAFAFC] border-t border-[#EAE6F0] text-[#1B0A2A]">
+      <section className="py-20 bg-slate-50 border-t border-slate-200 text-slate-900">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mb-12">
-            <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-3.5 py-1.5 rounded-full inline-block mb-3">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">
               Deployment & Isolation Models
             </div>
-            <h2 className="text-3xl font-extrabold text-[#1B0A2A] mb-4">
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
               Flexible Deployment for Strict Enterprise Data Sovereignty
             </h2>
-            <p className="text-sm text-[#5A4E68] leading-relaxed">
+            <p className="text-sm text-slate-600 leading-relaxed">
               Whether deploying in multi-tenant SaaS, dedicated Virtual Private Clouds (VPC), or on-premise air-gapped infrastructure, ScaleOnIt adapts to your organization’s compliance boundaries.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-7 rounded-3xl bg-white border border-[#EAE6F0] shadow-sm">
+            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-[#FF5500] transition-all">
               <div className="text-2xl mb-3">☁️</div>
-              <h3 className="text-base font-extrabold text-[#1B0A2A] mb-2">Enterprise Dedicated VPC</h3>
-              <p className="text-xs text-[#5A4E68] leading-relaxed mb-4">
+              <h3 className="text-base font-extrabold text-slate-900 mb-2">Enterprise Dedicated VPC</h3>
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 Single-tenant dedicated instance deployed inside your organization’s AWS, GCP, or Azure subscription with private network endpoints.
               </p>
-              <div className="text-[11px] font-bold text-[#C53678]">Total Network & Resource Isolation</div>
+              <div className="font-mono text-[11px] font-bold text-[#FF5500]">Total Network & Resource Isolation</div>
             </div>
 
-            <div className="p-7 rounded-3xl bg-white border border-[#EAE6F0] shadow-sm">
+            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-[#FF5500] transition-all">
               <div className="text-2xl mb-3">🏢</div>
-              <h3 className="text-base font-extrabold text-[#1B0A2A] mb-2">Air-Gapped / On-Premise</h3>
-              <p className="text-xs text-[#5A4E68] leading-relaxed mb-4">
+              <h3 className="text-base font-extrabold text-slate-900 mb-2">Air-Gapped / On-Premise</h3>
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 Deployable in air-gapped data centers utilizing local open-weights foundation models without outbound internet dependencies.
               </p>
-              <div className="text-[11px] font-bold text-[#FF5841]">Zero Outbound Data Transmission</div>
+              <div className="font-mono text-[11px] font-bold text-slate-800">Zero Outbound Data Transmission</div>
             </div>
 
-            <div className="p-7 rounded-3xl bg-white border border-[#EAE6F0] shadow-sm">
+            <div className="p-7 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-[#FF5500] transition-all">
               <div className="text-2xl mb-3">🛡️</div>
-              <h3 className="text-base font-extrabold text-[#1B0A2A] mb-2">Multi-Tenant Cloud</h3>
-              <p className="text-xs text-[#5A4E68] leading-relaxed mb-4">
+              <h3 className="text-base font-extrabold text-slate-900 mb-2">Multi-Tenant Cloud</h3>
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
                 SOC 2 Type II compliant managed cloud with AES-256 encryption at rest, TLS 1.3 in transit, and row-level tenant isolation.
               </p>
-              <div className="text-[11px] font-bold text-[#3B1A54]">Instant Enterprise Onboarding</div>
+              <div className="font-mono text-[11px] font-bold text-slate-800">Instant Enterprise Onboarding</div>
             </div>
           </div>
         </div>

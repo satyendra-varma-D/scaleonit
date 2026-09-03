@@ -1,24 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @import 'tailwindcss';
 
 @theme {
-  --color-midnight: #1B0A2A;
-  --color-brand-purple: #2E1045;
-  --color-brand-violet: #C53678;
-  --color-brand-violet-hover: #A92661;
-  --color-brand-violet-light: #FDF2F7;
-  --color-brand-orange: #FF5841;
-  --color-brand-orange-hover: #E8452E;
-  --color-brand-orange-light: #FFF4F2;
-  --color-pearl: #FAFAFC;
-  --color-soft: #F5F3F8;
-  --color-border-base: #EAE6F0;
-  --color-border-subtle: #F0ECF5;
-  --color-mid-text: #5A4E68;
-  --color-dark-purple: #1B0A2A;
+  --color-canvas: #FFFFFF;
+  --color-porcelain: #F8F9FA;
+  --color-electric-orange: #FF5500;
+  --color-orange-hover: #E04B00;
+  --color-slate-headline: #0F172A;
+  --color-slate-body: #475569;
+  --color-slate-meta: #64748B;
+  --color-slate-border: #E2E8F0;
 
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
@@ -26,6 +20,8 @@ html, body, #root {
   min-height: 100%;
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #FFFFFF;
+  color: #0F172A;
 }
 
 * {
@@ -33,67 +29,68 @@ html, body, #root {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: #ffffff;
-  color: #0B1220;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #FFFFFF;
+  color: #0F172A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
 }
 
+::selection {
+  background: rgba(255, 85, 0, 0.2);
+  color: #FF5500;
+}
 
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #F8F9FA; }
 ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+::-webkit-scrollbar-thumb:hover { background: #FF5500; }
 
-@keyframes lifecycle-pulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37,99,235,0.4); }
-  50% { transform: scale(1.08); box-shadow: 0 0 0 8px rgba(37,99,235,0); }
+.light-grid-canvas {
+  background-image: 
+    linear-gradient(to right, rgba(226, 232, 240, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.6) 1px, transparent 1px);
+  background-size: 36px 36px;
 }
 
-@keyframes flow-dot {
-  0% { top: 0%; opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
-}
-
-@keyframes blink-cursor {
+@keyframes terminal-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
-@keyframes slide-in-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.terminal-cursor {
+  animation: terminal-blink 1s infinite;
 }
 
-@keyframes scan {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 0.5; }
-  100% { transform: translateY(500%); opacity: 0; }
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 }
 
-@keyframes connection-draw {
-  from { stroke-dashoffset: 200; opacity: 0; }
-  to { stroke-dashoffset: 0; opacity: 1; }
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
 }
 
-@keyframes pulse-status {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+.animate-scan {
+  animation: scan-line 3s linear infinite;
 }
 
-@keyframes float-up {
-  0% { transform: translateY(0); opacity: 0.5; }
-  100% { transform: translateY(-20px); opacity: 0; }
+@keyframes dash-stream {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-stream {
+  stroke-dasharray: 6 6;
+  animation: dash-stream 1.5s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

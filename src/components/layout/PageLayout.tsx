@@ -1,5 +1,4 @@
 import React from 'react'
-import Breadcrumbs from '../shared/Breadcrumbs'
 import PageHero from '../shared/PageHero'
 
 interface BreadcrumbItem {
@@ -34,7 +33,7 @@ export default function PageLayout({
   ctaButtonText = 'Talk to Us',
 }: PageLayoutProps) {
   return (
-    <div className="min-h-screen bg-white text-[#1B0A2A]">
+    <div className="min-h-screen bg-transparent text-slate-900 selection:bg-orange-500/20 selection:text-[#FF5500]">
       {/* Page Hero Header (if provided) */}
       {heroTitle && (
         <PageHero
@@ -53,27 +52,27 @@ export default function PageLayout({
       </main>
 
       {/* Standard Bottom Contextual CTA */}
-      <section className="py-24 bg-[#FAFAFC] border-t border-[#EAE6F0] relative overflow-hidden">
+      <section className="py-24 bg-transparent border-t border-slate-200/80 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-3.5 py-1.5 rounded-full mb-6">
-            Next Step
+          <div className="inline-flex items-center gap-2 font-mono text-[10px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-6 shadow-xs">
+            NEXT STEP
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1B0A2A] leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
             {ctaTitle}
           </h2>
-          <p className="text-base text-[#5A4E68] leading-relaxed mb-8 max-w-xl mx-auto">
+          <p className="text-base text-slate-600 leading-relaxed mb-8 max-w-xl mx-auto font-normal">
             {ctaDescription}
           </p>
           <div className="flex flex-col sm:flex-row gap-3.5 justify-center">
             <button
               onClick={() => onNavigate('/demo')}
-              className="bg-[#C53678] text-white font-bold px-8 py-3.5 rounded-full hover:bg-[#A92661] transition-all text-sm cursor-pointer shadow-md shadow-[#C53678]/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C53678]"
+              className="bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono text-xs uppercase tracking-wider font-bold px-8 py-3.5 rounded-lg transition-all text-sm cursor-pointer shadow-md shadow-orange-500/20"
             >
               {ctaButtonText}
             </button>
             <button
               onClick={() => onNavigate('/architecture')}
-              className="border border-[#EAE6F0] bg-white text-[#1B0A2A] font-bold px-8 py-3.5 rounded-full hover:bg-[#FDF2F7] hover:border-[#C53678]/30 hover:text-[#C53678] transition-all text-sm cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C53678]"
+              className="border border-slate-200 bg-white text-slate-800 font-mono text-xs uppercase tracking-wider font-bold px-8 py-3.5 rounded-lg hover:bg-slate-100 hover:border-orange-500/40 hover:text-slate-900 transition-all text-sm cursor-pointer shadow-xs"
             >
               Explore Architecture
             </button>

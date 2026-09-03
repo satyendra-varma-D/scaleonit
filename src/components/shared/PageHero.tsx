@@ -1,5 +1,10 @@
 import React from 'react'
 
+interface BreadcrumbItem {
+  label: string
+  path?: string
+}
+
 interface PageHeroProps {
   eyebrow?: string
   title: string | React.ReactNode
@@ -11,7 +16,7 @@ interface PageHeroProps {
   badges?: string[]
 }
 
-export default function PageHero({
+export function PageHero({
   eyebrow,
   title,
   description,
@@ -22,27 +27,27 @@ export default function PageHero({
   badges = [],
 }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden bg-white border-b border-[#EAE6F0] py-16 sm:py-24">
-      {/* Subtle organic light accent */}
+    <section className="relative overflow-hidden bg-transparent border-b border-slate-200/80 py-16 sm:py-24">
+      {/* Orange spotlight glow */}
       <div
-        className="absolute -top-24 right-1/4 w-96 h-96 bg-[#C53678]/5 rounded-full blur-3xl pointer-events-none"
+        className="absolute -top-24 right-1/4 w-[500px] h-[500px] bg-orange-500/15 rounded-full blur-3xl pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="max-w-3xl">
           {eyebrow && (
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-4 py-1.5 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-6 shadow-xs">
               {eyebrow}
             </div>
           )}
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#1B0A2A] leading-[1.08] mb-6">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-6">
             {title}
           </h1>
 
           {description && (
-            <p className="text-base sm:text-lg text-[#5A4E68] leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8">
               {description}
             </p>
           )}
@@ -52,7 +57,7 @@ export default function PageHero({
               {badges.map((b) => (
                 <span
                   key={b}
-                  className="text-xs font-semibold px-3 py-1.5 rounded-full bg-[#FAFAFC] border border-[#EAE6F0] text-[#1B0A2A]"
+                  className="font-mono text-xs font-medium px-3 py-1.5 rounded bg-slate-50 border border-slate-200 text-slate-700"
                 >
                   {b}
                 </span>
@@ -64,7 +69,7 @@ export default function PageHero({
             {onPrimaryCta && (
               <button
                 onClick={onPrimaryCta}
-                className="bg-[#C53678] text-white text-sm font-bold px-7 py-3.5 rounded-full hover:bg-[#A92661] transition-all shadow-md shadow-[#C53678]/25 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C53678]"
+                className="bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono text-xs uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-md shadow-orange-500/20 transition-all cursor-pointer"
               >
                 {primaryCtaText}
               </button>
@@ -72,7 +77,7 @@ export default function PageHero({
             {onSecondaryCta && (
               <button
                 onClick={onSecondaryCta}
-                className="border border-[#EAE6F0] bg-white text-[#1B0A2A] text-sm font-bold px-7 py-3.5 rounded-full hover:bg-[#FDF2F7] hover:border-[#C53678]/30 hover:text-[#C53678] transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C53678]"
+                className="border border-slate-200 bg-white text-slate-800 font-mono text-xs uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg hover:bg-slate-50 hover:border-orange-500/40 hover:text-slate-900 transition-all cursor-pointer shadow-xs"
               >
                 {secondaryCtaText}
               </button>
@@ -83,3 +88,5 @@ export default function PageHero({
     </section>
   )
 }
+
+export default PageHero

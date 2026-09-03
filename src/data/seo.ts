@@ -12,7 +12,7 @@ const BASE_URL = 'https://scaleonit.com'
 
 export const defaultSEO: SEOMetadata = {
   title: 'ScaleOnIt | The Business Operating Ecosystem',
-  description: 'ScaleOnIt is building a connected business operating ecosystem of six purpose-built systems: GROW, DISCOVER, DELIVER, PEOPLE, MONEY, and SERVE. Powered today by flagship product ONIT.',
+  description: 'ScaleOnIt is building a connected business operating ecosystem of six purpose-built systems: GROW, DISCOVER, DELIVER, PEOPLE, FINANCIALS, and SERVE. Powered today by flagship product ONIT.',
   canonicalUrl: `${BASE_URL}/`,
   ogTitle: 'ScaleOnIt — The Business Operating Ecosystem',
   ogDescription: 'One ecosystem. Six systems. Connected business. Purpose-built systems for growth, discovery, software delivery, workforce, financials, and customer success.',

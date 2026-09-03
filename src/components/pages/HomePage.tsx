@@ -15,7 +15,7 @@ interface HomePageProps {
 
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
-    <main className="bg-white text-[#1B0A2A]">
+    <main className="bg-transparent text-slate-900 selection:bg-orange-500/20 selection:text-[#FF5500]">
       {/* 01 — HERO: ScaleOnIt Vision & Interactive Ecosystem Matrix */}
       <MasterHero onNavigate={onNavigate} />
 

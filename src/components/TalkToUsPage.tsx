@@ -141,21 +141,21 @@ export default function TalkToUsPage({ onBackToHome }: TalkToUsPageProps) {
             backgroundSize: '48px 48px',
           }}
         />
-        <div className="absolute -top-24 right-1/4 w-96 h-96 bg-[#C53678]/6 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 right-10 w-80 h-80 bg-[#FF5841]/6 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-10 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-[#C53678] bg-[#FDF2F7] border border-[#C53678]/30 px-3.5 sm:px-4 py-1.5 rounded-full mb-6 max-w-full">
-              <span className="w-2 h-2 rounded-full bg-[#FF5841] animate-ping flex-shrink-0" />
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 sm:px-4 py-1.5 rounded-md mb-6 max-w-full">
+              <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-ping flex-shrink-0" />
               <span className="truncate">Direct Consultation & Architecture Setup</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-[#1B0A2A] leading-[1.08] mb-6">
-              Let&apos;s build your <span className="text-[#C53678]">connected operating ecosystem</span> together.
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 leading-[1.08] mb-6">
+              Let&apos;s build your <span className="text-[#FF5500]">connected operating ecosystem</span> together.
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-[#5A4E68] leading-relaxed mb-8">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed mb-8">
               Discuss your organization&apos;s operational goals with our lead solution architects. Whether you need an architecture walkthrough, a guided 14-day sandbox pilot, or ecosystem advice, we are here to help.
             </p>
 

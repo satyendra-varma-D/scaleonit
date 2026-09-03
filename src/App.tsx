@@ -26,6 +26,8 @@ import ServePage from './components/pages/capabilities/ServePage'
 import IntelligencePage from './components/pages/capabilities/IntelligencePage'
 import ConnectPage from './components/pages/capabilities/ConnectPage'
 
+import InteractiveBackgroundCanvas from './components/shared/InteractiveBackgroundCanvas'
+
 export default function App() {
   const { currentPath, navigate } = useRouter()
 
@@ -45,7 +47,7 @@ export default function App() {
       return <PlatformHubPage onNavigate={navigate} />
     }
 
-    // 3. Dedicated Capability Routes (Phase C)
+    // 3. Dedicated Capability Routes
     if (currentPath === '/platform/discover') {
       return <DiscoverPage onNavigate={navigate} />
     }
@@ -110,12 +112,17 @@ export default function App() {
 
   return (
     <div
-      className="min-h-full bg-white text-midnight"
+      className="relative min-h-full bg-white text-slate-900 selection:bg-orange-500/20 selection:text-[#FF5500]"
       style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
     >
+      {/* Global Interactive Constellation & Ambient Mesh Canvas */}
+      <InteractiveBackgroundCanvas />
+
       <Navigation currentPath={currentPath} onNavigate={navigate} />
 
-      {renderRoute()}
+      <main className="relative z-10">
+        {renderRoute()}
+      </main>
 
       <Footer onNavigate={navigate} />
     </div>

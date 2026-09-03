@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import PageLayout from '../../layout/PageLayout'
 import GlowCard from '../../shared/GlowCard'
 
 interface DeliverPageProps {
@@ -8,237 +7,493 @@ interface DeliverPageProps {
 
 export default function DeliverPage({ onNavigate }: DeliverPageProps) {
   const [activeSimTab, setActiveSimTab] = useState<number>(0)
+  const [openFaq, setOpenFaq] = useState<number | null>(0)
 
-  const sdlcStages = [
+  // Section 2: What DELIVER does (5 steps)
+  const workflowSteps = [
     {
       step: '01',
-      title: 'Intelligent Intake & Requirements Ingestion',
-      category: 'STAGE 01 · REQUIREMENTS DISCOVERY',
-      desc: 'Capture vision through natural language prompts or upload existing specification documents, legacy codebases, and briefs.',
-      detail: 'Our enterprise ingestion engine parses multi-format inputs, maps domain dependencies, and standardizes scope against pre-configured industry templates.',
+      name: 'UNDERSTAND',
+      desc: 'Understand customer requirements and project needs.',
       icon: '📥',
-      badge: 'Multi-Format Ingestion',
     },
     {
       step: '02',
-      title: 'Industry BRD Synthesis & Multi-Stakeholder Sign-Off',
-      category: 'STAGE 02 · BUSINESS SPECIFICATION',
-      desc: 'Instantly generate comprehensive Business Requirement Documents (BRD) pre-populated with industry-specific architectural modules.',
-      detail: 'Formal review and authorization gate requiring dual consensus between Product Leadership, Business Analysts, and Client Stakeholders.',
-      icon: '📑',
-      badge: 'Tri-Party Governance Gate',
+      name: 'PLAN',
+      desc: 'Turn requirements into a clear software plan.',
+      icon: '📐',
     },
     {
       step: '03',
-      title: 'Fine-Tuned FRD Generation & Client Authorization',
-      category: 'STAGE 03 · FUNCTIONAL BLUEPRINT',
-      desc: 'Transform verified business requirements into precision Functional Requirement Documents (FRD) with fine-tuned domain models.',
-      detail: 'Delivers detailed user flows, schema contracts, API endpoints, and business logic directly to executive sponsors for definitive sign-off.',
-      icon: '📐',
-      badge: 'Executive FRD Sign-Off',
+      name: 'BUILD',
+      desc: 'Build the application with AI-assisted development.',
+      icon: '⚡',
     },
     {
       step: '04',
-      title: 'Autonomous Multi-Agent UI/UX & Application Engineering',
-      category: 'STAGE 04 · INTELLIGENT DEVELOPMENT',
-      desc: 'Deploy specialized, stack-tuned AI engineering agents operating securely within your local enterprise development environment.',
-      detail: 'Agents architect and synthesize production-ready frontend components, intuitive user experiences, robust data access layers, and type-safe APIs.',
-      icon: '⚡',
-      badge: 'Specialized Multi-Agent Swarm',
+      name: 'TEST',
+      desc: 'Run automated tests and review the result.',
+      icon: '🧪',
     },
     {
       step: '05',
-      title: 'Instant Staging Deployments & Rapid Feedback Loops',
-      category: 'STAGE 05 · PREVIEW & ITERATION',
-      desc: 'Spin up live, interactive staging environments for immediate client validation, stakeholder walk-throughs, and collaborative refinement.',
-      detail: 'Iterative feedback is captured in real-time, triaged automatically, and seamlessly incorporated into active agent engineering streams.',
-      icon: '🔄',
-      badge: 'Live Interactive Staging',
-    },
-    {
-      step: '06',
-      title: 'Automated Playwright QA & Governed Cloud Release',
-      category: 'STAGE 06 · ENTERPRISE VERIFICATION',
-      desc: 'Integrate target cloud databases, VPC infrastructure, and CI/CD pipelines, fortified by auto-generated end-to-end regression suites.',
-      detail: 'Hundreds of headless end-to-end tests validate every user journey. Production release executes only when 100% quality criteria are met.',
-      icon: '🛡️',
-      badge: 'Zero-Defect Release Gate',
+      name: 'RELEASE',
+      desc: 'Move the finished software into production.',
+      icon: '🚀',
     },
   ]
 
+  // Section 4: Capabilities (6 cards)
+  const capabilities = [
+    {
+      num: '01',
+      title: 'Requirements & Planning',
+      desc: 'Bring customer requirements, documents and project information into one place.',
+      icon: '📋',
+    },
+    {
+      num: '02',
+      title: 'Clear Software Specifications',
+      desc: 'Turn business needs into clear requirements for the team.',
+      icon: '📑',
+    },
+    {
+      num: '03',
+      title: 'AI-Assisted Development',
+      desc: 'Use AI to help build applications and reduce repetitive development work.',
+      icon: '⚡',
+    },
+    {
+      num: '04',
+      title: 'Live Staging',
+      desc: 'See changes in a working environment and review them as the project moves forward.',
+      icon: '🔄',
+    },
+    {
+      num: '05',
+      title: 'Automated Testing',
+      desc: 'Run automated tests before software is released.',
+      icon: '🧪',
+    },
+    {
+      num: '06',
+      title: 'Cloud Release',
+      desc: 'Deploy finished software to the cloud with a clear release process.',
+      icon: '☁️',
+    },
+  ]
+
+  // Section 5: Visual workflow diagram items
+  const visualFlow = [
+    { num: '1', title: 'REQUIREMENTS', desc: 'Customer needs, documents and project information.' },
+    { num: '2', title: 'PLANNING', desc: 'Clear requirements and software plan.' },
+    { num: '3', title: 'DEVELOPMENT', desc: 'Application development with AI assistance.' },
+    { num: '4', title: 'STAGING', desc: 'Review and improve the working application.' },
+    { num: '5', title: 'TESTING', desc: 'Automated testing and quality checks.' },
+    { num: '6', title: 'RELEASE', desc: 'Deploy the finished software.' },
+  ]
+
+  // Section 7: Product simulator tabs demonstrating real work
   const simTabs = [
     {
-      title: '1. BRD Intake',
-      command: 'scaleonit ingest --spec="fintech-core.pdf" --template="enterprise"',
-      status: 'PARSED & MAPPED',
+      title: '1. Requirements',
+      command: 'deliver parse --source="client-requirements.pdf"',
+      status: 'REQUIREMENTS ORGANIZED',
       lines: [
-        '[INGEST] Ingesting natural language prompt + 2 requirement specification files...',
-        '[BRD-GEN] Industry BRD synthesized: 14 core modules & domain entities mapped.',
-        '[GATE 1] ✓ Formally authorized by Delivery Director, BA & Client Stakeholders.',
+        '[INPUT] Ingesting client brief + requirements document...',
+        '[PLAN] 24 user stories and project milestones structured.',
+        '[STATUS] ✓ Requirements verified and ready for planning.',
       ],
     },
     {
-      title: '2. Multi-Agent Build',
-      command: 'scaleonit build --swarm="react-tailwind,node-microservices" --strict',
-      status: 'SWARM ACTIVE',
+      title: '2. Application Build',
+      command: 'deliver build --stack="react,node-api" --assist=active',
+      status: 'CODE GENERATED',
       lines: [
-        '[AGENTS] Stack-specialized AI engineering swarm generating React 19 UI & Node backend.',
-        '[STAGING] Interactive staging preview deployed at https://preview-8841.scaleonit.app',
-        '[REVIEW] Client validated user journeys and provided electronic sign-off.',
+        '[BUILD] Creating frontend UI components and API endpoints...',
+        '[STAGING] Live staging preview active at https://staging-preview.scaleonit.app',
+        '[REVIEW] Changes verified in preview environment.',
       ],
     },
     {
-      title: '3. Playwright QA',
-      command: 'scaleonit test --suite="e2e-playwright" --coverage=100',
-      status: 'ALL TESTS PASSED',
+      title: '3. Automated Testing',
+      command: 'deliver test --suite="automated-regression"',
+      status: 'TESTS PASSED',
       lines: [
-        '[CLOUD] Target Cloud Database connected, VPC network policy verified.',
-        '[QA-E2E] 48 automated Playwright test suites generated directly from precision FRD.',
-        '[RESULT] ✓ 48/48 Passed (0 regressions, 0 flaky tests, 100% assertions satisfied).',
+        '[TEST] Running automated functional and UI regression suites...',
+        '[COVERAGE] 42 test cases executed across user journeys.',
+        '[RESULT] ✓ 42/42 Passed (0 errors, 0 regressions).',
       ],
     },
     {
-      title: '4. Production Release',
-      command: 'scaleonit release --cluster="prod-east" --audit=immutable',
-      status: 'RELEASED TO PRODUCTION',
+      title: '4. Cloud Release',
+      command: 'deliver release --target="cloud-production"',
+      status: 'RELEASE READY',
       lines: [
-        '[SECURITY] Secret scanning zero findings; cryptographic hash recorded.',
-        '[DEPLOY] Zero-downtime rolling update dispatched to governed production cluster.',
-        '🚀 Status: Live in Production with Complete Immutable Audit Trail.',
+        '[SECURITY] Quality checks verified and release package prepared.',
+        '[DEPLOY] Deploying finished application to cloud staging/production.',
+        '🚀 Status: Live and ready for users.',
       ],
     },
+  ]
+
+  // Section 9: Audience categories
+  const targetAudiences = [
+    {
+      title: 'IT Service Companies',
+      desc: 'Companies delivering IT implementations and custom software services for clients.',
+      icon: '🏢',
+    },
+    {
+      title: 'Software Development Teams',
+      desc: 'Agencies, studios, and development teams building web, mobile, and cloud software.',
+      icon: '💻',
+    },
+    {
+      title: 'Digital Service Companies',
+      desc: 'Firms managing end-to-end digital solutions and client project deliverables.',
+      icon: '⚡',
+    },
+    {
+      title: 'Enterprise Delivery Teams',
+      desc: 'Teams responsible for structured software rollouts with clear quality controls.',
+      icon: '🛡️',
+    },
+  ]
+
+  // Section 10: ScaleOnIt Ecosystem systems
+  const ecosystemSystems = [
+    { name: 'GROW', job: 'Find and manage new business opportunities.', icon: '🌱', status: 'Roadmap' },
+    { name: 'DISCOVER', job: 'Understand customer needs and define requirements.', icon: '🔍', status: 'Roadmap' },
+    { name: 'DELIVER', job: 'Build, test and release software.', icon: '⚡', status: 'Available Today', active: true },
+    { name: 'PEOPLE', job: 'Manage teams and workforce needs.', icon: '👥', status: 'Roadmap' },
+    { name: 'FINANCIALS', job: 'Manage billing, payments and project finances.', icon: '📊', status: 'Roadmap' },
+    { name: 'SERVE', job: 'Manage customers and ongoing relationships.', icon: '🛡️', status: 'Roadmap' },
+  ]
+
+  // Section 12: FAQ
+  const faqs = [
+    {
+      q: 'What is ScaleOnIt DELIVER?',
+      a: "DELIVER is ScaleOnIt's software delivery system. It helps IT and software service teams move from customer requirements to working software through planning, development, testing and release.",
+    },
+    {
+      q: 'What is ONIT?',
+      a: 'ONIT is the technology powering ScaleOnIt DELIVER. It helps automate and support software delivery work.',
+    },
+    {
+      q: 'Is DELIVER available today?',
+      a: 'Yes. DELIVER is the first available system in the ScaleOnIt ecosystem.',
+    },
+    {
+      q: 'Who is DELIVER for?',
+      a: 'DELIVER is designed for IT service companies, software development teams and businesses that build software for customers.',
+    },
+    {
+      q: 'What does DELIVER help with?',
+      a: 'DELIVER helps teams manage requirements, plan software, build applications, review changes, test software and release it.',
+    },
+    {
+      q: 'Is DELIVER only an AI coding tool?',
+      a: 'No. DELIVER covers the broader software delivery process. AI is used where it can reduce repetitive work and help teams move faster.',
+    },
+    {
+      q: 'How does DELIVER fit into ScaleOnIt?',
+      a: 'DELIVER is one of six systems planned for the ScaleOnIt business ecosystem. It is the first system available today.',
+    },
+  ]
+
+  const featureTags = [
+    'Requirements & Planning',
+    'AI-Assisted Development',
+    'Live Staging',
+    'Automated Testing',
+    'Cloud Deployment',
+    'Production Release',
   ]
 
   return (
-    <PageLayout
-      onNavigate={onNavigate}
-      heroEyebrow="Enterprise Software Delivery Operating Engine"
-      heroTitle={
-        <>
-          Turn requirements into production software{' '}
-          <span className="text-[#FF5500] block">with end-to-end governed intelligence.</span>
-        </>
-      }
-      heroDescription="ONIT automates the entire software delivery lifecycle. Ingest raw prompts or requirement documents, generate industry-specific BRDs and fine-tuned FRDs with executive approval gates, build UI/UX with specialized AI engineering swarms, iterate through live staging previews, connect enterprise cloud infrastructure, execute automated end-to-end QA suites, and deploy safely to production."
-      heroBadges={[
-        'Prompt & Document Ingestion',
-        'Industry BRD & FRD Governance',
-        'Specialized Multi-Agent Engineering',
-        'Instant Staging Feedback Loops',
-        'Automated End-to-End QA Suites',
-        'Governed Cloud Production Release',
-      ]}
-      ctaTitle="Accelerate your software delivery from idea to production"
-      ctaDescription="Experience the autonomous SDLC platform that combines AI velocity with enterprise-grade governance, security, and continuous quality."
-      ctaButtonText="Book ONIT Executive Demo"
-    >
-      {/* 01. The Complete SDLC Vision Narrative */}
-      <section className="py-20 bg-transparent border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
-                The ONIT Enterprise Advantage
+    <div className="min-h-screen bg-transparent text-slate-900 selection:bg-orange-500/20 selection:text-[#FF5500]">
+      {/* ==================================================
+          SECTION 1 — HERO (2-COLUMN BALANCED LAYOUT WITH LIVE SIMULATOR)
+          ================================================== */}
+      <section className="relative overflow-hidden bg-transparent border-b border-slate-200/80 py-16 sm:py-20">
+        {/* Ambient subtle glow */}
+        <div
+          className="absolute -top-24 right-1/4 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Left Column: Core Positioning & CTAs */}
+            <div className="lg:col-span-6 space-y-6">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md shadow-xs">
+                SCALEONIT DELIVER
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-                Transform raw concepts into audited, enterprise-grade cloud software in days—not quarters.
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
-                Conventional software development is plagued by costly handoff friction: ambiguous client requests lead to misaligned functional specs, disconnects between design and code, and untested edge cases escaping into production.
+
+              {/* H1 */}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">
+                From requirements to production software.
+                <span className="text-[#FF5500] block mt-1.5">
+                  Built to make software delivery simpler.
+                </span>
+              </h1>
+
+              {/* Supporting paragraph */}
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+                DELIVER helps IT and software service teams turn customer requirements into working software — from planning and development to testing and release.
               </p>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">
-                <strong className="text-slate-900 font-bold">ONIT</strong> orchestrates the full SDLC into a single, seamless, and governed operating pipeline. From initial requirement intake and industry-standard BRD/FRD synthesis to autonomous multi-agent development, live client staging iterations, and exhaustive automated regression testing, ONIT delivers predictable velocity and uncompromised quality.
-              </p>
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center gap-3 mt-6 shadow-2xs">
-                <div className="w-10 h-10 rounded-lg bg-orange-50 text-[#FF5500] border border-orange-200 font-black flex items-center justify-center text-lg shrink-0">
-                  🎯
-                </div>
-                <div className="text-xs text-slate-600">
-                  <strong className="text-slate-900">Governance by Design:</strong> Consequential milestones require explicit human sign-off—guaranteeing 100% architectural alignment and audited compliance at every stage.
-                </div>
+
+              {/* Small supporting line */}
+              <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#FF5500] uppercase tracking-wider">
+                <span className="w-2 h-2 rounded-full bg-[#FF5500] animate-pulse" />
+                <span>Powered by ONIT</span>
+                <span className="text-slate-300 font-normal">|</span>
+                <span className="text-slate-600 font-normal capitalize">Available Today</span>
+              </div>
+
+              {/* Feature tags */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                {featureTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-mono text-xs font-medium px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-slate-700 shadow-2xs"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('deliver-capabilities')
+                    el?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono text-xs uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg shadow-md shadow-orange-500/20 transition-all cursor-pointer"
+                >
+                  EXPLORE DELIVER
+                </button>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('deliver-workflow')
+                    el?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className="border border-slate-200 bg-white text-slate-800 font-mono text-xs uppercase tracking-wider font-bold px-7 py-3.5 rounded-lg hover:bg-slate-50 hover:border-[#FF5500] hover:text-slate-900 transition-all cursor-pointer shadow-xs"
+                >
+                  SEE HOW IT WORKS
+                </button>
               </div>
             </div>
 
-            {/* Architecture Flow Diagram Box */}
-            <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-[4px_4px_0px_0px_#0F172A]">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-200 mb-5">
-                <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-700">
-                  Autonomous Enterprise SDLC Engine
-                </span>
-                <span className="font-mono text-[10px] font-bold text-[#FF5500] bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200">
-                  Idea → Governed Production
-                </span>
-              </div>
-              <div className="space-y-3">
-                {[
-                  { step: '01', title: 'Requirements & Ingestion', sub: 'Natural language prompts & file uploads mapped to industry domain templates' },
-                  { step: '02', title: 'Tri-Party BRD Gate', sub: 'Joint consensus and verification between PM, BA, and Client Stakeholders' },
-                  { step: '03', title: 'Precision FRD Sign-Off', sub: 'Fine-tuned functional specifications formally approved by client executive' },
-                  { step: '04', title: 'Specialized Multi-Agent Dev', sub: 'Autonomous UI/UX and full-stack development with stack-tailored AI agents' },
-                  { step: '05', title: 'Live Staging Iteration', sub: 'Interactive preview environments with rapid stakeholder feedback loops' },
-                  { step: '06', title: 'Automated QA & Cloud Launch', sub: 'Comprehensive Playwright test automation, cloud DB connection & zero-defect release' },
-                ].map((item) => (
-                  <div
-                    key={item.step}
-                    className="p-3.5 bg-white rounded-xl border border-slate-200 flex items-center gap-3.5 shadow-2xs hover:border-[#FF5500] transition-colors"
-                  >
-                    <span className="text-xs font-mono font-black text-[#FF5500] bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200">
-                      {item.step}
+            {/* Right Column: Live Interactive Delivery Engine Simulator */}
+            <div className="lg:col-span-6">
+              <div className="p-6 sm:p-7 rounded-3xl bg-slate-50 border border-slate-200 shadow-[4px_4px_0px_0px_#0F172A] relative overflow-hidden">
+                {/* Header */}
+                <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5500]" />
+                    <span className="font-mono text-xs font-bold text-slate-900 uppercase tracking-wider">
+                      DELIVER Pipeline Monitor
                     </span>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs font-bold text-slate-900">{item.title}</div>
-                      <div className="text-[11px] text-slate-500 truncate mt-0.5">{item.sub}</div>
-                    </div>
-                    <span className="text-xs text-emerald-500 font-bold">✓</span>
                   </div>
-                ))}
+                  <span className="font-mono text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded border border-emerald-200">
+                    {simTabs[activeSimTab].status}
+                  </span>
+                </div>
+
+                {/* Interactive Stage Tabs */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-4 p-1 bg-white rounded-xl border border-slate-200 shadow-2xs">
+                  {simTabs.map((tab, idx) => (
+                    <button
+                      key={tab.title}
+                      type="button"
+                      onClick={() => setActiveSimTab(idx)}
+                      className={`py-2 px-2 text-[10px] sm:text-[11px] font-bold font-mono rounded-lg transition-all text-center cursor-pointer ${
+                        activeSimTab === idx
+                          ? 'bg-[#FF5500] text-white shadow-xs'
+                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                      }`}
+                    >
+                      {tab.title}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Terminal & Logs Container */}
+                <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs space-y-3 font-mono text-xs min-h-[160px]">
+                  <div className="flex items-center gap-2 text-slate-500 text-[11px] pb-2 border-b border-slate-100">
+                    <span className="text-[#FF5500] font-extrabold">$</span>
+                    <span className="text-slate-800 font-bold truncate">{simTabs[activeSimTab].command}</span>
+                  </div>
+
+                  <div className="space-y-2 text-[11px] leading-relaxed">
+                    {simTabs[activeSimTab].lines.map((line, lIdx) => (
+                      <div key={lIdx} className="flex items-start gap-2 text-slate-700">
+                        <span className="text-[#FF5500] font-bold">&gt;</span>
+                        <span className={line.includes('✓') ? 'text-emerald-700 font-bold' : line.includes('🚀') ? 'text-[#FF5500] font-bold' : ''}>
+                          {line}
+                        </span>
+                      </div>
+                    ))}
+                    <div className="flex items-center gap-1 text-slate-400 pt-1 text-[10px]">
+                      <span>continuous execution pipeline ready</span>
+                      <span className="inline-block w-1.5 h-3 bg-[#FF5500] animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom System Context Info */}
+                <div className="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                  <span>Engine: <strong className="text-slate-900">ONIT 2.4</strong></span>
+                  <span className="text-[#FF5500] font-bold">● Live Staging Connected</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 02. The 6-Stage Deep Dive */}
-      <section className="py-24 bg-transparent border-b border-slate-200/80">
+
+      {/* ==================================================
+          SECTION 2 — WHAT DELIVER DOES
+          ================================================== */}
+      <section
+        id="deliver-workflow"
+        className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+      >
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">
-              The 6 Pillars of Execution
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              WHAT DELIVER DOES
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
-              How ONIT Accelerates Time-to-Value
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Software delivery, from one place.
             </h2>
-            <p className="text-sm sm:text-base text-slate-600">
-              A continuous, governed delivery pipeline engineered for enterprises that require market speed without compromising security, compliance, or architecture.
+            <div className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto space-y-2 mb-4">
+              <p>Software projects involve many steps and many handoffs.</p>
+              <p className="text-sm text-slate-500">
+                Requirements need to be understood. Plans need to be created. Software needs to be built. Changes need to be reviewed. Testing needs to happen. The final product needs to be released.
+              </p>
+            </div>
+            <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white border border-slate-200 px-4 py-2 rounded-lg shadow-2xs">
+              DELIVER brings these steps into one connected workflow.
+            </div>
+          </div>
+
+          {/* 5-Step Workflow Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+            {workflowSteps.map((item) => (
+              <div
+                key={item.step}
+                className="p-5 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-[#FF5500] transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-xs font-black text-[#FF5500]">
+                      {item.step}
+                    </span>
+                    <span className="text-xl">{item.icon}</span>
+                  </div>
+                  <div className="font-extrabold text-base text-slate-900 mb-1.5">
+                    {item.name}
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 3 — WHY DELIVER
+          ================================================== */}
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              THE PROBLEM WE SOLVE
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Software delivery has too many handoffs.
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed mb-6 font-normal">
+              A typical project can move between customers, business teams, analysts, designers, developers, testers and operations.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+                <span className="text-[#FF5500] font-mono font-bold">↳</span> Information gets repeated.
+              </div>
+              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+                <span className="text-[#FF5500] font-mono font-bold">↳</span> Requirements get lost.
+              </div>
+              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+                <span className="text-[#FF5500] font-mono font-bold">↳</span> Changes take time.
+              </div>
+              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+                <span className="text-[#FF5500] font-mono font-bold">↳</span> Teams use different tools.
+              </div>
+            </div>
+
+            <p className="text-sm text-slate-700 leading-relaxed font-semibold mb-6">
+              DELIVER brings the work into one connected process.
+            </p>
+
+            {/* Highlighted statement */}
+            <div className="p-5 rounded-xl bg-orange-50 border border-orange-200 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center font-mono text-xs sm:text-sm font-bold text-slate-900">
+              <div>✓ Less back-and-forth.</div>
+              <div>✓ Less repeated work.</div>
+              <div>✓ More visibility.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 4 — DELIVER CAPABILITIES
+          ================================================== */}
+      <section
+        id="deliver-capabilities"
+        className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              PRODUCT CAPABILITIES
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Everything needed to deliver software.
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Real capabilities designed to support teams from the initial requirement to the finished production release.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sdlcStages.map((stage) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {capabilities.map((item) => (
               <GlowCard
-                key={stage.step}
-                className="p-7 rounded-2xl bg-white border border-slate-900 shadow-[4px_4px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[6px_6px_0px_0px_#FF5500] hover:-translate-y-1 hover:-translate-x-1 transition-all duration-200 ease-out flex flex-col justify-between group"
+                key={item.num}
+                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-[#FF5500] transition-colors flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-2xl group-hover:scale-105 transition-transform">
-                      {stage.icon}
-                    </div>
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-orange-50 text-[#FF5500] border border-orange-200">
-                      {stage.badge}
+                    <span className="text-2xl" aria-hidden="true">{item.icon}</span>
+                    <span className="font-mono text-xs font-bold text-[#FF5500]">
+                      {item.num}
                     </span>
                   </div>
-                  <div className="font-mono text-[10px] font-extrabold tracking-widest text-[#FF5500] uppercase mb-1">
-                    {stage.category}
-                  </div>
-                  <h3 className="text-lg font-extrabold text-slate-900 mb-2 group-hover:text-[#FF5500] transition-colors">
-                    {stage.title}
+                  <h3 className="text-lg font-extrabold text-slate-900 mb-2">
+                    {item.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed mb-3">
-                    {stage.desc}
-                  </p>
-                  <p className="text-[11px] text-slate-500 leading-relaxed bg-slate-50 p-3 rounded-lg border border-slate-200 font-mono">
-                    {stage.detail}
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
               </GlowCard>
@@ -247,61 +502,116 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
         </div>
       </section>
 
-      {/* 03. Executive Value & Governed Live Simulator */}
-      <section className="py-20 bg-transparent border-b border-slate-200/80 text-slate-900">
+      {/* ==================================================
+          SECTION 5 — HOW DELIVER WORKS
+          ================================================== */}
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">
-                Built for Enterprise Leaders
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              HOW DELIVER WORKS
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              From a customer requirement to working software.
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              A clear step-by-step process that keeps information connected from start to finish.
+            </p>
+          </div>
+
+          {/* Visual 6-Step Flow Diagram */}
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {visualFlow.map((step) => (
+                <div
+                  key={step.num}
+                  className="p-5 rounded-xl bg-white border border-slate-200 shadow-2xs relative"
+                >
+                  <div className="font-mono text-xs font-black text-[#FF5500] mb-1">
+                    Step {step.num}
+                  </div>
+                  <div className="font-extrabold text-sm text-slate-900 mb-1">
+                    {step.title}
+                  </div>
+                  <p className="text-xs text-slate-600 leading-snug">
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 6 — ONIT (POWERED BY ONIT)
+          ================================================== */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              THE TECHNOLOGY BEHIND DELIVER
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Powered by ONIT.
+            </h2>
+            <p className="text-base sm:text-lg text-slate-700 leading-relaxed mb-4">
+              ONIT is the technology behind ScaleOnIt DELIVER.
+            </p>
+            <p className="text-sm text-slate-600 leading-relaxed mb-6">
+              It helps automate and support the work involved in software delivery — from understanding requirements and building applications to testing and release.
+            </p>
+
+            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
+              ONIT helps the team do more of the repetitive work automatically while keeping people involved where decisions matter.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 7 — REAL PRODUCT / PRODUCT SCREEN
+          ================================================== */}
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5 space-y-4">
+              <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md shadow-xs">
+                PRODUCT VIEW
               </div>
-              <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
-                Autonomous Velocity. Sovereign Control.
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                See the work as it happens.
               </h2>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                ONIT eliminates the risks of unguided AI by grounding autonomous engineering in strict domain governance, stack-specialized intelligence, and verified quality standards.
+              <p className="text-base text-slate-600 leading-relaxed font-normal">
+                DELIVER gives teams a working view of the software delivery process — from requirements and development to testing and release.
               </p>
-              <div className="space-y-3.5 mb-8">
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#FF5500] mt-1.5 shrink-0" />
-                  <div className="text-xs text-slate-600">
-                    <strong className="text-slate-900">Stack-Optimized AI Swarms:</strong> AI agents fine-tuned specifically for your target technology stack (React, Node, Python, Java, Cloud Native) generate production-grade code adhering to your design system and architectural patterns.
-                  </div>
+
+              <div className="pt-2 space-y-2 font-mono text-xs text-slate-600">
+                <div className="flex items-center gap-2">
+                  <span className="text-[#FF5500] font-bold">✓</span> Real-time progress across all delivery steps
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#FF5500] mt-1.5 shrink-0" />
-                  <div className="text-xs text-slate-600">
-                    <strong className="text-slate-900">Live Interactive Previews:</strong> Continuous staging builds let clients and executives test real features early, shortening iteration cycles and eliminating post-launch scope drift.
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#FF5500] font-bold">✓</span> Clear requirements linked to active code
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-[#FF5500] mt-1.5 shrink-0" />
-                  <div className="text-xs text-slate-600">
-                    <strong className="text-slate-900">Automated End-to-End Verification:</strong> Full regression suites run automatically across all critical paths, verifying APIs, database consistency, and browser interactions before deployment authorization.
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[#FF5500] font-bold">✓</span> Automated test results before release
                 </div>
               </div>
-              <button
-                onClick={() => onNavigate('/architecture')}
-                className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[#FF5500] hover:text-[#E04B00] transition-colors cursor-pointer"
-              >
-                Explore Enterprise Architecture Specifications →
-              </button>
             </div>
 
-            {/* Live Interactive Simulator Component */}
-            <div className="bg-[#0D1117] text-white rounded-2xl border border-slate-800 p-6 sm:p-7 shadow-2xl font-mono text-xs">
+            {/* Real Product Simulation Terminal */}
+            <div className="lg:col-span-7 bg-[#0D1117] text-white rounded-2xl border border-slate-800 p-6 shadow-2xl font-mono text-xs">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-slate-400 mb-4">
                 <span className="flex items-center gap-2 font-bold text-white">
-                  <span className="h-2 w-2 rounded-full bg-[#FF5500] animate-ping inline-block" />
-                  ONIT Delivery Engine · Live Execution
+                  <span className="h-2 w-2 rounded-full bg-[#FF5500] inline-block" />
+                  ScaleOnIt DELIVER · Pipeline Monitor
                 </span>
-                <span className="text-[10px] font-bold text-[#FF5500] bg-orange-500/10 px-2.5 py-0.5 rounded-md border border-orange-500/30">
+                <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/30">
                   {simTabs[activeSimTab].status}
                 </span>
               </div>
 
-              {/* Interactive Tabs */}
+              {/* Tabs */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 mb-4 p-1 bg-slate-900 rounded-xl border border-slate-800">
                 {simTabs.map((tab, idx) => (
                   <button
@@ -319,8 +629,8 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                 ))}
               </div>
 
-              {/* Terminal Execution Body */}
-              <div className="space-y-3 bg-[#090D12] p-4 rounded-xl border border-slate-850 min-h-[160px]">
+              {/* Terminal Screen */}
+              <div className="space-y-3 bg-[#090D12] p-4 rounded-xl border border-slate-800 min-h-[150px]">
                 <div className="flex items-center gap-2 text-slate-400 text-[11px] pb-2 border-b border-slate-800">
                   <span className="text-[#FF5500] font-bold">$</span>
                   <span className="text-slate-200">{simTabs[activeSimTab].command}</span>
@@ -338,8 +648,8 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                       )}
                     </div>
                   ))}
-                  <div className="flex items-center gap-1 text-[#FF5500] font-bold pt-1">
-                    <span>&gt; stage verified and authorized</span>
+                  <div className="flex items-center gap-1 text-slate-500 pt-1">
+                    <span>&gt; completed</span>
                     <span className="terminal-cursor">_</span>
                   </div>
                 </div>
@@ -349,36 +659,280 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
         </div>
       </section>
 
-      {/* 04. Downstream Lifecycle Continuation */}
-      <section className="py-20 bg-transparent">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[4px_4px_0px_0px_#0F172A]">
-            <div>
-              <div className="font-mono text-[10px] font-bold tracking-widest uppercase text-[#FF5500] mb-1">
-                Ecosystem Continuation
-              </div>
-              <h3 className="text-xl font-extrabold text-slate-900">Where does this context flow next?</h3>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-xl mt-1">
-                Deployed applications flow seamlessly into SERVE for live customer support, automated ticket-to-code traceability, and continuous SLA monitoring.
-              </p>
+      {/* ==================================================
+          SECTION 8 — GOVERNANCE / CONTROL
+          ================================================== */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              PROCESS &amp; CONTROL
             </div>
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => onNavigate('/platform/serve')}
-                className="relative overflow-hidden bg-[#FF5500] hover:bg-[#E04B00] text-white text-xs font-mono font-bold uppercase px-6 py-3 rounded-lg shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer before:absolute before:inset-0 before:-translate-x-full hover:before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/25 before:to-transparent"
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Built for real software teams.
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              DELIVER is designed for teams that need visibility, control and a clear process from requirements to release.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+            {[
+              { label: 'Clear requirements', desc: 'Agreed upon before building begins' },
+              { label: 'Trackable changes', desc: 'Visibility into every update' },
+              { label: 'Reviewable work', desc: 'Live staging for team feedback' },
+              { label: 'Automated testing', desc: 'Continuous quality checks' },
+              { label: 'Controlled releases', desc: 'Safe deployment to production' },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs text-center flex flex-col justify-between"
               >
-                <span className="relative z-10">Explore SERVE →</span>
+                <div className="font-mono text-xs font-bold text-[#FF5500] mb-1">
+                  ✓
+                </div>
+                <div className="font-extrabold text-sm text-slate-900 mb-1">
+                  {item.label}
+                </div>
+                <div className="text-[11px] text-slate-500">
+                  {item.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 9 — WHO IS DELIVER FOR?
+          ================================================== */}
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              WHO DELIVER IS FOR
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Built for teams that deliver software.
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              DELIVER is designed for IT service companies, software development teams and businesses that build software for customers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {targetAudiences.map((aud) => (
+              <div
+                key={aud.title}
+                className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-slate-400 transition-colors"
+              >
+                <span className="text-2xl mb-3 block">{aud.icon}</span>
+                <h3 className="font-extrabold text-base text-slate-900 mb-1.5">
+                  {aud.title}
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  {aud.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 10 — SCALEONIT ECOSYSTEM CONNECTION
+          ================================================== */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              THE SCALEONIT ECOSYSTEM
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              DELIVER is one part of ScaleOnIt.
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed mb-2">
+              ScaleOnIt is building a connected business platform for IT and software service companies.
+            </p>
+            <p className="text-sm font-semibold text-slate-900">
+              DELIVER is the software delivery system.
+            </p>
+          </div>
+
+          {/* 6 Systems List */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 mb-8">
+            {ecosystemSystems.map((sys) => (
+              <div
+                key={sys.name}
+                className={`p-4 rounded-xl border flex items-start justify-between gap-3 ${
+                  sys.active
+                    ? 'bg-white border-[#FF5500] shadow-[2px_2px_0px_0px_#FF5500]'
+                    : 'bg-white border-slate-200'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-base">{sys.icon}</span>
+                    <span className="font-extrabold text-sm text-slate-900">{sys.name}</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-snug">
+                    {sys.job}
+                  </p>
+                </div>
+                <span
+                  className={`font-mono text-[9px] font-bold uppercase px-2 py-0.5 rounded shrink-0 ${
+                    sys.active
+                      ? 'bg-[#FF5500] text-white'
+                      : 'bg-slate-100 text-slate-500'
+                  }`}
+                >
+                  {sys.status}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Connection note */}
+          <div className="p-5 rounded-xl bg-white border border-slate-200 text-center font-mono text-xs sm:text-sm font-bold text-slate-800 shadow-2xs">
+            DELIVER is available today. The other systems are being built as part of the wider ScaleOnIt ecosystem.
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 11 — WHY SCALEONIT
+          ================================================== */}
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              WHY CONNECTED SYSTEMS
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              One connected platform instead of disconnected tools.
+            </h2>
+            <p className="text-base text-slate-700 leading-relaxed mb-4 font-normal">
+              Software delivery does not happen by itself.
+            </p>
+            <div className="space-y-1.5 text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+              <div>• It starts with a customer.</div>
+              <div>• It involves requirements, people and projects.</div>
+              <div>• It needs financial tracking.</div>
+              <div>• And after delivery, the customer still needs support.</div>
+            </div>
+
+            <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-semibold mb-6">
+              ScaleOnIt is being built to connect these parts of the business. DELIVER is where that journey starts today.
+            </p>
+
+            <button
+              onClick={() => onNavigate('/', '#six-systems')}
+              className="inline-flex items-center gap-2 font-mono text-xs font-bold text-[#FF5500] hover:text-[#E04B00] transition-colors cursor-pointer uppercase"
+            >
+              Explore the ScaleOnIt Ecosystem →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 12 — FAQ
+          ================================================== */}
+      <section
+        id="deliver-faq"
+        className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+      >
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+              FREQUENTLY ASKED QUESTIONS
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+              Questions about DELIVER
+            </h2>
+            <p className="text-base text-slate-600 leading-relaxed">
+              Clear answers about DELIVER, ONIT, and how they fit into ScaleOnIt.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx
+
+              return (
+                <div
+                  key={idx}
+                  className="rounded-xl bg-white border border-slate-200 shadow-2xs overflow-hidden transition-all"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-extrabold text-base text-slate-900">
+                      {faq.q}
+                    </span>
+                    <span className="font-mono text-base font-bold text-[#FF5500] shrink-0">
+                      {isOpen ? '−' : '+'}
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-5 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          SECTION 13 — FINAL CTA
+          ================================================== */}
+      <section className="py-20 bg-white text-slate-900 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-8 sm:p-14 shadow-2xl space-y-6">
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-500/10 border border-orange-500/30 px-3.5 py-1.5 rounded-md">
+              <span>GET STARTED</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
+              Ready to simplify software delivery?
+            </h2>
+
+            <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto leading-relaxed">
+              See how ScaleOnIt DELIVER can take your team from requirements to production software.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+              <button
+                onClick={() => {
+                  const el = document.getElementById('deliver-capabilities')
+                  el?.scrollIntoView({ behavior: 'smooth' })
+                }}
+                className="px-8 py-4 rounded-xl bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-md transition-colors cursor-pointer"
+              >
+                EXPLORE DELIVER
               </button>
               <button
-                onClick={() => onNavigate('/platform')}
-                className="border border-slate-200 bg-white text-slate-900 text-xs font-mono font-bold uppercase px-6 py-3 rounded-lg hover:bg-slate-50 hover:border-[#FF5500] hover:text-[#FF5500] transition-colors cursor-pointer shadow-2xs"
+                onClick={() => onNavigate('/demo')}
+                className="px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-mono font-semibold text-xs uppercase tracking-wider border border-slate-700 transition-colors cursor-pointer"
               >
-                Platform Hub →
+                TALK TO US
               </button>
+            </div>
+
+            <div className="pt-6 border-t border-slate-800 flex flex-wrap items-center justify-center gap-6 font-mono text-xs text-slate-400">
+              <span>✓ ScaleOnIt Ecosystem</span>
+              <span>✓ DELIVER Software Delivery System</span>
+              <span>✓ Powered by ONIT</span>
             </div>
           </div>
         </div>
       </section>
-    </PageLayout>
+    </div>
   )
 }

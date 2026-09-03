@@ -57,17 +57,17 @@ export default function Footer({ onNavigate }: FooterProps) {
             </button>
 
             <p className="text-xs text-slate-600 leading-relaxed max-w-sm">
-              The Business Operating Ecosystem connecting customer acquisition, requirements discovery, software delivery, workforce, financials, and customer success.
+              The connected business platform for IT and software service companies. Connects sales, customer requirements, software delivery, people, finances and customer service.
             </p>
 
             <div className="pt-2">
               <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
-                Current Flagship Engine:
+                First Available System:
               </div>
               <div className="inline-flex items-center gap-2 text-xs font-mono font-bold text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md shadow-2xs">
-                <span>ONIT</span>
+                <span>DELIVER</span>
                 <span className="text-slate-300 font-normal">|</span>
-                <span className="text-slate-600 font-medium">Powering the DELIVER System</span>
+                <span className="text-slate-600 font-medium">Powered by ONIT</span>
               </div>
             </div>
           </div>

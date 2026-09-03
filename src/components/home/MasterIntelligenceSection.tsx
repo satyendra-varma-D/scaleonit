@@ -1,110 +1,76 @@
 export default function MasterIntelligenceSection() {
-  const domainIntelligence = [
+  const aiRoles = [
     {
-      system: 'GROW',
-      intelligence: 'Growth Intelligence',
-      scope: 'Pipeline dynamics, lead intent classification, win/loss pattern detection, and customer lifetime modeling.',
-      icon: '🌱',
-    },
-    {
-      system: 'DISCOVER',
-      intelligence: 'Requirements Intelligence',
-      scope: 'Automated BRD/FRD synthesis, ambiguity detection, acceptance criteria structuring, and scope gap analysis.',
+      title: 'Understanding Requirements',
+      desc: 'Helps turn discovery discussions and customer documents into organized feature requirements.',
       icon: '🔍',
     },
     {
-      system: 'DELIVER',
-      intelligence: 'Delivery Intelligence (ONIT)',
-      scope: 'Architecture synthesis, automated test generation, PR review assistance, and release risk evaluation.',
+      title: 'Creating Software',
+      desc: 'Assists engineers with application scaffolding, modern user interfaces, and API endpoints.',
       icon: '⚡',
     },
     {
-      system: 'PEOPLE',
-      intelligence: 'Workforce Intelligence',
-      scope: 'Skill matching algorithms, project capacity forecasting, workload balancing, and staffing optimization.',
-      icon: '👥',
+      title: 'Testing Applications',
+      desc: 'Generates automated test suites before deployment so issues are caught early.',
+      icon: '🧪',
     },
     {
-      system: 'FINANCIALS',
-      intelligence: 'Commercial & Financial Intelligence',
-      scope: 'Real-time project cost burn analysis, revenue recognition forecasting, and delivery margin health alerts.',
-      icon: '📊',
-    },
-    {
-      system: 'SERVE',
-      intelligence: 'Customer Intelligence',
-      scope: 'Upstream incident root-cause mapping, SLA breach prediction, sentiment trends, and renewal indicators.',
-      icon: '🛡️',
+      title: 'Everyday Tasks',
+      desc: 'Handles routine summaries, status updates, and milestone tracking so teams focus on higher-value work.',
+      icon: '📋',
     },
   ]
 
   return (
     <section
       id="intelligence"
-      aria-label="Intelligence in ScaleOnIt — Intelligence Built into the Work"
-      className="py-24 bg-transparent text-slate-900 border-y border-slate-200/80 relative overflow-hidden"
+      aria-label="How AI Helps in ScaleOnIt"
+      className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-6 shadow-xs">
-            EMBEDDED INTELLIGENCE
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+            ARTIFICIAL INTELLIGENCE
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-            Intelligence is built into the work.{' '}
-            <span className="text-[#FF5500] block mt-1">
-              Not pasted on as a generic chatbot.
-            </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+            AI where it actually helps.
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            ScaleOnIt embeds purpose-specific intelligence directly within the operational workflows of each system — augmenting human teams where execution speed matters most.
+          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-4">
+            AI is built into the platform where it can save time and reduce repetitive work. It can help teams understand requirements, create software, test applications and handle everyday tasks.
           </p>
+          <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white border border-slate-200 px-4 py-2 rounded-lg shadow-2xs">
+            The goal is not to add AI everywhere. The goal is to remove unnecessary work.
+          </div>
         </div>
 
-        {/* 6 Specialized Domain Intelligence Cards (Hard Shadows + Glow Hover) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
-          {domainIntelligence.map((item) => (
+        {/* 4 Practical AI Areas */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto mb-10">
+          {aiRoles.map((role) => (
             <div
-              key={item.system}
-              className={`p-6 rounded-xl border transition-all duration-200 ease-out space-y-4 ${
-                item.system === 'DELIVER'
-                  ? 'bg-white border-[#FF5500] shadow-[4px_4px_0px_0px_#FF5500] ring-1 ring-orange-500/30 -translate-y-1 -translate-x-1'
-                  : 'bg-white border-slate-200 shadow-[4px_4px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[6px_6px_0px_0px_#FF5500] hover:-translate-y-1 hover:-translate-x-1'
-              }`}
+              key={role.title}
+              className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-slate-400 transition-colors"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl" aria-hidden="true">{item.icon}</span>
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500">
-                    System: {item.system}
-                  </span>
-                </div>
-                <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-orange-50 border border-orange-200 text-[#FF5500]">
-                  Specialized AI
-                </span>
-              </div>
-
-              <h3 className="text-lg font-bold text-slate-900">
-                {item.intelligence}
+              <span className="text-2xl mb-3 block">{role.icon}</span>
+              <h3 className="font-extrabold text-base text-slate-900 mb-1.5">
+                {role.title}
               </h3>
-
               <p className="text-xs text-slate-600 leading-relaxed">
-                {item.scope}
+                {role.desc}
               </p>
             </div>
           ))}
         </div>
 
-        {/* Intelligence Architecture Principle Note */}
-        <div className="p-8 rounded-2xl bg-white border border-slate-200 max-w-3xl mx-auto text-center shadow-sm">
-          <div className="font-mono text-xs font-bold uppercase tracking-widest text-[#FF5500] mb-2">
-            The Governed AI Principle
-          </div>
-          <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
-            AI workers in ScaleOnIt operate under strict human policy gates, defined execution boundaries, and enterprise governance. They are not arbitrary chatbots — they are specialized computational workers grounded in real business context.
+        {/* Honest Grounded Statement */}
+        <div className="p-6 rounded-2xl bg-white border border-slate-200 max-w-3xl mx-auto text-center shadow-sm">
+          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            AI assists your team; human judgment, review, and approvals remain in control of every client agreement and release.
           </p>
         </div>
       </div>
     </section>
   )
 }
+

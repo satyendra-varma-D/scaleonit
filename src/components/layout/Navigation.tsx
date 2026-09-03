@@ -228,11 +228,11 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
                                 {prod.tagline}
                               </div>
 
-                              {/* Highlight for DELIVER -> ONIT */}
-                              {isDeliver && prod.subProduct && (
+                              {/* Highlight for DELIVER -> Powered by ONIT */}
+                              {isDeliver && (
                                 <div className="mt-2 pt-2 border-t border-orange-200/60 flex items-center justify-between text-xs font-mono font-bold text-[#FF5500]">
-                                  <span>ONIT — Software Delivery OS</span>
-                                  <span>Explore →</span>
+                                  <span>Powered by ONIT</span>
+                                  <span>Explore DELIVER →</span>
                                 </div>
                               )}
                             </button>
@@ -242,12 +242,12 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
 
                       {/* Bottom Contextual Note */}
                       <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between font-mono text-[11px] text-slate-500">
-                        <span>Every system addresses a specific enterprise bottleneck.</span>
+                        <span>Six systems for running your IT business.</span>
                         <button
                           onClick={(e) => handleLinkClick(e, '/platform/deliver')}
                           className="font-bold text-[#FF5500] hover:text-[#E04B00] uppercase cursor-pointer flex items-center gap-1"
                         >
-                          Explore Flagship ONIT →
+                          Explore DELIVER →
                         </button>
                       </div>
                     </div>
@@ -272,14 +272,14 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
           })}
         </div>
 
-        {/* RIGHT: Explore ONIT → Primary CTA */}
+        {/* RIGHT: Explore DELIVER → Primary CTA */}
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={(e) => handleLinkClick(e, '/platform/deliver')}
-            className="relative overflow-hidden font-mono text-xs font-bold uppercase tracking-wider bg-[#FF5500] hover:bg-[#E04B00] text-white px-5 py-2.5 rounded-lg shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-150 cursor-pointer flex items-center gap-1.5 before:absolute before:inset-0 before:-translate-x-full hover:before:animate-[shimmer_1.5s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/25 before:to-transparent"
+            className="px-5 py-2.5 rounded-lg bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-150 cursor-pointer flex items-center gap-1.5"
           >
-            <span className="relative z-10">Explore ONIT</span>
-            <span className="relative z-10 text-sm">→</span>
+            <span>Explore DELIVER</span>
+            <span className="text-sm">→</span>
           </button>
         </div>
 
@@ -331,7 +331,7 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
               onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               className="w-full flex items-center justify-between font-mono text-sm uppercase font-bold text-slate-900 py-2 px-3 rounded-lg hover:bg-slate-50"
             >
-              <span>Products</span>
+              <span>Ecosystem &amp; Products</span>
               <span className="font-mono text-xs font-bold text-[#FF5500]">
                 {mobileProductsOpen ? '−' : '+'}
               </span>
@@ -360,7 +360,7 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
                           <span className="text-slate-900 uppercase">{prod.name}</span>
                           {isDeliver && (
                             <span className="font-mono text-[9px] bg-[#FF5500] text-white px-1.5 py-0.2 rounded font-bold">
-                              ONIT
+                              Powered by ONIT
                             </span>
                           )}
                         </div>
@@ -401,11 +401,12 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
               onClick={(e) => handleLinkClick(e, '/platform/deliver')}
               className="w-full font-mono text-sm font-bold uppercase text-center bg-[#FF5500] text-white py-3.5 rounded-lg shadow-md shadow-orange-500/25 cursor-pointer"
             >
-              Explore ONIT →
+              Explore DELIVER →
             </button>
           </div>
         </div>
       </div>
+
     </header>
   )
 }

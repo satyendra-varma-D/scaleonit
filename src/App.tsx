@@ -47,7 +47,7 @@ export default function App() {
       return <PlatformHubPage onNavigate={navigate} />
     }
 
-    // 3. Dedicated Capability Routes
+    // 3. Dedicated Capability Routes (with clean /deliver alias)
     if (currentPath === '/platform/discover') {
       return <DiscoverPage onNavigate={navigate} />
     }
@@ -57,7 +57,7 @@ export default function App() {
     if (currentPath === '/platform/quality') {
       return <QualityPage onNavigate={navigate} />
     }
-    if (currentPath === '/platform/deliver') {
+    if (currentPath === '/platform/deliver' || currentPath === '/deliver') {
       return <DeliverPage onNavigate={navigate} />
     }
     if (currentPath === '/platform/serve') {
@@ -96,15 +96,16 @@ export default function App() {
       return <SolutionsPage slug="it-services" onNavigate={navigate} />
     }
 
-    // 8. Company Dedicated Page
-    if (currentPath === '/company') {
+    // 8. Company Dedicated Page (with clean /about alias)
+    if (currentPath === '/company' || currentPath === '/about') {
       return <CompanyPage onNavigate={navigate} />
     }
 
-    // 9. Demo / Talk To Us Page
+    // 9. Demo / Talk To Us / Contact Page
     if (currentPath === '/demo' || currentPath === '/talk-to-us' || currentPath === '/contact') {
       return <TalkToUsPage onBackToHome={() => navigate('/')} />
     }
+
 
     // 10. 404 Catch-All
     return <NotFoundPage onNavigate={navigate} />

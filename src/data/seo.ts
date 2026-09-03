@@ -110,12 +110,27 @@ export const routeSEOMap: Record<string, SEOMetadata> = {
   '/company': {
     title: 'About ScaleOnIt | Building a Connected Business Platform',
     description: 'Meet the team behind ScaleOnIt and learn why we are building a connected business platform for IT and software service companies.',
-    canonicalUrl: `${BASE_URL}/company`,
+    canonicalUrl: `${BASE_URL}/about`,
+  },
+  '/about': {
+    title: 'About ScaleOnIt | Building a Connected Business Platform',
+    description: 'Meet the team behind ScaleOnIt and learn why we are building a connected business platform for IT and software service companies.',
+    canonicalUrl: `${BASE_URL}/about`,
+  },
+  '/deliver': {
+    title: 'ScaleOnIt DELIVER | Software Delivery Powered by ONIT',
+    description: 'ScaleOnIt DELIVER helps IT and software service teams turn customer requirements into working software — from planning and development to testing and release. Powered by ONIT.',
+    canonicalUrl: `${BASE_URL}/deliver`,
+  },
+  '/contact': {
+    title: "Contact ScaleOnIt | Let's Build Something Better",
+    description: 'Contact ScaleOnIt to learn more about our software products, DELIVER, partnerships and the connected business ecosystem we are building.',
+    canonicalUrl: `${BASE_URL}/contact`,
   },
   '/demo': {
     title: "Contact ScaleOnIt | Let's Build Something Better",
     description: 'Contact ScaleOnIt to learn more about our software products, DELIVER, partnerships and the connected business ecosystem we are building.',
-    canonicalUrl: `${BASE_URL}/demo`,
+    canonicalUrl: `${BASE_URL}/contact`,
   },
 }
 

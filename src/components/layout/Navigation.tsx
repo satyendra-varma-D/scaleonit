@@ -83,10 +83,13 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
       role="banner"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm'
-          : 'bg-white/80 backdrop-blur-xs border-b border-slate-200/80'
+          ? 'bg-white/98 backdrop-blur-md border-b border-slate-200 shadow-[0_4px_20px_-4px_rgba(15,23,42,0.08)]'
+          : 'bg-white/92 backdrop-blur-md border-b border-slate-200/90 shadow-[0_2px_10px_-2px_rgba(15,23,42,0.04)]'
       }`}
     >
+      {/* Top Brand Accent Stripe (Defines the top boundary) */}
+      <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#FF5500] to-transparent opacity-90" />
+
       <nav
         ref={navRef}
         role="navigation"

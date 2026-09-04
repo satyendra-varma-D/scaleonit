@@ -42,15 +42,35 @@ export const defaultSEO: SEOMetadata = {
 
 export const routeSEOMap: Record<string, SEOMetadata> = {
   '/': defaultSEO,
+  '/ecosystem': {
+    title: 'ScaleOnIt Ecosystem | The Connected Operating Platform for IT Services',
+    description: 'Explore ScaleOnIt’s six connected systems — GROW, DISCOVER, DELIVER, PEOPLE, FINANCIALS, and SERVE — operating on a single continuous context graph.',
+    canonicalUrl: `${BASE_URL}/ecosystem`,
+  },
   '/platform': {
-    title: 'Platform Hub & Specifications | ScaleOnIt Ecosystem',
-    description: 'Explore all connected capabilities of the ScaleOnIt platform architecture, bridging discovery, engineering, quality, delivery, and support.',
-    canonicalUrl: `${BASE_URL}/platform`,
+    title: 'ScaleOnIt Ecosystem | The Connected Operating Platform for IT Services',
+    description: 'Explore ScaleOnIt’s six connected systems — GROW, DISCOVER, DELIVER, PEOPLE, FINANCIALS, and SERVE — operating on a single continuous context graph.',
+    canonicalUrl: `${BASE_URL}/ecosystem`,
+  },
+  '/platform/grow': {
+    title: 'GROW | Business Acquisition & Presales Intelligence | ScaleOnIt',
+    description: 'Evaluate technical RFPs, model accurate project effort, and convert proposals into profitable delivery plans.',
+    canonicalUrl: `${BASE_URL}/platform/grow`,
   },
   '/platform/discover': {
     title: 'DISCOVER | Requirements & Solution Definition | ScaleOnIt',
     description: 'Turn stakeholder conversations into structured BRDs, user stories, and delivery baselines with requirements intelligence.',
     canonicalUrl: `${BASE_URL}/platform/discover`,
+  },
+  '/platform/people': {
+    title: 'PEOPLE | Engineering Workforce & Skill Allocation | ScaleOnIt',
+    description: 'Manage human and AI engineering talent with live competency graphs, dynamic sprint staffing, and bench minimization.',
+    canonicalUrl: `${BASE_URL}/platform/people`,
+  },
+  '/platform/financials': {
+    title: 'FINANCIALS | Commercial Margins & Automated Billing | ScaleOnIt',
+    description: 'Connect software execution to commercial profitability with real-time project margins, cost-per-feature, and milestone billing.',
+    canonicalUrl: `${BASE_URL}/platform/financials`,
   },
   '/platform/engineer': {
     title: 'ENGINEER | Architecture & Code Intelligence | ScaleOnIt',

@@ -41,10 +41,10 @@ export default function SixSystemsSection({ onNavigate }: SixSystemsSectionProps
                 onClick={() => setSelectedId(system.id)}
                 className={`p-6 rounded-2xl border transition-all duration-150 cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'border-[#FF5500] bg-orange-50/30 shadow-[3px_3px_0px_0px_#FF5500]'
+                    ? 'border-[#FF5500] bg-orange-50/70 shadow-[3px_3px_0px_0px_#FF5500] backdrop-blur-xs'
                     : isDeliver
-                    ? 'border-orange-200 bg-white shadow-2xs hover:border-[#FF5500]'
-                    : 'border-slate-200 bg-white shadow-2xs hover:border-slate-400'
+                    ? 'border-orange-200 bg-white/90 backdrop-blur-xs shadow-2xs hover:border-[#FF5500] hover:bg-white'
+                    : 'border-slate-200 bg-white/90 backdrop-blur-xs shadow-2xs hover:border-slate-400 hover:bg-white'
                 }`}
               >
                 <div>
@@ -55,7 +55,7 @@ export default function SixSystemsSection({ onNavigate }: SixSystemsSectionProps
                         Powered today by ONIT
                       </span>
                     ) : (
-                      <span className="font-mono text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
+                      <span className="font-mono text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100/80 text-slate-600 border border-slate-200">
                         Roadmap
                       </span>
                     )}
@@ -80,7 +80,7 @@ export default function SixSystemsSection({ onNavigate }: SixSystemsSectionProps
         </div>
 
         {/* Selected System Detail Bento Panel */}
-        <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-[3px_3px_0px_0px_#0F172A]">
+        <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-6 sm:p-8 shadow-[3px_3px_0px_0px_#0F172A]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">

@@ -50,7 +50,7 @@ export default function EcosystemRoadmapSection() {
         {/* Available Today vs Building Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-5xl mx-auto">
           {/* AVAILABLE TODAY (DELIVER / ONIT) */}
-          <div className="lg:col-span-5 p-7 rounded-2xl bg-white border-2 border-[#FF5500] shadow-[3px_3px_0px_0px_#FF5500] flex flex-col justify-between">
+          <div className="lg:col-span-5 p-7 rounded-2xl bg-white/95 backdrop-blur-md border-2 border-[#FF5500] shadow-[3px_3px_0px_0px_#FF5500] flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4">
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#FF5500] bg-orange-50 px-3 py-1 rounded-md border border-orange-200">
@@ -78,7 +78,7 @@ export default function EcosystemRoadmapSection() {
           </div>
 
           {/* BUILDING THE ECOSYSTEM (5 Systems) */}
-          <div className="lg:col-span-7 p-7 rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between">
+          <div className="lg:col-span-7 p-7 rounded-2xl bg-white/90 backdrop-blur-xs border border-slate-200/90 shadow-2xs flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-100">
                 <span className="font-mono text-xs font-bold uppercase tracking-wider text-slate-500">
@@ -93,7 +93,7 @@ export default function EcosystemRoadmapSection() {
                 {roadmapItems.map((item) => (
                   <div
                     key={item.name}
-                    className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between gap-3 text-xs"
+                    className="p-3 bg-slate-50/80 rounded-xl border border-slate-200/80 flex items-center justify-between gap-3 text-xs hover:bg-white hover:border-slate-300 transition-all"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <span className="text-base shrink-0">{item.icon}</span>

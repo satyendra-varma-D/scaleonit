@@ -28,35 +28,35 @@ export default function PlatformHubPage({ onNavigate }: PlatformHubPageProps) {
       ctaButtonText="Talk to Us"
     >
       {/* What is the ONIT Platform Section */}
-      <section className="py-16 bg-white border-b border-border-base">
+      <section className="py-16 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-onit bg-onit-light border border-blue-200 px-3 py-1 rounded-full inline-block mb-4">
+              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3 py-1 rounded-md inline-block mb-4 shadow-xs">
                 Architecture Philosophy
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-midnight tracking-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
                 Not a suite of isolated SaaS tools. One continuous operating system.
               </h2>
-              <p className="text-sm sm:text-base text-mid-text leading-relaxed mb-4">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed mb-4 font-normal">
                 Traditional software organizations run on fragmented point solutions — CRM, Jira, Figma, GitHub, CI/CD, and ticketing tools. Critical business context is lost at every handoff between teams.
               </p>
-              <p className="text-sm sm:text-base text-mid-text leading-relaxed">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 ONIT acts as the connective nervous system. When a client requirement changes in Discovery, downstream architecture specifications, user stories, automated test cases, and deployment records update synchronously with full human oversight.
               </p>
             </div>
 
-            <div className="p-8 rounded-2xl bg-pearl border border-border-base shadow-xs">
-              <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4">
+            <div className="p-8 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[3px_3px_0px_0px_#0F172A]">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-4 font-mono">
                 The 11 Operating Pillars
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {capabilities.map((c) => (
-                  <div key={c.id} className="p-3 rounded-xl bg-white border border-border-base flex items-center gap-2.5">
+                  <div key={c.id} className="p-3 rounded-xl bg-orange-50/50 border border-orange-200/60 flex items-center gap-2.5">
                     <span className="text-lg" aria-hidden="true">{c.icon}</span>
                     <div>
-                      <div className="text-xs font-bold text-midnight">{c.name}</div>
-                      <div className="text-[10px] text-mid-text truncate max-w-[90px]">
+                      <div className="text-xs font-bold text-slate-900">{c.name}</div>
+                      <div className="text-[10px] text-slate-500 truncate max-w-[90px]">
                         {c.hasDedicatedPage ? 'Dedicated Page' : 'Platform Hub'}
                       </div>
                     </div>
@@ -69,7 +69,7 @@ export default function PlatformHubPage({ onNavigate }: PlatformHubPageProps) {
       </section>
 
       {/* Interactive Capability Explorer */}
-      <section className="py-20 bg-pearl" id="all-capabilities">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden" id="all-capabilities">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-midnight tracking-tight mb-3">
@@ -216,34 +216,34 @@ export default function PlatformHubPage({ onNavigate }: PlatformHubPageProps) {
       </section>
 
       {/* Cross-Platform Lifecycle Pipeline */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-cyan-600 bg-cyan-50 border border-cyan-200 px-3 py-1 rounded-full inline-block mb-4">
+          <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md inline-block mb-4 shadow-xs">
             Contextual Continuity
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-midnight tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-4">
             Information flows continuously without manual re-entry
           </h2>
-          <p className="text-sm sm:text-base text-mid-text max-w-2xl mx-auto mb-12">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mb-12 font-normal">
             Every decision made in DISCOVER directly informs the architecture in ENGINEER, the automated tests in QUALITY, the sprint plans in DELIVER, and the incident logs in SERVE.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
-            <div className="p-5 rounded-xl border border-border-base bg-pearl">
-              <div className="text-xs font-bold text-onit mb-1">01. Discovery → Requirements</div>
-              <p className="text-xs text-mid-text">Stakeholder meeting transcripts automatically synthesize into structured BRDs and user stories with acceptance criteria.</p>
+            <div className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] transition-all">
+              <div className="text-xs font-bold text-[#FF5500] mb-1 font-mono">01. Discovery → Requirements</div>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed">Stakeholder meeting transcripts automatically synthesize into structured BRDs and user stories with acceptance criteria.</p>
             </div>
-            <div className="p-5 rounded-xl border border-border-base bg-pearl">
-              <div className="text-xs font-bold text-ai-violet mb-1">02. Requirements → Architecture</div>
-              <p className="text-xs text-mid-text">Approved user stories feed into AI Solution Architect to generate API schemas, component diagrams, and technical baselines.</p>
+            <div className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] transition-all">
+              <div className="text-xs font-bold text-slate-900 mb-1 font-mono">02. Requirements → Architecture</div>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed">Approved user stories feed into AI Solution Architect to generate API schemas, component diagrams, and technical baselines.</p>
             </div>
-            <div className="p-5 rounded-xl border border-border-base bg-pearl">
-              <div className="text-xs font-bold text-data-cyan mb-1">03. Code → Quality Gates</div>
-              <p className="text-xs text-mid-text">Code changes trigger automated test suites synthesized from acceptance criteria before deployment gate approval.</p>
+            <div className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] transition-all">
+              <div className="text-xs font-bold text-[#FF5500] mb-1 font-mono">03. Code → Quality Gates</div>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed">Code changes trigger automated test suites synthesized from acceptance criteria before deployment gate approval.</p>
             </div>
-            <div className="p-5 rounded-xl border border-border-base bg-pearl">
-              <div className="text-xs font-bold text-emerald-600 mb-1">04. Support → Engineering Loop</div>
-              <p className="text-xs text-mid-text">Customer incidents in SERVE trace directly back to the commit, PR, and original requirement for rapid remediation.</p>
+            <div className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] transition-all">
+              <div className="text-xs font-bold text-emerald-700 mb-1 font-mono">04. Support → Engineering Loop</div>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed">Customer incidents in SERVE trace directly back to the commit, PR, and original requirement for rapid remediation.</p>
             </div>
           </div>
         </div>

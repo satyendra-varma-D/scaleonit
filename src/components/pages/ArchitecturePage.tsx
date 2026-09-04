@@ -29,7 +29,7 @@ export default function ArchitecturePage({ onNavigate }: ArchitecturePageProps) 
       ctaButtonText="Book Architecture Deep Dive"
     >
       {/* 01. The 7-Layer Interactive System Diagram */}
-      <section className="py-20 bg-white border-b border-slate-200" id="layers">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden" id="layers">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14 max-w-3xl mx-auto">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">

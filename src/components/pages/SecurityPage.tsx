@@ -23,7 +23,7 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
       ctaButtonText="Book Security Consultation"
     >
       {/* 01. The 7 Security & Governance Pillars */}
-      <section className="py-20 bg-white border-b border-slate-200">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14 max-w-3xl mx-auto">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">
@@ -32,7 +32,7 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
               The 8 Pillars of Governed Autonomy
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
               AI workers operate strictly within defined organizational policies rather than executing arbitrary unmonitored code.
             </p>
           </div>
@@ -48,10 +48,10 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
               { icon: '⚡', title: 'Pre-Execution Guardrails', desc: 'Static analysis and secret scanning intercept unsafe actions before execution.' },
               { icon: '🔍', title: 'Observability & Telemetry', desc: 'Real-time telemetry measuring agent execution latency, token spend, and error rates.' },
             ].map((p) => (
-              <div key={p.title} className="p-6 rounded-2xl border border-slate-200 bg-slate-50 hover:border-[#FF5500] hover:bg-white hover:shadow-sm transition-all">
+              <div key={p.title} className="p-6 rounded-2xl border border-slate-200 bg-white/95 backdrop-blur-md shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] transition-all">
                 <div className="text-2xl mb-2" aria-hidden="true">{p.icon}</div>
-                <h3 className="text-xs font-bold text-slate-900 mb-1">{p.title}</h3>
-                <p className="text-[11px] text-slate-600 leading-relaxed">{p.desc}</p>
+                <h3 className="text-xs font-bold text-slate-900 mb-1 font-mono">{p.title}</h3>
+                <p className="text-[11px] text-slate-600 leading-relaxed font-medium">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -62,7 +62,7 @@ export default function SecurityPage({ onNavigate }: SecurityPageProps) {
       <GovernanceSection onNavigateToSecurity={() => onNavigate('/demo')} />
 
       {/* 03. Enterprise Trust Model & Deployment Flexibility */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200 text-slate-900">
+      <section className="py-20 bg-transparent border-t border-slate-200/80 text-slate-900 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mb-12">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">

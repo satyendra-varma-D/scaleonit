@@ -84,7 +84,7 @@ export default function AIWorkforcePage({ onNavigate }: AIWorkforcePageProps) {
       ctaButtonText="Book AI Workforce Consultation"
     >
       {/* 01. Generic AI vs. ScaleOnIt AI Workforce */}
-      <section className="py-20 bg-white border-b border-slate-200">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14 max-w-3xl mx-auto">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">
@@ -93,21 +93,21 @@ export default function AIWorkforcePage({ onNavigate }: AIWorkforcePageProps) {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
               Why generic chatbots fail in enterprise software delivery
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
               Standard AI assistants lack persistent organizational memory, cannot access full ecosystem context, and operate without verifiable policy guardrails.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Generic Chatbot Box */}
-            <div className="p-8 sm:p-10 rounded-2xl border border-slate-200 bg-slate-50 shadow-[4px_4px_0px_0px_rgba(15,23,42,0.06)]">
+            <div className="p-8 sm:p-10 rounded-2xl border border-slate-200 bg-white/95 backdrop-blur-md shadow-[3px_3px_0px_0px_#0F172A]">
               <div className="font-mono text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
                 Generic AI Assistant
               </div>
               <h3 className="text-xl font-extrabold text-slate-900 mb-4">
                 Chatbot prompt with isolated context
               </h3>
-              <ul className="space-y-3 text-xs text-slate-600 leading-relaxed">
+              <ul className="space-y-3 text-xs text-slate-600 leading-relaxed font-medium">
                 <li className="flex items-start gap-2.5">
                   <span className="text-slate-400 font-bold font-mono">✕</span>
                   <span><strong>Zero System Context:</strong> Unaware of locked PRDs, recent Git commits, or customer SLAs.</span>
@@ -128,14 +128,14 @@ export default function AIWorkforcePage({ onNavigate }: AIWorkforcePageProps) {
             </div>
 
             {/* ScaleOnIt AI Workforce Box */}
-            <div className="p-8 sm:p-10 rounded-2xl border border-[#FF5500] bg-orange-50/30 shadow-[4px_4px_0px_0px_#FF5500]">
+            <div className="p-8 sm:p-10 rounded-2xl border border-[#FF5500] bg-orange-50/70 backdrop-blur-md shadow-[3px_3px_0px_0px_#FF5500]">
               <div className="font-mono text-xs font-bold uppercase tracking-widest text-[#FF5500] mb-2">
                 ScaleOnIt AI Workforce
               </div>
               <h3 className="text-xl font-extrabold text-slate-900 mb-4">
                 Governed digital workers with full lifecycle context
               </h3>
-              <ul className="space-y-3 text-xs text-slate-900 leading-relaxed">
+              <ul className="space-y-3 text-xs text-slate-900 leading-relaxed font-medium">
                 <li className="flex items-start gap-2.5">
                   <span className="text-[#FF5500] font-bold font-mono">✓</span>
                   <span><strong>Connected Ecosystem Context:</strong> Operates directly on requirements, architecture, code, and test matrices.</span>
@@ -159,7 +159,7 @@ export default function AIWorkforcePage({ onNavigate }: AIWorkforcePageProps) {
       </section>
 
       {/* 02. The Execution Engine Model */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">
@@ -168,7 +168,7 @@ export default function AIWorkforcePage({ onNavigate }: AIWorkforcePageProps) {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
               The 9-Stage AI Execution Architecture
             </h2>
-            <p className="text-sm text-slate-600 max-w-xl mx-auto">
+            <p className="text-sm text-slate-600 max-w-xl mx-auto font-normal">
               How specialized AI workers transition from goal ingestion to policy-verified execution.
             </p>
           </div>
@@ -185,9 +185,9 @@ export default function AIWorkforcePage({ onNavigate }: AIWorkforcePageProps) {
               { num: '08', name: 'APPROVAL', desc: 'Human authorization' },
               { num: '09', name: 'RESULT', desc: 'Logs audit event' },
             ].map((st) => (
-              <div key={st.num} className="p-3.5 rounded-xl bg-white border border-slate-200 text-center shadow-[2px_2px_0px_0px_rgba(15,23,42,0.06)] hover:border-[#FF5500] transition-colors">
+              <div key={st.num} className="p-3.5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-center shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] transition-all">
                 <div className="font-mono text-[10px] font-bold text-[#FF5500] mb-1">{st.num}</div>
-                <div className="text-xs font-extrabold text-slate-900 mb-1">{st.name}</div>
+                <div className="text-xs font-extrabold text-slate-900 mb-1 font-mono">{st.name}</div>
                 <div className="text-[10px] text-slate-500 leading-tight">{st.desc}</div>
               </div>
             ))}
@@ -196,7 +196,7 @@ export default function AIWorkforcePage({ onNavigate }: AIWorkforcePageProps) {
       </section>
 
       {/* 03. Interactive AI Worker Workflow Simulation */}
-      <section className="py-20 bg-white border-b border-slate-200">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mb-10">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-3 shadow-xs">

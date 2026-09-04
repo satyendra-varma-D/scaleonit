@@ -363,7 +363,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
           ================================================== */}
       <section
         id="deliver-workflow"
-        className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+        className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -379,7 +379,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                 Requirements need to be understood. Plans need to be created. Software needs to be built. Changes need to be reviewed. Testing needs to happen. The final product needs to be released.
               </p>
             </div>
-            <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white border border-slate-200 px-4 py-2 rounded-lg shadow-2xs">
+            <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white/95 backdrop-blur-md border border-slate-200 px-4 py-2 rounded-lg shadow-[2px_2px_0px_0px_#0F172A]">
               DELIVER brings these steps into one connected workflow.
             </div>
           </div>
@@ -389,19 +389,19 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             {workflowSteps.map((item) => (
               <div
                 key={item.step}
-                className="p-5 rounded-xl bg-white border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-[#FF5500] transition-colors"
+                className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] flex flex-col justify-between hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs font-black text-[#FF5500]">
+                    <span className="font-mono text-xs font-black text-[#FF5500] bg-orange-50 px-2 py-0.5 rounded border border-orange-200/60">
                       {item.step}
                     </span>
                     <span className="text-xl">{item.icon}</span>
                   </div>
-                  <div className="font-extrabold text-base text-slate-900 mb-1.5">
+                  <div className="font-extrabold text-base text-slate-900 group-hover:text-[#FF5500] transition-colors mb-1.5">
                     {item.name}
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
                     {item.desc}
                   </p>
                 </div>
@@ -416,7 +416,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
           ================================================== */}
       <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+          <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
               THE PROBLEM WE SOLVE
             </div>
@@ -428,16 +428,16 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+              <div className="p-3.5 rounded-lg bg-orange-50/50 border border-orange-200/60 text-xs font-medium text-slate-700 flex items-center gap-2.5">
                 <span className="text-[#FF5500] font-mono font-bold">↳</span> Information gets repeated.
               </div>
-              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+              <div className="p-3.5 rounded-lg bg-orange-50/50 border border-orange-200/60 text-xs font-medium text-slate-700 flex items-center gap-2.5">
                 <span className="text-[#FF5500] font-mono font-bold">↳</span> Requirements get lost.
               </div>
-              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+              <div className="p-3.5 rounded-lg bg-orange-50/50 border border-orange-200/60 text-xs font-medium text-slate-700 flex items-center gap-2.5">
                 <span className="text-[#FF5500] font-mono font-bold">↳</span> Changes take time.
               </div>
-              <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs font-medium text-slate-700 flex items-center gap-2.5">
+              <div className="p-3.5 rounded-lg bg-orange-50/50 border border-orange-200/60 text-xs font-medium text-slate-700 flex items-center gap-2.5">
                 <span className="text-[#FF5500] font-mono font-bold">↳</span> Teams use different tools.
               </div>
             </div>
@@ -447,7 +447,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             </p>
 
             {/* Highlighted statement */}
-            <div className="p-5 rounded-xl bg-orange-50 border border-orange-200 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center font-mono text-xs sm:text-sm font-bold text-slate-900">
+            <div className="p-5 rounded-xl bg-orange-50 border border-orange-200 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center font-mono text-xs sm:text-sm font-bold text-slate-900 shadow-2xs">
               <div>✓ Less back-and-forth.</div>
               <div>✓ Less repeated work.</div>
               <div>✓ More visibility.</div>
@@ -461,7 +461,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
           ================================================== */}
       <section
         id="deliver-capabilities"
-        className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+        className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden"
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-14">
@@ -480,19 +480,19 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             {capabilities.map((item) => (
               <GlowCard
                 key={item.num}
-                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-[#FF5500] transition-colors flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl" aria-hidden="true">{item.icon}</span>
-                    <span className="font-mono text-xs font-bold text-[#FF5500]">
+                    <span className="text-2xl p-2 rounded-xl bg-orange-50/80 border border-orange-200/60" aria-hidden="true">{item.icon}</span>
+                    <span className="font-mono text-xs font-bold text-[#FF5500] bg-orange-50 px-2 py-0.5 rounded border border-orange-200/60">
                       {item.num}
                     </span>
                   </div>
-                  <h3 className="text-lg font-extrabold text-slate-900 mb-2">
+                  <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-[#FF5500] transition-colors mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
                     {item.desc}
                   </p>
                 </div>
@@ -525,15 +525,15 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
               {visualFlow.map((step) => (
                 <div
                   key={step.num}
-                  className="p-5 rounded-xl bg-white border border-slate-200 shadow-2xs relative"
+                  className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all group relative"
                 >
-                  <div className="font-mono text-xs font-black text-[#FF5500] mb-1">
+                  <div className="font-mono text-xs font-black text-[#FF5500] mb-1 bg-orange-50 px-2 py-0.5 rounded w-fit border border-orange-200/60">
                     Step {step.num}
                   </div>
-                  <div className="font-extrabold text-sm text-slate-900 mb-1">
+                  <div className="font-extrabold text-sm text-slate-900 group-hover:text-[#FF5500] transition-colors mb-1">
                     {step.title}
                   </div>
-                  <p className="text-xs text-slate-600 leading-snug">
+                  <p className="text-xs text-slate-600 leading-snug font-medium">
                     {step.desc}
                   </p>
                 </div>
@@ -546,9 +546,9 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
       {/* ==================================================
           SECTION 6 — ONIT (POWERED BY ONIT)
           ================================================== */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+          <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
               THE TECHNOLOGY BEHIND DELIVER
             </div>
@@ -562,7 +562,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
               It helps automate and support the work involved in software delivery — from understanding requirements and building applications to testing and release.
             </p>
 
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
+            <div className="p-5 rounded-xl bg-orange-50/70 border border-orange-200 font-mono text-xs sm:text-sm text-slate-900 leading-relaxed font-semibold shadow-2xs">
               ONIT helps the team do more of the repetitive work automatically while keeping people involved where decisions matter.
             </div>
           </div>
@@ -586,7 +586,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                 DELIVER gives teams a working view of the software delivery process — from requirements and development to testing and release.
               </p>
 
-              <div className="pt-2 space-y-2 font-mono text-xs text-slate-600">
+              <div className="pt-2 space-y-2 font-mono text-xs text-slate-700 font-medium">
                 <div className="flex items-center gap-2">
                   <span className="text-[#FF5500] font-bold">✓</span> Real-time progress across all delivery steps
                 </div>
@@ -600,10 +600,10 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             </div>
 
             {/* Real Product Simulation Terminal */}
-            <div className="lg:col-span-7 bg-[#0D1117] text-white rounded-2xl border border-slate-800 p-6 shadow-2xl font-mono text-xs">
+            <div className="lg:col-span-7 bg-[#0D1117] text-white rounded-3xl border border-slate-800 p-6 shadow-2xl font-mono text-xs ring-1 ring-orange-500/20">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-slate-400 mb-4">
                 <span className="flex items-center gap-2 font-bold text-white">
-                  <span className="h-2 w-2 rounded-full bg-[#FF5500] inline-block" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5500] inline-block animate-pulse" />
                   ScaleOnIt DELIVER · Pipeline Monitor
                 </span>
                 <span className="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/30">
@@ -620,7 +620,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                     onClick={() => setActiveSimTab(idx)}
                     className={`py-1.5 px-2 text-[10px] font-bold rounded-lg transition-all text-center cursor-pointer ${
                       activeSimTab === idx
-                        ? 'bg-[#FF5500] text-white'
+                        ? 'bg-[#FF5500] text-white shadow-xs'
                         : 'text-slate-400 hover:text-white hover:bg-slate-800'
                     }`}
                   >
@@ -662,7 +662,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
       {/* ==================================================
           SECTION 8 — GOVERNANCE / CONTROL
           ================================================== */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
@@ -686,7 +686,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             ].map((item) => (
               <div
                 key={item.label}
-                className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs text-center flex flex-col justify-between"
+                className="p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all text-center flex flex-col justify-between"
               >
                 <div className="font-mono text-xs font-bold text-[#FF5500] mb-1">
                   ✓
@@ -694,7 +694,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                 <div className="font-extrabold text-sm text-slate-900 mb-1">
                   {item.label}
                 </div>
-                <div className="text-[11px] text-slate-500">
+                <div className="text-[11px] text-slate-500 font-medium">
                   {item.desc}
                 </div>
               </div>
@@ -724,13 +724,13 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             {targetAudiences.map((aud) => (
               <div
                 key={aud.title}
-                className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-slate-400 transition-colors"
+                className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all group"
               >
-                <span className="text-2xl mb-3 block">{aud.icon}</span>
-                <h3 className="font-extrabold text-base text-slate-900 mb-1.5">
+                <span className="text-2xl mb-3 p-2 rounded-xl bg-orange-50/80 border border-orange-200/60 inline-block">{aud.icon}</span>
+                <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#FF5500] transition-colors mb-1.5">
                   {aud.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">
                   {aud.desc}
                 </p>
               </div>
@@ -742,7 +742,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
       {/* ==================================================
           SECTION 10 — SCALEONIT ECOSYSTEM CONNECTION
           ================================================== */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
@@ -764,10 +764,10 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             {ecosystemSystems.map((sys) => (
               <div
                 key={sys.name}
-                className={`p-4 rounded-xl border flex items-start justify-between gap-3 ${
+                className={`p-4 rounded-2xl border transition-all flex items-start justify-between gap-3 ${
                   sys.active
-                    ? 'bg-white border-[#FF5500] shadow-[2px_2px_0px_0px_#FF5500]'
-                    : 'bg-white border-slate-200'
+                    ? 'bg-white/95 backdrop-blur-md border-[#FF5500] shadow-[3px_3px_0px_0px_#FF5500]'
+                    : 'bg-white/95 backdrop-blur-md border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-slate-400'
                 }`}
               >
                 <div>
@@ -775,7 +775,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                     <span className="text-base">{sys.icon}</span>
                     <span className="font-extrabold text-sm text-slate-900">{sys.name}</span>
                   </div>
-                  <p className="text-xs text-slate-600 leading-snug">
+                  <p className="text-xs text-slate-600 leading-snug font-medium">
                     {sys.job}
                   </p>
                 </div>
@@ -783,7 +783,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
                   className={`font-mono text-[9px] font-bold uppercase px-2 py-0.5 rounded shrink-0 ${
                     sys.active
                       ? 'bg-[#FF5500] text-white'
-                      : 'bg-slate-100 text-slate-500'
+                      : 'bg-slate-100 text-slate-600 border border-slate-200'
                   }`}
                 >
                   {sys.status}
@@ -793,7 +793,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
           </div>
 
           {/* Connection note */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200 text-center font-mono text-xs sm:text-sm font-bold text-slate-800 shadow-2xs">
+          <div className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 text-center font-mono text-xs sm:text-sm font-bold text-slate-900 shadow-[3px_3px_0px_0px_#0F172A]">
             DELIVER is available today. The other systems are being built as part of the wider ScaleOnIt ecosystem.
           </div>
         </div>
@@ -804,7 +804,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
           ================================================== */}
       <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+          <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
               WHY CONNECTED SYSTEMS
             </div>
@@ -814,14 +814,14 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             <p className="text-base text-slate-700 leading-relaxed mb-4 font-normal">
               Software delivery does not happen by itself.
             </p>
-            <div className="space-y-1.5 text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed">
+            <div className="space-y-1.5 text-xs sm:text-sm text-slate-600 mb-6 leading-relaxed font-medium">
               <div>• It starts with a customer.</div>
               <div>• It involves requirements, people and projects.</div>
               <div>• It needs financial tracking.</div>
               <div>• And after delivery, the customer still needs support.</div>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-800 leading-relaxed font-semibold mb-6">
+            <p className="text-sm sm:text-base text-slate-900 leading-relaxed font-semibold mb-6">
               ScaleOnIt is being built to connect these parts of the business. DELIVER is where that journey starts today.
             </p>
 
@@ -840,7 +840,7 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
           ================================================== */}
       <section
         id="deliver-faq"
-        className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+        className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden"
       >
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
@@ -855,30 +855,34 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-3.5">
             {faqs.map((faq, idx) => {
               const isOpen = openFaq === idx
 
               return (
                 <div
                   key={idx}
-                  className="rounded-xl bg-white border border-slate-200 shadow-2xs overflow-hidden transition-all"
+                  className={`rounded-2xl bg-white/95 backdrop-blur-md border transition-all ${
+                    isOpen
+                      ? 'border-[#FF5500] shadow-[3px_3px_0px_0px_#FF5500]'
+                      : 'border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-slate-400'
+                  }`}
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-orange-50/30 transition-colors"
                     aria-expanded={isOpen}
                   >
                     <span className="font-extrabold text-base text-slate-900">
                       {faq.q}
                     </span>
-                    <span className="font-mono text-base font-bold text-[#FF5500] shrink-0">
+                    <span className="font-mono text-base font-bold text-[#FF5500] w-7 h-7 rounded-lg bg-orange-50 border border-orange-200/80 flex items-center justify-center shrink-0">
                       {isOpen ? '−' : '+'}
                     </span>
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                    <div className="px-5 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 font-medium">
                       {faq.a}
                     </div>
                   )}
@@ -892,9 +896,9 @@ export default function DeliverPage({ onNavigate }: DeliverPageProps) {
       {/* ==================================================
           SECTION 13 — FINAL CTA
           ================================================== */}
-      <section className="py-20 bg-white text-slate-900 relative overflow-hidden">
+      <section className="py-20 bg-transparent text-slate-900 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-8 sm:p-14 shadow-2xl space-y-6">
+          <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-8 sm:p-14 shadow-2xl space-y-6 relative overflow-hidden ring-1 ring-orange-500/20">
             <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-500/10 border border-orange-500/30 px-3.5 py-1.5 rounded-md">
               <span>GET STARTED</span>
             </div>

@@ -69,15 +69,15 @@ export default function DeliverOnitSection({ onNavigate }: DeliverOnitSectionPro
             {steps.map((step) => (
               <div
                 key={step.num}
-                className="p-5 rounded-xl bg-white border border-slate-200 shadow-2xs hover:border-[#FF5500] transition-colors"
+                className="p-5 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all group"
               >
-                <div className="font-mono text-xs font-black text-[#FF5500] mb-2">
+                <div className="font-mono text-xs font-black text-[#FF5500] mb-2 bg-orange-50 px-2 py-0.5 rounded w-fit border border-orange-200/60">
                   Step {step.num}
                 </div>
-                <div className="font-extrabold text-lg text-slate-900 mb-1">
+                <div className="font-extrabold text-lg text-slate-900 group-hover:text-[#FF5500] transition-colors mb-1">
                   {step.name}
                 </div>
-                <p className="text-xs text-slate-600 leading-snug">
+                <p className="text-xs text-slate-600 leading-snug font-medium">
                   {step.desc}
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function DeliverOnitSection({ onNavigate }: DeliverOnitSectionPro
         </div>
 
         {/* Deliver Showcase & Callout Card */}
-        <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 max-w-5xl mx-auto shadow-[3px_3px_0px_0px_#0F172A]">
+        <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-6 sm:p-8 max-w-5xl mx-auto shadow-[3px_3px_0px_0px_#0F172A]">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
             <div>
               <div className="flex items-center gap-2 mb-1">

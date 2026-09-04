@@ -50,12 +50,12 @@ export default function EcosystemFlowSection() {
     <section
       id="ecosystem-flow"
       aria-label="How the Ecosystem Connects"
-      className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+      className="py-20 bg-transparent relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50/90 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
             HOW THE ECOSYSTEM CONNECTS
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
@@ -64,7 +64,7 @@ export default function EcosystemFlowSection() {
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-4">
             The information stays connected as the work moves forward.
           </p>
-          <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white border border-slate-200 px-4 py-2 rounded-lg shadow-2xs">
+          <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white/90 backdrop-blur-xs border border-slate-200 px-4 py-2 rounded-lg shadow-2xs">
             Less repeated work. Fewer disconnected handoffs.
           </div>
         </div>
@@ -75,33 +75,33 @@ export default function EcosystemFlowSection() {
             Primary Work Journey
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {mainFlow.map((item, index) => (
+            {mainFlow.map((item) => (
               <div
                 key={item.system}
-                className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs relative flex flex-col justify-between"
+                className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] relative flex flex-col justify-between hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="font-mono text-xs font-black text-[#FF5500]">
+                    <span className="font-mono text-xs font-black text-[#FF5500] bg-orange-50 px-2 py-0.5 rounded border border-orange-200/60">
                       {item.step}
                     </span>
                     <span className="text-xl">{item.icon}</span>
                   </div>
 
-                  <div className="font-extrabold text-lg text-slate-900 mb-1">
+                  <div className="font-extrabold text-lg text-slate-900 group-hover:text-[#FF5500] transition-colors mb-1">
                     {item.system}
                   </div>
                   <div className="text-xs font-bold text-[#FF5500] mb-2">
                     {item.title}
                   </div>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </div>
 
                 {item.badge && (
                   <div className="mt-4 pt-3 border-t border-slate-100">
-                    <span className="font-mono text-[10px] font-bold text-[#FF5500] bg-orange-50 px-2 py-0.5 rounded border border-orange-200 block text-center">
+                    <span className="font-mono text-[10px] font-bold text-white bg-[#FF5500] px-2.5 py-1 rounded-md shadow-2xs block text-center">
                       {item.badge}
                     </span>
                   </div>
@@ -120,14 +120,14 @@ export default function EcosystemFlowSection() {
             {supportingSystems.map((item) => (
               <div
                 key={item.system}
-                className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-4"
+                className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] flex items-start gap-4 hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all"
               >
-                <span className="text-2xl">{item.icon}</span>
+                <span className="text-2xl p-2 rounded-xl bg-orange-50/80 border border-orange-200/60">{item.icon}</span>
                 <div>
                   <div className="font-extrabold text-base text-slate-900">
                     {item.system} — <span className="text-xs font-normal text-slate-600">{item.title}</span>
                   </div>
-                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed font-medium">
                     {item.description}
                   </p>
                 </div>

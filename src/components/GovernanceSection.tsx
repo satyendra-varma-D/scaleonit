@@ -21,7 +21,7 @@ export default function GovernanceSection({ onNavigateToSecurity }: GovernanceSe
   const reset = () => setDecision('pending')
 
   return (
-    <section id="governance" className="py-24 bg-white border-b border-slate-200">
+    <section id="governance" className="py-24 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Copy */}

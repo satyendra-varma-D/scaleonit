@@ -27,7 +27,7 @@ export const primaryNavigation: NavItem[] = [
   },
   {
     label: 'Ecosystem',
-    path: '/#six-systems',
+    path: '/ecosystem',
     hasDropdown: true,
   },
   {
@@ -51,9 +51,9 @@ export const ecosystemProducts: ProductItem[] = [
     tagline: 'Business acquisition, sales and CRM',
     description: 'Find and manage new business opportunities.',
     icon: '🌱',
-    status: 'coming_soon',
+    status: 'building',
     statusLabel: 'Roadmap',
-    path: '/#six-systems',
+    path: '/platform/grow',
   },
   {
     id: 'discover',
@@ -86,9 +86,9 @@ export const ecosystemProducts: ProductItem[] = [
     tagline: 'Workforce and resource management',
     description: 'Manage teams, roles and workforce needs.',
     icon: '👥',
-    status: 'coming_soon',
+    status: 'building',
     statusLabel: 'Roadmap',
-    path: '/#six-systems',
+    path: '/platform/people',
   },
   {
     id: 'financials',
@@ -96,9 +96,9 @@ export const ecosystemProducts: ProductItem[] = [
     tagline: 'Commercial and project financial management',
     description: 'Manage billing, payments and project finances.',
     icon: '📊',
-    status: 'coming_soon',
+    status: 'building',
     statusLabel: 'Roadmap',
-    path: '/#six-systems',
+    path: '/platform/financials',
   },
   {
     id: 'serve',

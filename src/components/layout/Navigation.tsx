@@ -123,6 +123,7 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
                 : currentPath.startsWith(item.path) && item.path !== '/'
 
             if (item.hasDropdown) {
+              const isEcosystemActive = currentPath === '/ecosystem' || currentPath.startsWith('/platform')
               return (
                 <div
                   key={item.label}
@@ -131,12 +132,19 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
                   onMouseLeave={handleMouseLeave}
                 >
                   <button
-                    onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
+                    onClick={(e) => {
+                      if (productsDropdownOpen) {
+                        handleLinkClick(e, '/ecosystem')
+                      } else {
+                        setProductsDropdownOpen(true)
+                      }
+                    }}
+                    onDoubleClick={(e) => handleLinkClick(e, '/ecosystem')}
                     aria-expanded={productsDropdownOpen}
                     aria-haspopup="true"
                     aria-label="Products ecosystem menu"
                     className={`font-mono text-xs uppercase tracking-wider font-bold transition-colors duration-150 flex items-center gap-1.5 py-2 cursor-pointer focus-visible:outline-none ${
-                      productsDropdownOpen || currentPath.includes('/platform')
+                      productsDropdownOpen || isEcosystemActive
                         ? 'text-[#FF5500]'
                         : 'text-slate-700 hover:text-[#FF5500]'
                     }`}
@@ -172,16 +180,22 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
                       {/* Mega Menu Top Header */}
                       <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
                         <div>
-                          <div className="font-mono text-[11px] font-bold tracking-[0.2em] uppercase text-[#FF5500]">
-                            SYSTEMS CATALOGUE
-                          </div>
+                          <button
+                            onClick={(e) => handleLinkClick(e, '/ecosystem')}
+                            className="font-mono text-[11px] font-bold tracking-[0.2em] uppercase text-[#FF5500] hover:underline cursor-pointer text-left block"
+                          >
+                            SYSTEMS CATALOGUE →
+                          </button>
                           <div className="text-xs text-slate-500 font-medium mt-0.5">
                             Six purpose-built engines. One unified operating context.
                           </div>
                         </div>
-                        <span className="font-mono text-[10px] font-bold uppercase tracking-wider bg-orange-50 text-[#FF5500] border border-orange-200 px-2.5 py-1 rounded-md">
-                          ScaleOnIt Matrix
-                        </span>
+                        <button
+                          onClick={(e) => handleLinkClick(e, '/ecosystem')}
+                          className="font-mono text-[10px] font-bold uppercase tracking-wider bg-orange-50 text-[#FF5500] border border-orange-200 hover:border-[#FF5500] px-2.5 py-1 rounded-md cursor-pointer transition-colors"
+                        >
+                          View Ecosystem Page →
+                        </button>
                       </div>
 
                       {/* 2-Column Grid of the 6 Products */}
@@ -272,15 +286,13 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
           })}
         </div>
 
-        {/* RIGHT: Explore DELIVER → Primary CTA */}
+        {/* RIGHT: What else we are building - informational badge with no action */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={(e) => handleLinkClick(e, '/platform/deliver')}
-            className="px-5 py-2.5 rounded-lg bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono text-xs font-bold uppercase tracking-wider shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-150 cursor-pointer flex items-center gap-1.5"
+          <div
+            className="px-4 py-2 rounded-lg bg-orange-50 border border-orange-200 text-[#FF5500] font-mono text-xs font-bold uppercase tracking-wider shadow-xs select-none"
           >
-            <span>Explore DELIVER</span>
-            <span className="text-sm">→</span>
-          </button>
+            What else we are building
+          </div>
         </div>
 
         {/* Mobile Hamburger Toggle */}
@@ -339,7 +351,14 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
 
             {mobileProductsOpen && (
               <div className="pl-3 pr-1 pt-3 space-y-2">
-                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400 px-2">
+                <button
+                  onClick={(e) => handleLinkClick(e, '/ecosystem')}
+                  className="w-full text-left p-2.5 rounded-lg bg-orange-50 border border-orange-200 text-[#FF5500] font-mono text-xs font-bold uppercase flex items-center justify-between"
+                >
+                  <span>Explore Full Ecosystem Page</span>
+                  <span>→</span>
+                </button>
+                <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-400 px-2 pt-1">
                   Six Purpose-Built Systems
                 </div>
                 {ecosystemProducts.map((prod) => {
@@ -395,14 +414,13 @@ export default function Navigation({ currentPath, onNavigate }: NavigationProps)
             Contact Us
           </button>
 
-          {/* Mobile CTA */}
+          {/* Mobile CTA - informational badge with no action */}
           <div className="pt-4">
-            <button
-              onClick={(e) => handleLinkClick(e, '/platform/deliver')}
-              className="w-full font-mono text-sm font-bold uppercase text-center bg-[#FF5500] text-white py-3.5 rounded-lg shadow-md shadow-orange-500/25 cursor-pointer"
+            <div
+              className="w-full font-mono text-xs font-bold uppercase text-center bg-orange-50 border border-orange-200 text-[#FF5500] py-3 rounded-lg shadow-xs select-none"
             >
-              Explore DELIVER →
-            </button>
+              What else we are building
+            </div>
           </div>
         </div>
       </div>

@@ -43,7 +43,7 @@ interface IntelligenceSectionProps {
 
 export default function IntelligenceSection({ onNavigateToIntelligence }: IntelligenceSectionProps = {}) {
   return (
-    <section id="intelligence" className="py-24 bg-white border-t border-slate-200">
+    <section id="intelligence" className="py-24 bg-transparent border-t border-slate-200/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] mb-6 border border-orange-200 bg-orange-50 px-4 py-1.5 rounded-md shadow-xs">

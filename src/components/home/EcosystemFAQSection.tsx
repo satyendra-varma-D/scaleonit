@@ -42,12 +42,12 @@ export default function EcosystemFAQSection() {
     <section
       id="faq"
       aria-label="Frequently Asked Questions about ScaleOnIt"
-      className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+      className="py-20 bg-transparent relative overflow-hidden"
     >
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50/90 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
             FREQUENTLY ASKED QUESTIONS
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
@@ -59,30 +59,34 @@ export default function EcosystemFAQSection() {
         </div>
 
         {/* Accordion List */}
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx
 
             return (
               <div
                 key={idx}
-                className="rounded-xl bg-white border border-slate-200 shadow-2xs overflow-hidden transition-all"
+                className={`rounded-2xl bg-white/95 backdrop-blur-md border transition-all ${
+                  isOpen
+                    ? 'border-[#FF5500] shadow-[3px_3px_0px_0px_#FF5500]'
+                    : 'border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-slate-400'
+                }`}
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
+                  className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-orange-50/30 transition-colors"
                   aria-expanded={isOpen}
                 >
                   <span className="font-extrabold text-base text-slate-900">
                     {faq.q}
                   </span>
-                  <span className="font-mono text-base font-bold text-[#FF5500] shrink-0">
+                  <span className="font-mono text-base font-bold text-[#FF5500] w-7 h-7 rounded-lg bg-orange-50 border border-orange-200/80 flex items-center justify-center shrink-0">
                     {isOpen ? '−' : '+'}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white">
+                  <div className="px-5 pb-5 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100 font-medium">
                     {faq.a}
                   </div>
                 )}

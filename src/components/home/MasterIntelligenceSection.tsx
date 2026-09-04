@@ -26,12 +26,12 @@ export default function MasterIntelligenceSection() {
     <section
       id="intelligence"
       aria-label="How AI Helps in ScaleOnIt"
-      className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+      className="py-20 bg-transparent relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
+          <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50/90 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
             ARTIFICIAL INTELLIGENCE
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
@@ -40,7 +40,7 @@ export default function MasterIntelligenceSection() {
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mb-4">
             AI is built into the platform where it can save time and reduce repetitive work. It can help teams understand requirements, create software, test applications and handle everyday tasks.
           </p>
-          <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white border border-slate-200 px-4 py-2 rounded-lg shadow-2xs">
+          <div className="inline-block font-mono text-sm font-bold text-slate-900 bg-white/90 backdrop-blur-xs border border-slate-200 px-4 py-2 rounded-lg shadow-2xs">
             The goal is not to add AI everywhere. The goal is to remove unnecessary work.
           </div>
         </div>
@@ -50,13 +50,13 @@ export default function MasterIntelligenceSection() {
           {aiRoles.map((role) => (
             <div
               key={role.title}
-              className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-slate-400 transition-colors"
+              className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all group"
             >
-              <span className="text-2xl mb-3 block">{role.icon}</span>
-              <h3 className="font-extrabold text-base text-slate-900 mb-1.5">
+              <span className="text-2xl mb-3 p-2 rounded-xl bg-orange-50/80 border border-orange-200/60 inline-block">{role.icon}</span>
+              <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#FF5500] transition-colors mb-1.5">
                 {role.title}
               </h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 {role.desc}
               </p>
             </div>
@@ -64,7 +64,7 @@ export default function MasterIntelligenceSection() {
         </div>
 
         {/* Honest Grounded Statement */}
-        <div className="p-6 rounded-2xl bg-white border border-slate-200 max-w-3xl mx-auto text-center shadow-sm">
+        <div className="p-6 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 max-w-3xl mx-auto text-center shadow-[3px_3px_0px_0px_#0F172A]">
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
             AI assists your team; human judgment, review, and approvals remain in control of every client agreement and release.
           </p>

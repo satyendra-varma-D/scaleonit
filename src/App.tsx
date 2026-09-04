@@ -8,6 +8,7 @@ import Footer from './components/layout/Footer'
 
 // Pages
 import HomePage from './components/pages/HomePage'
+import EcosystemPage from './components/pages/EcosystemPage'
 import PlatformHubPage from './components/pages/PlatformHubPage'
 import AIWorkforcePage from './components/pages/AIWorkforcePage'
 import ArchitecturePage from './components/pages/ArchitecturePage'
@@ -17,11 +18,14 @@ import CompanyPage from './components/pages/CompanyPage'
 import TalkToUsPage from './components/TalkToUsPage'
 import NotFoundPage from './components/pages/NotFoundPage'
 
-// Dedicated Capability Pages (Phase C)
+// Dedicated Capability Pages (Phase C & 6 Systems)
+import GrowPage from './components/pages/capabilities/GrowPage'
 import DiscoverPage from './components/pages/capabilities/DiscoverPage'
 import EngineerPage from './components/pages/capabilities/EngineerPage'
 import QualityPage from './components/pages/capabilities/QualityPage'
 import DeliverPage from './components/pages/capabilities/DeliverPage'
+import PeoplePage from './components/pages/capabilities/PeoplePage'
+import FinancialsPage from './components/pages/capabilities/FinancialsPage'
 import ServePage from './components/pages/capabilities/ServePage'
 import IntelligencePage from './components/pages/capabilities/IntelligencePage'
 import ConnectPage from './components/pages/capabilities/ConnectPage'
@@ -42,31 +46,48 @@ export default function App() {
       return <HomePage onNavigate={navigate} />
     }
 
-    // 2. Platform Hub
-    if (currentPath === '/platform') {
-      return <PlatformHubPage onNavigate={navigate} />
+    // 2. Dedicated Ecosystem Page (with clean /ecosystem and /platform aliases)
+    if (currentPath === '/ecosystem' || currentPath === '/platform') {
+      return <EcosystemPage onNavigate={navigate} />
     }
 
-    // 3. Dedicated Capability Routes (with clean /deliver alias)
-    if (currentPath === '/platform/discover') {
+    // 3. The 6 Dedicated Ecosystem Systems
+    // System 01: GROW
+    if (currentPath === '/platform/grow' || currentPath === '/grow') {
+      return <GrowPage onNavigate={navigate} />
+    }
+    // System 02: DISCOVER
+    if (currentPath === '/platform/discover' || currentPath === '/discover') {
       return <DiscoverPage onNavigate={navigate} />
     }
-    if (currentPath === '/platform/engineer') {
-      return <EngineerPage onNavigate={navigate} />
-    }
-    if (currentPath === '/platform/quality') {
-      return <QualityPage onNavigate={navigate} />
-    }
+    // System 03: DELIVER
     if (currentPath === '/platform/deliver' || currentPath === '/deliver') {
       return <DeliverPage onNavigate={navigate} />
     }
-    if (currentPath === '/platform/serve') {
+    // System 04: PEOPLE
+    if (currentPath === '/platform/people' || currentPath === '/people') {
+      return <PeoplePage onNavigate={navigate} />
+    }
+    // System 05: FINANCIALS
+    if (currentPath === '/platform/financials' || currentPath === '/financials') {
+      return <FinancialsPage onNavigate={navigate} />
+    }
+    // System 06: SERVE
+    if (currentPath === '/platform/serve' || currentPath === '/serve') {
       return <ServePage onNavigate={navigate} />
     }
-    if (currentPath === '/platform/intelligence') {
+
+    // Additional Specialized Capabilities
+    if (currentPath === '/platform/engineer' || currentPath === '/engineer') {
+      return <EngineerPage onNavigate={navigate} />
+    }
+    if (currentPath === '/platform/quality' || currentPath === '/quality') {
+      return <QualityPage onNavigate={navigate} />
+    }
+    if (currentPath === '/platform/intelligence' || currentPath === '/intelligence') {
       return <IntelligencePage onNavigate={navigate} />
     }
-    if (currentPath === '/platform/connect') {
+    if (currentPath === '/platform/connect' || currentPath === '/connect') {
       return <ConnectPage onNavigate={navigate} />
     }
 

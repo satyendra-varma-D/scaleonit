@@ -9,12 +9,12 @@ export default function Footer({ onNavigate }: FooterProps) {
   }
 
   const ecosystemItems = [
-    { name: 'GROW', desc: 'Business growth', path: '/', anchor: '#six-systems' },
-    { name: 'DISCOVER', desc: 'Requirements', path: '/', anchor: '#six-systems' },
+    { name: 'GROW', desc: 'Business growth', path: '/ecosystem' },
+    { name: 'DISCOVER', desc: 'Requirements', path: '/ecosystem' },
     { name: 'DELIVER', desc: 'Software delivery', path: '/platform/deliver', available: true },
-    { name: 'PEOPLE', desc: 'People & teams', path: '/', anchor: '#six-systems' },
-    { name: 'FINANCIALS', desc: 'Money & margins', path: '/', anchor: '#six-systems' },
-    { name: 'SERVE', desc: 'Customer success', path: '/', anchor: '#six-systems' },
+    { name: 'PEOPLE', desc: 'People & teams', path: '/ecosystem' },
+    { name: 'FINANCIALS', desc: 'Money & margins', path: '/ecosystem' },
+    { name: 'SERVE', desc: 'Customer success', path: '/ecosystem' },
   ]
 
   const productItems = [
@@ -112,12 +112,9 @@ export default function Footer({ onNavigate }: FooterProps) {
                 </a>
               </div>
               <div>
-                <a
-                  href="tel:+919642127012"
-                  className="font-mono text-xs font-bold text-slate-900 hover:text-[#FF5500] transition-colors block"
-                >
-                  +91 9642127012
-                </a>
+                <span className="font-mono text-xs text-slate-700 block">
+                  +91 96421... <span className="text-[#FF5500] font-bold">(Please mail)</span>
+                </span>
               </div>
             </div>
           </div>

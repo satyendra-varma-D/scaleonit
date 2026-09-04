@@ -26,20 +26,21 @@ export default function RoleBenefitsSection() {
           {connectionBenefits.map((b) => (
             <div
               key={b.id}
-              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-[#FF5500] hover:shadow-sm transition-all flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all flex flex-col justify-between group"
             >
               <div>
-                <span className="text-2xl mb-3 block" aria-hidden="true">{b.icon}</span>
-                <h3 className="font-extrabold text-lg text-slate-900 mb-2">
+                <span className="text-2xl mb-3 p-2 rounded-xl bg-orange-50/80 border border-orange-200/60 inline-block" aria-hidden="true">{b.icon}</span>
+                <h3 className="font-extrabold text-lg text-slate-900 group-hover:text-[#FF5500] transition-colors mb-2">
                   {b.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed font-medium">
                   {b.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 font-mono text-[11px] font-bold text-[#FF5500]">
-                ✓ Connected Benefit
+              <div className="mt-4 pt-3 border-t border-slate-100 font-mono text-[11px] font-bold text-[#FF5500] flex items-center justify-between">
+                <span>✓ Connected Benefit</span>
+                <span className="text-xs">→</span>
               </div>
             </div>
           ))}

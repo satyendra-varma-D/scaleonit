@@ -7,10 +7,10 @@ export default function MasterCTA({ onNavigate }: MasterCTAProps) {
     <section
       id="cta"
       aria-label="Bring your business together"
-      className="py-20 bg-white text-slate-900 relative overflow-hidden"
+      className="py-20 bg-transparent text-slate-900 relative overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
-        <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-8 sm:p-14 shadow-2xl space-y-6">
+        <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-8 sm:p-14 shadow-2xl space-y-6 relative overflow-hidden ring-1 ring-orange-500/20">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-500/10 border border-orange-500/30 px-3.5 py-1.5 rounded-md">
             <span>GET STARTED</span>

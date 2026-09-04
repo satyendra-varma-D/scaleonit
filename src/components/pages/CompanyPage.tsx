@@ -5,7 +5,7 @@ interface CompanyPageProps {
 export default function CompanyPage({ onNavigate }: CompanyPageProps) {
   const sixSystems = [
     { name: 'GROW', job: 'Find and manage new business opportunities.', icon: '🌱' },
-    { name: 'DISCOVER', job: 'Understand customer needs and define requirements.', icon: '🔍' },
+    { name: 'DISCOVER', job: 'Turn raw ideas into approved BRDs, FRDs and UI wireframes.', icon: '🔍' },
     { name: 'DELIVER', job: 'Build, test and release software.', icon: '⚡', highlight: true },
     { name: 'PEOPLE', job: 'Manage teams and workforce needs.', icon: '👥' },
     { name: 'FINANCIALS', job: 'Manage billing, payments and project finances.', icon: '📊' },
@@ -94,9 +94,9 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
       {/* ==================================================
           SECTION 2 — OUR BELIEF
           ================================================== */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+          <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
               OUR BELIEF
             </div>
@@ -115,7 +115,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
               </p>
             </div>
 
-            <div className="p-5 rounded-xl bg-orange-50 border border-orange-200 flex flex-wrap items-center justify-around gap-4 text-center font-mono text-sm sm:text-base font-extrabold text-slate-900">
+            <div className="p-5 rounded-xl bg-orange-50/80 border border-orange-200/80 flex flex-wrap items-center justify-around gap-4 text-center font-mono text-sm sm:text-base font-extrabold text-slate-900 shadow-2xs">
               <span>Less talking.</span>
               <span className="text-[#FF5500]">→</span>
               <span>More building.</span>
@@ -153,18 +153,18 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             ].map((item) => (
               <div
                 key={item}
-                className="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs font-bold text-slate-800"
+                className="p-3 bg-white/95 backdrop-blur-md rounded-xl border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all font-bold text-slate-800"
               >
                 {item}
               </div>
             ))}
           </div>
 
-          <div className="rounded-xl bg-slate-50 border border-slate-200 p-6 text-center max-w-2xl mx-auto space-y-2">
-            <p className="text-sm text-slate-600">
+          <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-6 text-center max-w-2xl mx-auto space-y-2 shadow-[2px_2px_0px_0px_#0F172A]">
+            <p className="text-sm text-slate-600 font-medium">
               But these activities often live in separate systems. That creates gaps between people, teams and information.
             </p>
-            <p className="text-sm font-bold text-slate-900 font-mono">
+            <p className="text-sm font-bold text-[#FF5500] font-mono">
               We are building ScaleOnIt to connect those parts.
             </p>
           </div>
@@ -176,7 +176,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
           ================================================== */}
       <section
         id="what-we-build"
-        className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden"
+        className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden"
       >
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -195,19 +195,23 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             {sixSystems.map((sys) => (
               <div
                 key={sys.name}
-                className={`p-5 rounded-xl bg-white border shadow-2xs ${
-                  sys.highlight ? 'border-[#FF5500] ring-1 ring-orange-500/20' : 'border-slate-200'
+                className={`p-5 rounded-2xl bg-white/95 backdrop-blur-md border transition-all flex flex-col justify-between ${
+                  sys.highlight
+                    ? 'border-[#FF5500] shadow-[3px_3px_0px_0px_#FF5500]'
+                    : 'border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-slate-400'
                 }`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-2xl" aria-hidden="true">{sys.icon}</span>
-                  <span className="font-mono text-xs font-black text-[#FF5500]">
-                    {sys.name}
-                  </span>
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-2xl p-2 rounded-xl bg-orange-50/80 border border-orange-200/60" aria-hidden="true">{sys.icon}</span>
+                    <span className="font-mono text-xs font-black text-[#FF5500] bg-orange-50 px-2 py-0.5 rounded border border-orange-200/60">
+                      {sys.name}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                    {sys.job}
+                  </p>
                 </div>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {sys.job}
-                </p>
                 {sys.highlight && (
                   <div className="mt-3 pt-2 border-t border-slate-100 font-mono text-[10px] font-bold text-[#FF5500]">
                     ✓ Available Today (Powered by ONIT)
@@ -217,7 +221,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             ))}
           </div>
 
-          <div className="p-5 rounded-xl bg-white border border-slate-200 text-center font-mono text-xs sm:text-sm font-bold text-slate-900 shadow-2xs">
+          <div className="p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 text-center font-mono text-xs sm:text-sm font-bold text-slate-900 shadow-[3px_3px_0px_0px_#0F172A]">
             Each system has a job. Together, they form one connected business.
           </div>
         </div>
@@ -238,22 +242,22 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
                 We started with the hardest part: delivery.
               </h2>
 
-              <p className="text-base text-slate-600 leading-relaxed">
+              <p className="text-base text-slate-600 leading-relaxed font-normal">
                 Software delivery is where ideas become real products. It is also where requirements, people, code, testing, infrastructure and deadlines all come together.
               </p>
 
-              <p className="text-sm font-semibold text-slate-800">
+              <p className="text-sm font-semibold text-slate-900">
                 So we started there.
               </p>
 
-              <p className="text-sm text-slate-600 leading-relaxed">
+              <p className="text-sm text-slate-600 leading-relaxed font-medium">
                 DELIVER is the first available system in the ScaleOnIt ecosystem. Powered by ONIT, it helps teams move from customer requirements to working software.
               </p>
 
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate('/platform/deliver')}
-                  className="px-6 py-3 rounded-lg bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-md transition-colors cursor-pointer"
+                  className="px-6 py-3 rounded-lg bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-[3px_3px_0px_0px_#0F172A] hover:shadow-[4px_4px_0px_0px_#0F172A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-150 cursor-pointer"
                 >
                   EXPLORE DELIVER →
                 </button>
@@ -261,10 +265,10 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             </div>
 
             {/* Real Product UI Mockup (DELIVER Engine Monitor) */}
-            <div className="lg:col-span-6 bg-[#0D1117] text-white rounded-2xl border border-slate-800 p-6 shadow-2xl font-mono text-xs space-y-3">
+            <div className="lg:col-span-6 bg-[#0D1117] text-white rounded-3xl border border-slate-800 p-6 shadow-2xl font-mono text-xs space-y-3 ring-1 ring-orange-500/20">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-slate-400 text-[11px]">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#FF5500]" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5500] animate-pulse" />
                   <span className="font-bold text-white">ScaleOnIt DELIVER · Powered by ONIT</span>
                 </div>
                 <span className="text-emerald-400 font-bold bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30">
@@ -293,9 +297,9 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
       {/* ==================================================
           SECTION 6 — OUR APPROACH
           ================================================== */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
+          <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A]">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
               OUR APPROACH
             </div>
@@ -309,27 +313,27 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
               <p>
                 But ideas only matter when they become something people can use. That is why we build, test, learn and improve.
               </p>
-              <p className="font-semibold text-slate-800">
+              <p className="font-semibold text-slate-900">
                 We would rather show you a working product than make a big promise about what it could become.
               </p>
             </div>
 
             {/* Emotional Highlight Box */}
-            <div className="p-6 rounded-xl bg-slate-900 text-white font-mono grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-              <div className="p-3 bg-slate-800 rounded-lg border border-slate-700">
-                <div className="text-[#FF5500] text-xs mb-1">01</div>
+            <div className="p-6 rounded-2xl bg-slate-900 text-white font-mono grid grid-cols-2 sm:grid-cols-4 gap-4 text-center ring-1 ring-orange-500/20 shadow-xl">
+              <div className="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+                <div className="text-[#FF5500] text-xs font-bold mb-1">01</div>
                 <div className="font-bold text-sm">Build it.</div>
               </div>
-              <div className="p-3 bg-slate-800 rounded-lg border border-slate-700">
-                <div className="text-[#FF5500] text-xs mb-1">02</div>
+              <div className="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+                <div className="text-[#FF5500] text-xs font-bold mb-1">02</div>
                 <div className="font-bold text-sm">Use it.</div>
               </div>
-              <div className="p-3 bg-slate-800 rounded-lg border border-slate-700">
-                <div className="text-[#FF5500] text-xs mb-1">03</div>
+              <div className="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+                <div className="text-[#FF5500] text-xs font-bold mb-1">03</div>
                 <div className="font-bold text-sm">Learn from it.</div>
               </div>
-              <div className="p-3 bg-slate-800 rounded-lg border border-slate-700">
-                <div className="text-[#FF5500] text-xs mb-1">04</div>
+              <div className="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+                <div className="text-[#FF5500] text-xs font-bold mb-1">04</div>
                 <div className="font-bold text-sm">Make it better.</div>
               </div>
             </div>
@@ -351,10 +355,10 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             </h2>
           </div>
 
-          <div className="max-w-2xl mx-auto space-y-4 text-base text-slate-600 leading-relaxed text-center mb-8">
+          <div className="max-w-2xl mx-auto space-y-4 text-base text-slate-600 leading-relaxed text-center mb-8 font-medium">
             <p>We know ScaleOnIt is still being built.</p>
             <p>We know there is a lot left to do.</p>
-            <p className="font-semibold text-slate-900 text-lg">
+            <p className="font-extrabold text-slate-900 text-lg">
               That is exactly what excites us.
             </p>
             <p>
@@ -363,7 +367,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             <p>We are not trying to look finished. We are here to keep building.</p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-orange-50 border border-orange-200 text-center max-w-xl mx-auto shadow-2xs">
+          <div className="p-6 rounded-2xl bg-orange-50/90 border border-orange-200 text-center max-w-xl mx-auto shadow-[2px_2px_0px_0px_#0F172A]">
             <div className="font-mono text-sm sm:text-base font-extrabold text-slate-900">
               The journey is long. <br />
               <span className="text-[#FF5500]">We&apos;re just getting started.</span>
@@ -375,7 +379,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
       {/* ==================================================
           SECTION 8 — THE PEOPLE
           ================================================== */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
@@ -389,7 +393,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             </p>
           </div>
 
-          <div className="p-8 sm:p-10 rounded-2xl bg-white border border-slate-200 shadow-[3px_3px_0px_0px_#0F172A] max-w-3xl mx-auto space-y-5">
+          <div className="p-8 sm:p-10 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[3px_3px_0px_0px_#0F172A] max-w-3xl mx-auto space-y-5">
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
               We enjoy understanding difficult problems, getting into the details and turning ideas into working software.
             </p>
@@ -397,10 +401,10 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
               We believe good products come from people who care about both sides:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono font-bold text-slate-800">
+              <div className="p-4 rounded-xl bg-orange-50/70 border border-orange-200/70 text-xs font-mono font-bold text-slate-900">
                 1. How the technology works.
               </div>
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono font-bold text-slate-800">
+              <div className="p-4 rounded-xl bg-orange-50/70 border border-orange-200/70 text-xs font-mono font-bold text-slate-900">
                 2. And why the customer needs it.
               </div>
             </div>
@@ -426,16 +430,16 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             {beliefs.map((b) => (
               <div
                 key={b.num}
-                className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs hover:border-[#FF5500] transition-colors flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 shadow-[2px_2px_0px_0px_#0F172A] hover:border-[#FF5500] hover:shadow-[3px_3px_0px_0px_#FF5500] hover:-translate-y-0.5 transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="font-mono text-xs font-black text-[#FF5500] mb-2">
+                  <div className="font-mono text-xs font-black text-[#FF5500] mb-2 bg-orange-50 px-2 py-0.5 rounded w-fit border border-orange-200/60">
                     {b.num}
                   </div>
-                  <h3 className="font-extrabold text-base text-slate-900 mb-2">
+                  <h3 className="font-extrabold text-base text-slate-900 group-hover:text-[#FF5500] transition-colors mb-2">
                     {b.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
                     {b.desc}
                   </p>
                 </div>
@@ -448,7 +452,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
       {/* ==================================================
           SECTION 10 — WHERE WE ARE GOING
           ================================================== */}
-      <section className="py-20 bg-slate-50 border-b border-slate-200/80 relative overflow-hidden">
+      <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md mb-4 shadow-xs">
@@ -457,37 +461,37 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
               DELIVER is the beginning.
             </h2>
-            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
               Today, ScaleOnIt starts with DELIVER. But the bigger goal is a connected ecosystem where the different parts of an IT service business can work together.
             </p>
           </div>
 
           {/* Sequential Progression */}
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mb-6">
-            <div className="p-4 bg-white rounded-xl border border-slate-200 text-center shadow-2xs">
+            <div className="p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 text-center shadow-[2px_2px_0px_0px_#0F172A]">
               <div className="font-mono text-xs font-black text-[#FF5500]">01</div>
               <div className="font-extrabold text-sm text-slate-900">GROW</div>
-              <div className="text-[11px] text-slate-500">Find Customers</div>
+              <div className="text-[11px] text-slate-500 font-medium">Find Customers</div>
             </div>
-            <div className="p-4 bg-white rounded-xl border border-slate-200 text-center shadow-2xs">
+            <div className="p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 text-center shadow-[2px_2px_0px_0px_#0F172A]">
               <div className="font-mono text-xs font-black text-[#FF5500]">02</div>
               <div className="font-extrabold text-sm text-slate-900">DISCOVER</div>
-              <div className="text-[11px] text-slate-500">Understand Needs</div>
+              <div className="text-[11px] text-slate-500 font-medium">BRD, FRD &amp; Wireframes</div>
             </div>
-            <div className="p-4 bg-white rounded-xl border-2 border-[#FF5500] text-center shadow-xs">
+            <div className="p-4 bg-white/95 backdrop-blur-md rounded-2xl border-2 border-[#FF5500] text-center shadow-[3px_3px_0px_0px_#FF5500]">
               <div className="font-mono text-xs font-black text-[#FF5500]">03 · ACTIVE</div>
               <div className="font-extrabold text-sm text-slate-900">DELIVER</div>
               <div className="text-[11px] text-[#FF5500] font-bold">Build &amp; Release (ONIT)</div>
             </div>
-            <div className="p-4 bg-white rounded-xl border border-slate-200 text-center shadow-2xs">
+            <div className="p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 text-center shadow-[2px_2px_0px_0px_#0F172A]">
               <div className="font-mono text-xs font-black text-[#FF5500]">04</div>
               <div className="font-extrabold text-sm text-slate-900">SERVE</div>
-              <div className="text-[11px] text-slate-500">Support Customers</div>
+              <div className="text-[11px] text-slate-500 font-medium">Support Customers</div>
             </div>
           </div>
 
           {/* Supporting systems */}
-          <div className="p-4 bg-white rounded-xl border border-slate-200 max-w-4xl mx-auto text-center font-mono text-xs text-slate-600 mb-8">
+          <div className="p-4 bg-white/95 backdrop-blur-md rounded-2xl border border-slate-200 max-w-4xl mx-auto text-center font-mono text-xs text-slate-600 mb-8 shadow-[2px_2px_0px_0px_#0F172A]">
             Supported throughout by <strong className="text-slate-900">PEOPLE</strong> (Workforce) + <strong className="text-slate-900">FINANCIALS</strong> (Commercial Finances).
           </div>
 
@@ -502,7 +506,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
           ================================================== */}
       <section className="py-20 bg-transparent border-b border-slate-200/80 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="rounded-2xl bg-white border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A] text-center space-y-6">
+          <div className="rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200 p-8 sm:p-12 shadow-[3px_3px_0px_0px_#0F172A] text-center space-y-6">
             <div className="inline-block font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-50 border border-orange-200 px-3.5 py-1.5 rounded-md shadow-xs">
               JOIN THE JOURNEY
             </div>
@@ -511,7 +515,7 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
               If you believe there is a better way, build it with us.
             </h2>
 
-            <div className="space-y-2 text-base text-slate-600 leading-relaxed max-w-xl mx-auto">
+            <div className="space-y-2 text-base text-slate-600 leading-relaxed max-w-xl mx-auto font-medium">
               <p>We are still early. There is a lot to build.</p>
               <p>
                 And we are looking for people who want to be part of that journey — customers, builders, partners and people who believe better software can change how businesses work.
@@ -524,13 +528,13 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
                   const el = document.getElementById('what-we-build')
                   el?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="px-7 py-3.5 rounded-lg bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-md transition-colors cursor-pointer"
+                className="px-7 py-3.5 rounded-lg bg-[#FF5500] hover:bg-[#E04B00] text-white font-mono font-bold text-xs uppercase tracking-wider shadow-[3px_3px_0px_0px_#0F172A] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-150 cursor-pointer"
               >
                 EXPLORE WHAT WE ARE BUILDING
               </button>
               <button
                 onClick={() => onNavigate('/demo')}
-                className="px-7 py-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-mono font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                className="px-7 py-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-mono font-semibold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-md"
               >
                 TALK TO US
               </button>
@@ -542,9 +546,9 @@ export default function CompanyPage({ onNavigate }: CompanyPageProps) {
       {/* ==================================================
           SECTION 12 — FINAL STATEMENT
           ================================================== */}
-      <section className="py-20 bg-white text-slate-900 relative overflow-hidden">
+      <section className="py-20 bg-transparent text-slate-900 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-8 sm:p-14 shadow-2xl space-y-6">
+          <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-8 sm:p-14 shadow-2xl space-y-6 relative overflow-hidden ring-1 ring-orange-500/20">
             <div className="inline-flex items-center gap-2 font-mono text-[11px] font-bold tracking-widest uppercase text-[#FF5500] bg-orange-500/10 border border-orange-500/30 px-3.5 py-1.5 rounded-md">
               <span>FORWARD</span>
             </div>
